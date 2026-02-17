@@ -1,6 +1,6 @@
-# Technology Expert Plugin
+# Technology Expert Plugin (v2.1.0)
 
-Your AI-powered coworker for Technology expertise at JP Morgan LATAM Payments. Five specialist skills covering AI, Agile, Architecture, Delivery, and Strategy — the core technology domains for a LATAM Payments Technology leader.
+Your AI-powered coworker for Technology expertise at JP Morgan LATAM Payments. Five specialist skills and three commands covering AI, Agile, Architecture, Delivery, and Strategy — the core technology domains for a LATAM Payments Technology leader.
 
 Built on the **SPAR agent framework** (Sense → Plan → Act → React) and **Pyramid Principles** logic (Barbara Minto).
 
@@ -13,6 +13,14 @@ Built on the **SPAR agent framework** (Sense → Plan → Act → React) and **P
 | **1.3** | **Architecture Specialist** | Enterprise & solution architecture, microservices, API design, TOGAF, cloud-native, CQRS, event sourcing |
 | **1.4** | **Tech Delivery Specialist** | SDLC, DevOps (CALMS), CI/CD, platform engineering, SRE, observability, cloud-native |
 | **1.5** | **Tech Strategy Advisory** | McKinsey 3Ds, BCG Platinion, Accenture frameworks, TOM design, capability mapping, Three Horizons |
+
+## Commands
+
+| Command | What It Does |
+|---------|-------------|
+| `/tech-assess` | Comprehensive technology assessment using SPAR framework with specialist skill selection |
+| `/architecture-review` | Architecture review using enterprise patterns, ADRs, and best practices |
+| `/agile-metrics` | Analyze DORA and agile delivery metrics with industry benchmarking |
 
 ## Core Principles (All Skills)
 
@@ -28,14 +36,16 @@ Every skill follows these governing principles:
 
 ## How to Use
 
-Each skill activates when you mention relevant topics. For example:
+Each skill activates when you mention relevant topics, or use the slash commands for structured workflows:
 
+- `/tech-assess microservices migration` → Full technology assessment
+- `/architecture-review event-driven design` → Architecture review with ADRs
+- `/agile-metrics Q4 sprint delivery` → DORA metrics analysis with industry benchmarks
 - "Design an MCP integration strategy" → AI Specialist
 - "Create a DORA metrics dashboard for leadership" → Agile Specialist
-- "Review our microservices architecture" → Architecture Specialist
 - "Help me set up a CI/CD pipeline" → Tech Delivery Specialist
 - "Build a technology strategy using McKinsey 3Ds" → Tech Strategy Advisory
 
 ## Setup
 
-No configuration needed. Install the plugin and all 5 skills will be available automatically.
+No configuration needed. Install the plugin and all 5 skills and 3 commands will be available automatically.
