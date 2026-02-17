@@ -1,4 +1,4 @@
-# TBM - Technical Business Manager Repository
+# TBM - Technology Business Manager Repository
 
 **Your JP Morgan Second Brain** - A comprehensive knowledge repository of consulting-grade frameworks, methodologies, and best practices for technology leadership.
 
