@@ -240,7 +240,6 @@ Claude automatically:
 | Consulting Expert | v1.0.0 | 2026-02-17 | Initial deployment: 4 skills |
 | Communication Expert | v1.0.0 | 2026-02-17 | Initial deployment: 4 skills |
 | Finance Expert | v1.0.0 | 2026-02-17 | Initial deployment: 2 skills |
-| All Plugins | — | 2026-02-17 | Structure fix + 13 commands added |
 
 ## How to Use
 
