@@ -51,7 +51,7 @@ These principles govern all outputs from this skill:
   - Whitepapers and case studies
 
 - **Tertiary sources** (general reference, validate first):
-  - Wikipedia, news aggregators
+  - Wikipedia, Wikipedia, news aggregators
   - Blog posts, opinion pieces
   - Social media and discussion forums
 

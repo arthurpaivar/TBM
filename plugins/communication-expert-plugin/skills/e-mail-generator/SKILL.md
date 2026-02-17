@@ -40,10 +40,10 @@ These principles govern all outputs from this skill:
 ## Email Structure Framework
 
 ### Subject Line Patterns
-- **Status**: `[Status Update] Project X — Milestone Y Achieved`
-- **Action Required**: `[ACTION REQUIRED] Budget Approval Needed — Amount & Timeline`
-- **FYI**: `[FYI] Q4 Technology Roadmap — Strategic Alignment`
-- **Escalation**: `[ESCALATED] Risk: Vendor Delay — Impact & Mitigation`
+- **Status**: `[Status Update] Project X – Milestone Y Achieved`
+- **Action Required**: `[ACTION REQUIRED] Budget Approval Needed – Amount & Timeline`
+- **FYI**: `[FYI] Q4 Technology Roadmap – Strategic Alignment`
+- **Escalation**: `[ESCALATED] Risk: Vendor Delay – Impact & Mitigation`
 
 ### BLUF Opening (Bottom Line Up Front)
 Begin with the decision, recommendation, or key message in the first sentence. Follow with context.
@@ -91,7 +91,7 @@ Timeline: [Decision deadline]
 
 ### Action-Required Flag Pattern
 ```
-Subject: [ACTION REQUIRED] [Specific action] — Deadline [DATE]
+Subject: [ACTION REQUIRED] [Specific action] – Deadline [DATE]
 
 Body:
 We need [specific action] by [DATE] to [business impact].
@@ -103,7 +103,7 @@ Owner: [Person responsible for follow-up]
 
 ### FYI Pattern (Information Only)
 ```
-Subject: [FYI] [Topic] — No action required
+Subject: [FYI] [Topic] – No action required
 
 Body:
 Sharing for awareness: [Key information]
@@ -115,7 +115,7 @@ Questions: [Contact if clarification needed]
 
 ### Escalation Pattern
 ```
-Subject: [ESCALATED] [Risk/Issue] — Immediate Attention Needed
+Subject: [ESCALATED] [Risk/Issue] – Immediate Attention Needed
 
 Situation: [What happened]
 Impact: [Business/timeline/budget impact]
