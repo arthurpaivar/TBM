@@ -1,0 +1,8 @@
+{
+  "name": "technology-expert-plugin",
+  "version": "2.1.0",
+  "description": "Technology Expert Plugin — specialist in AI, Agile, SAFe, Modern Architecture Patterns, Technology Delivery, and Technology Strategy. Covers enterprise AI agents, MCP, DORA metrics, cloud-native architecture, DevOps, CI/CD, and consulting strategy frameworks for payments technology.",
+  "author": {
+    "name": "Arthur"
+  }
+}
