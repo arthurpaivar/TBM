@@ -2,21 +2,21 @@
 name: github-repository-specialist
 description: >
   This skill should be used when the user asks about "GitHub", "repository", "repo",
-  "pull request", "PR", "issue", "branch", "merge", "commit", "workflow",
-  "GitHub Actions", "CI/CD pipeline", "code review", "release", "tag",
-  "fork", "clone", "git", "README", "contributing", "license",
-  "repository health", "code structure", "dependencies", "package.json",
-  "requirements.txt", "Dockerfile", ".github", "actions", "secrets",
-  or needs help understanding, analyzing, or managing a GitHub repository.
-  Use whenever the user wants to explore, audit, or work with their repositories.
-version: 1.0.0
+  "TBM", "Tech BM Second Brain", "sync to GitHub", "push to GitHub",
+  "update GitHub", "create in GitHub", "remove from GitHub",
+  "vault sync", "Obsidian sync", "backup plugins",
+  "git clone", "git push", "GitHub token",
+  or needs help managing, syncing, or maintaining the TBM repository.
+  Use whenever the user wants to create, update, or remove plugins, skills,
+  or commands in the GitHub repository.
+version: 2.0.0
 ---
 
 # Skill — GitHub Repository Specialist
 
-**Expert in GitHub repository analysis, management, and best practices.** This skill provides comprehensive understanding of repository structure, code organization, pull requests, issues, CI/CD workflows, and overall repository health. Use when analyzing, auditing, or working with GitHub repositories.
+**Expert in managing the Tech BM Second Brain GitHub repository.** This skill provides comprehensive understanding of the TBM repository structure, element types (plugins, skills, commands), sync workflows between Claude/Cowork → GitHub → Obsidian, and the technical constraints of the Cowork VM environment.
 
-**Trigger keywords**: GitHub, repository, repo, pull request, PR, issue, branch, merge, commit, workflow, GitHub Actions, CI/CD, code review, release, tag, fork, clone, git, code structure, dependencies.
+**Trigger keywords**: GitHub, repository, repo, TBM, Tech BM Second Brain, sync, push, backup, vault sync, Obsidian sync, git clone, git push, GitHub token.
 
 ## Core Principles
 
@@ -30,192 +30,182 @@ These principles govern all outputs from this skill:
 - **Source Attribution**: Always cite frameworks, benchmarks, and data sources.
 - **Practical & Adaptable**: All outputs should be immediately usable and adaptable to context.
 
-## Repository Analysis Framework
+## The Tech BM Second Brain
 
-### 1. Repository Overview (Sense Phase)
-- **Identity**: Name, owner, visibility (public/private), description, topics/tags
-- **Activity**: Last commit date, commit frequency, active contributors, open PRs, open issues
-- **Size**: File count, lines of code, languages breakdown, repository size
-- **License**: Type, implications for usage and contribution
-- **Community**: Stars, forks, watchers, contributor count, CONTRIBUTING.md presence
+### What It Is
+The GitHub repository `arthurpaivar/TBM` is Arthur's **Tech BM Second Brain** — a versioned backup of all plugins, skills, and commands used in the Claude/Cowork environment. It is NOT a code repository. It stores only three types of elements.
 
-### 2. Code Structure Analysis
-- **Architecture**: Monorepo vs. polyrepo, module organization, separation of concerns
-- **Language Composition**: Primary and secondary languages, percentage breakdown
-- **Directory Layout**: Standard patterns (src/, lib/, tests/, docs/, .github/)
-- **Configuration Files**: Package managers, build tools, linters, formatters
-- **Dependencies**: Direct vs. transitive, outdated packages, security vulnerabilities
+### The Three Element Types
+- **Plugin**: A full plugin directory containing `.claude-plugin/plugin.json`, `README.md`, `skills/`, and `commands/`
+- **Skill**: A `SKILL.md` file inside a plugin's `skills/[skill-name]/` directory
+- **Command**: A `.md` file inside a plugin's `commands/` directory
 
-### 3. Branch Strategy Assessment
-- **Branching Model**: GitFlow, GitHub Flow, Trunk-Based Development
-- **Branch Protection Rules**: Required reviews, status checks, signed commits
-- **Main Branch Health**: Is it always deployable? How often is it broken?
-- **Stale Branches**: Branches older than 30/60/90 days without activity
+### Repository Structure (GitHub — Nested by Plugin)
+```
+TBM/
+├── README.md                          [Main vault architecture page]
+├── plugins/
+│   ├── technology-expert-plugin/
+│   │   ├── .claude-plugin/plugin.json
+│   │   ├── README.md
+│   │   ├── skills/
+│   │   │   ├── agile-specialist/SKILL.md
+│   │   │   ├── ai-specialist/SKILL.md
+│   │   │   ├── architecture-specialist/SKILL.md
+│   │   │   ├── tech-delivery-specialist/SKILL.md
+│   │   │   └── tech-strategy-advisory/SKILL.md
+│   │   └── commands/
+│   │       ├── explain-tech-concept.md
+│   │       └── list-tech-references.md
+│   ├── communication-expert-plugin/
+│   ├── consulting-expert-plugin/
+│   ├── finance-expert-plugin/
+│   ├── ai-expert-plugin/
+│   └── github-expert-plugin/
+└── ...
+```
 
-### 4. CI/CD & Workflow Analysis
-- **GitHub Actions**: Workflow files (.github/workflows/), triggers, job structure
-- **Build Pipeline**: Build, test, lint, security scan, deploy stages
-- **Test Coverage**: Unit, integration, e2e tests, coverage thresholds
-- **Deployment**: Environments (dev, staging, prod), deployment frequency, rollback capability
-- **Secrets Management**: Repository secrets, environment secrets, OIDC integration
+### Obsidian Structure (Flat by Type)
+```
+Vault/
+├── Plugin/
+│   ├── Technology Expert Plugin.md
+│   ├── Communication Expert Plugin.md
+│   └── ...
+├── Skill/
+│   ├── agile-specialist.md
+│   ├── ai-specialist.md
+│   └── ...
+└── Command/
+    ├── explain-tech-concept.md
+    ├── create-improve-email.md
+    └── ...
+```
 
-### 5. Pull Request Health
-- **PR Size**: Average lines changed, time to merge, review turnaround
-- **Review Process**: Required reviewers, CODEOWNERS file, review quality
-- **PR Templates**: Structured templates for consistent submissions
-- **Merge Strategy**: Merge commit, squash, rebase — consistency of approach
+**Important**: GitHub nests everything under plugin directories. Obsidian organizes everything flat by element type. All skills from every plugin live together in `Skill/`, all commands in `Command/`, all plugins in `Plugin/`.
 
-### 6. Issue Management
-- **Issue Templates**: Bug reports, feature requests, custom templates
-- **Labels**: Organized label taxonomy (priority, type, area, status)
-- **Milestones**: Active milestones, progress tracking, release planning
-- **Issue Lifecycle**: Average time to close, stale issue management, triage process
+## GitHub Access Method
 
-## Repository Health Scorecard
+**CRITICAL — The Cowork VM has specific technical constraints.**
 
-Evaluate repository health across these dimensions:
+The `gh` CLI is NOT installed. `api.github.com` is blocked by the VM proxy. Python `requests` to GitHub API, `curl` to GitHub API, and MCP fetch tools all fail.
 
-| Dimension | Indicators | Score (1-5) |
-|-----------|-----------|-------------|
-| **Documentation** | README quality, API docs, CONTRIBUTING, CHANGELOG | |
-| **Testing** | Test coverage, test types, CI test runs | |
-| **Security** | Dependabot, secret scanning, SAST, branch protection | |
-| **CI/CD** | Automated builds, deployments, environment management | |
-| **Code Quality** | Linting, formatting, code review rigor, tech debt | |
-| **Community** | Issue response time, PR review time, contributor guidelines | |
-| **Maintenance** | Dependency updates, stale branch cleanup, release cadence | |
+The **ONLY working method** is `git clone` with the Personal Access Token embedded in the URL:
 
-## GitHub Actions Patterns
+```bash
+git clone https://<TOKEN>@github.com/arthurpaivar/TBM.git /tmp/TBM
+```
 
-### Common Workflow Templates
-- **CI Pipeline**: Build → Test → Lint → Security Scan on every PR
-- **CD Pipeline**: Build → Test → Stage Deploy → Prod Deploy on merge to main
-- **Release Workflow**: Tag → Changelog → Build → Publish → Notify
-- **Scheduled Tasks**: Dependency updates, stale issue cleanup, health checks
-- **Reusable Workflows**: Shared workflows across repositories (.github/workflows/)
+Once cloned, all operations happen locally on `/tmp/TBM`. After changes:
 
-### Best Practices for Actions
-- Pin action versions to SHA (not tags) for security
-- Use job concurrency to prevent duplicate runs
-- Cache dependencies for faster builds
-- Use matrix builds for multi-platform testing
-- Implement proper secret management with environments
+```bash
+cd /tmp/TBM && git add . && git commit -m "message" && git push
+```
 
-## Code Review Best Practices
+If the repo is already cloned in the current session, start with `git pull` instead of cloning again.
 
-### Review Checklist
-- [ ] Code solves the stated problem/implements the feature
-- [ ] Tests cover the changes adequately
-- [ ] No security vulnerabilities introduced
-- [ ] Documentation updated if needed
-- [ ] Performance implications considered
-- [ ] Backward compatibility maintained
-- [ ] Error handling is appropriate
-- [ ] Code follows project conventions
+Arthur's GitHub Personal Access Token is required for every session. If not already known, **ask Arthur for it** before attempting any GitHub operation.
 
-### CODEOWNERS Configuration
-- Map directories/files to responsible teams
-- Ensure coverage for critical paths (security, config, infrastructure)
-- Keep CODEOWNERS updated as team structure changes
+### What NOT to Do
+- Do NOT run `gh` commands — the CLI is not installed
+- Do NOT use `curl` or `python requests` to `api.github.com` — it's proxy-blocked
+- Do NOT use MCP fetch tools with GitHub API URLs — they block tokens
+- Do NOT use WebFetch with `api.github.com` — it's blocked
+- Do NOT waste time trying alternative access methods — `git clone` with token is the answer
 
-## Repository Configuration Best Practices
+## Sync Workflow
 
-### Essential Files
-- `README.md`: Project description, setup, usage, contribution guide
-- `LICENSE`: Clear licensing terms
-- `CONTRIBUTING.md`: How to contribute, code standards, PR process
-- `CHANGELOG.md`: Version history with changes
-- `.gitignore`: Proper exclusion of build artifacts, secrets, IDE files
-- `CODEOWNERS`: Ownership mapping for code review
-- `.github/ISSUE_TEMPLATE/`: Structured issue templates
-- `.github/PULL_REQUEST_TEMPLATE.md`: PR template
+### Direction
+The sync direction is always: **Claude/Cowork → GitHub → Obsidian**. Never the reverse.
 
-### Security Configuration
-- **Dependabot**: Enable for dependency update PRs
-- **Secret Scanning**: Enable to detect leaked credentials
-- **Branch Protection**: Require reviews, status checks, signed commits
-- **Security Policy**: `SECURITY.md` with vulnerability reporting process
+### Source of Truth
+- **Claude/Cowork**: Where Arthur works and makes changes during sessions
+- **GitHub**: The versioned backup and source of truth for all elements
+- **Obsidian**: The test environment that mirrors GitHub
+
+### Authorized Modification
+The GitHub repository is updated ONLY through the three github-expert-plugin commands:
+- `/create-github-element` — for new elements
+- `/update-github-element` — for syncing changes (primary, most-used command)
+- `/remove-github-element` — for removing elements (requires double confirmation)
+
+No other process should modify GitHub.
+
+### The Main README.md
+The `README.md` at the root of the repository is the front page of the Tech BM Second Brain. It must always reflect the current vault architecture. After every create, update, or remove operation, check if these sections need updating:
+
+1. **Repository Structure** — Plugin list, skill/command counts
+2. **Plugin Suite Overview** — Plugin details, skill lists, command lists
+3. **Commands Reference** — Total command count, command table
+4. **Example Interactions** — Command usage examples
+5. **Footer totals** — Total plugins, skills, commands
+6. **Version History** — Plugin version entries
+7. **Last Updated** — Today's date
+
+## Validation Standards
+
+### For Plugins
+- `plugin.json` has `name`, `version`, `description`, `author`
+- `README.md` describes the plugin's purpose, skills, and commands
+- Directory uses kebab-case naming
+
+### For Skills
+- Frontmatter has `name`, `description`, `version`
+- Content includes Core Principles, capability sections, output patterns, quality checks
+- Trigger keywords are specific and non-overlapping
+
+### For Commands
+- Frontmatter has `description`, `allowed-tools`, `argument-hint`
+- Process steps are clear and actionable (5-8 steps)
+- References the correct parent skill
+- No placeholders or TODOs remain
+
+### General
+- All naming follows kebab-case convention
+- Content is complete and production-ready
+- No software development references (PRs, issues, CI/CD) unless specifically relevant
+- Consistent with the plugin's overall structure and the other plugins in the vault
 
 ## Output Patterns
 
-### Repository Audit Report
+### Sync Summary
 ```
-REPOSITORY: [name]
-OWNER: [org/user]
-HEALTH SCORE: [X/35]
+SYNC COMPLETE: [scope]
 
-EXECUTIVE SUMMARY:
-[1-2 sentence assessment]
+CHANGES:
+- [Created/Updated/Removed]: [element type] — [name] in [plugin]
+- ...
 
-STRENGTHS:
-- [Strength 1]
-- [Strength 2]
+GITHUB: Commit [hash] pushed to main
+README: [Updated / No changes needed]
+OBSIDIAN: [X] files synced to [Plugin/Skill/Command]
 
-AREAS FOR IMPROVEMENT:
-- [Area 1: Current state → Recommended state]
-- [Area 2: Current state → Recommended state]
-
-CRITICAL ACTIONS:
-1. [Action — Priority: High — Owner: X]
-2. [Action — Priority: Medium — Owner: Y]
-
-DETAILED SCORECARD:
-[Table with 7 dimensions]
+VALIDATION: All checks passed
 ```
 
-### PR Analysis Summary
+### Element Inventory
 ```
-PR #[number]: [title]
-Author: [name] | Reviewers: [names]
-Files Changed: [N] | Lines: +[added] / -[removed]
+CURRENT VAULT: X plugins, Y skills, Z commands
 
-SUMMARY: [What this PR does in 1-2 sentences]
-RISK: [Low/Medium/High — why]
-TEST COVERAGE: [Adequate/Needs improvement — specifics]
-RECOMMENDATIONS: [Any suggestions]
+PLUGINS:
+1. [Plugin Name] — [skill count] skills, [command count] commands
+2. ...
+
+TOTAL: X plugins | Y skills | Z commands
 ```
-
-### Repository Structure Map
-```
-[repo-name]/
-├── .github/
-│   ├── workflows/     [CI/CD: X workflows]
-│   ├── ISSUE_TEMPLATE/ [Templates: X types]
-│   └── CODEOWNERS     [Teams: X mapped]
-├── src/               [Source: X files, Y lines]
-├── tests/             [Tests: X files, coverage: Y%]
-├── docs/              [Documentation: X files]
-├── [config files]     [Build/lint/format config]
-└── README.md          [Quality: Good/Needs improvement]
-```
-
-## GitHub CLI (gh) Reference
-
-### Common Operations
-- `gh repo view`: Repository overview
-- `gh pr list/view/create`: Pull request management
-- `gh issue list/view/create`: Issue management
-- `gh run list/view`: Workflow run inspection
-- `gh release list/create`: Release management
-- `gh api`: Direct GitHub API access for advanced queries
-
-### Useful API Queries
-- Repository statistics: `gh api repos/{owner}/{repo}/stats/contributors`
-- Branch protection: `gh api repos/{owner}/{repo}/branches/{branch}/protection`
-- Workflow runs: `gh api repos/{owner}/{repo}/actions/runs`
 
 ## Quality Checks
 
-- [ ] Have I identified the repository's primary purpose and tech stack?
-- [ ] Have I assessed all 7 health dimensions?
-- [ ] Are security configurations properly evaluated?
-- [ ] Have I checked CI/CD pipeline completeness?
-- [ ] Are there actionable recommendations with priority?
-- [ ] Have I considered the team's workflow and branching strategy?
-- [ ] Is the assessment current (based on recent activity, not stale data)?
+- [ ] Have I used `git clone` with token (not `gh` CLI or API)?
+- [ ] Have I read the current GitHub state before making changes?
+- [ ] Have I validated all elements against the standards above?
+- [ ] Have I updated the main README.md if counts or names changed?
+- [ ] Have I synced the Obsidian vault (flat by type, not nested)?
+- [ ] Is the sync direction correct (Claude/Cowork → GitHub → Obsidian)?
+- [ ] Are there zero software development references where they don't belong?
 
 ---
 
-**Confidence Calibration**: High confidence for standard repository analysis patterns. Medium confidence for highly specialized or proprietary workflows — recommend team consultation for context-specific optimizations.
+**Confidence Calibration**: High confidence for standard sync operations, element creation, and validation. Medium confidence for complex multi-plugin bulk syncs — recommend step-by-step verification.
 
-**Triggers**: Activate when user requests repository analysis, code review guidance, CI/CD assessment, or GitHub workflow optimization.
+**Triggers**: Activate when user requests GitHub sync, repository management, element creation/update/removal, or vault architecture queries.
