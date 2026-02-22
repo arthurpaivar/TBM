@@ -30,13 +30,17 @@ This repository contains **generic, non-proprietary expert knowledge** that acts
 TBM/
 ├── README.md
 ├── plugins/
-│   ├── technology-expert-plugin/              [5 skills + 2 commands]
+│   ├── technology-expert-plugin/              [5 skills + 6 commands]
 │   │   ├── .claude-plugin/
 │   │   │   └── plugin.json
 │   │   ├── README.md
 │   │   ├── commands/
+│   │   │   ├── advise-strategy.md
+│   │   │   ├── assess-architecture.md
+│   │   │   ├── brief-ai-topic.md
 │   │   │   ├── explain-tech-concept.md
-│   │   │   └── list-tech-references.md
+│   │   │   ├── list-tech-references.md
+│   │   │   └── review-delivery.md
 │   │   └── skills/
 │   │       ├── ai-specialist/SKILL.md
 │   │       ├── agile-specialist/SKILL.md
@@ -75,14 +79,17 @@ TBM/
 │   │       ├── powerpoint-specialist/SKILL.md
 │   │       └── text-improver-specialist/SKILL.md
 │   │
-│   ├── finance-expert-plugin/                 [2 skills + 2 commands]
+│   ├── finance-expert-plugin/                 [3 skills + 4 commands]
 │   │   ├── .claude-plugin/
 │   │   │   └── plugin.json
 │   │   ├── README.md
 │   │   ├── commands/
+│   │   │   ├── assess-portfolio.md
+│   │   │   ├── build-tbm-model.md
 │   │   │   ├── consolidate-excel.md
 │   │   │   └── evaluate-business-case.md
 │   │   └── skills/
+│   │       ├── excel-for-finance/SKILL.md
 │   │       ├── tech-bm-specialist/SKILL.md
 │   │       └── it-portfolio-management/SKILL.md
 │   │
@@ -125,11 +132,11 @@ TBM/
     └── examples/   (Reference examples)
 ```
 
-**Total:** 6 plugins | 24 skills | 23 commands
+**Total:** 6 plugins | 25 skills | 29 commands
 
 ## Plugin Suite Overview
 
-### 1. Technology Expert Plugin (v2.1.0)
+### 1. Technology Expert Plugin (v4.0.0)
 **Expert in:** AI/MCP, Agile, Architecture, Tech Delivery, Strategy
 
 | Skill | Focus Areas |
@@ -142,10 +149,14 @@ TBM/
 
 | Command | What It Does |
 |---------|-------------|
+| `/advise-strategy` | Provide technology strategy advisory using consulting frameworks |
+| `/assess-architecture` | Assess an architecture design or pattern against best practices |
+| `/brief-ai-topic` | Create an AI briefing for CIO-level conversations |
 | `/explain-tech-concept` | Explain a technology concept clearly and thoroughly |
 | `/list-tech-references` | List technology references and resources for a topic |
+| `/review-delivery` | Review delivery maturity and engineering excellence posture |
 
-### 2. Consulting Expert Plugin (v1.0.0)
+### 2. Consulting Expert Plugin (v2.0.0)
 **Expert in:** Structured problem-solving, research, benchmarking, business cases
 
 | Skill | Focus Areas |
@@ -161,15 +172,15 @@ TBM/
 | `/find-benchmark` | Find and apply industry benchmarks for a topic or KPI |
 | `/problem-solve` | Structured problem decomposition and analysis |
 
-### 3. Communication Expert Plugin (v1.0.0)
+### 3. Communication Expert Plugin (v2.0.0)
 **Expert in:** Professional communication, translation, presentations, writing
 
 | Skill | Focus Areas |
 |-------|-------------|
-| **E-mail Generator** | BLUF methodology, status updates, escalations, approvals, follow-ups, stakeholder communications |
-| **Translation Specialist** | EN↔PT-BR professional translation, tech terminology, cultural adaptation for LATAM |
-| **PowerPoint Specialist** | SCQA pattern, Pyramid Principle, presentation frameworks, storytelling for leadership, deck templates |
-| **Text Improver Specialist** | Clarity, conciseness, tone calibration, structure, audience-aware rewriting |
+| **E-mail Generator** | BLUF methodology, 6 email types, tone calibration by audience, LATAM cultural sensitivity |
+| **Translation Specialist** | EN↔PT-BR professional translation, terminology management, cultural adaptation, domain glossaries |
+| **PowerPoint Specialist** | JP Morgan design system, 4 deck sizes, Pyramid/SCQA narrative, cross-plugin orchestration, PptxGenJS |
+| **Text Improver Specialist** | 5-dimension improvement (clarity, conciseness, tone, structure, impact), audience-aware rewriting |
 
 | Command | What It Does |
 |---------|-------------|
@@ -180,20 +191,23 @@ TBM/
 | `/translate-en-pt` | Translate text from English to Brazilian Portuguese |
 | `/translate-pt-en` | Translate text from Brazilian Portuguese to English |
 
-### 4. Finance Expert Plugin (v1.0.0)
-**Expert in:** Technology Business Management, IT Portfolio governance
+### 4. Finance Expert Plugin (v4.0.0)
+**Expert in:** Technology Business Management, IT Portfolio governance, Financial Modeling
 
 | Skill | Focus Areas |
 |-------|-------------|
 | **Tech BM Specialist** | TBM Framework 2.0, Taxonomy v5.0.1, cost transparency, showback/chargeback, Run/Grow/Transform, FinOps |
 | **IT Portfolio Management** | Application portfolio (TIME model), investment governance, ITFM, demand management, 6Rs modernization |
+| **Excel for Finance** | Financial modeling in Excel, TBM cost models, budget templates, portfolio dashboards |
 
 | Command | What It Does |
 |---------|-------------|
-| `/consolidate-excel` | Consolidate and analyze an Excel file using TBM frameworks |
+| `/assess-portfolio` | Assess an IT application portfolio using TIME model and health scoring |
+| `/build-tbm-model` | Build a TBM cost model or taxonomy mapping in Excel |
+| `/consolidate-excel` | Consolidate and analyze financial data in Excel using TBM frameworks |
 | `/evaluate-business-case` | Evaluate a business case proposal for technology investment |
 
-### 5. AI Expert Plugin (v1.1.0)
+### 5. AI Expert Plugin (v2.0.0)
 **Expert in:** AI plugins, skills, commands, agents, and context windows for the Claude/Cowork ecosystem
 
 | Skill | Focus Areas |
@@ -217,7 +231,7 @@ TBM/
 | `/update-commands` | Update existing commands in a plugin |
 | `/create-context-window` | Create a context window for an AI agent |
 
-### 6. GitHub Expert Plugin (v1.0.0)
+### 6. GitHub Expert Plugin (v2.0.0)
 **Expert in:** GitHub repository management for the Tech BM Second Brain
 
 | Skill | Focus Areas |
@@ -248,18 +262,24 @@ Commands are slash-triggered shortcuts that invoke specialist skills with struct
 
 | Plugin | Command | Description |
 |--------|---------|-------------|
+| Technology | `/advise-strategy` | Provide technology strategy advisory using consulting frameworks |
+| Technology | `/assess-architecture` | Assess an architecture design or pattern against best practices |
+| Technology | `/brief-ai-topic` | Create an AI briefing for CIO-level conversations |
 | Technology | `/explain-tech-concept` | Explain a technology concept clearly and thoroughly |
 | Technology | `/list-tech-references` | List technology references and resources for a topic |
-| Consulting | `/find-references` | Deep research and find references on any topic |
-| Consulting | `/find-benchmark` | Find and apply industry benchmarks for a topic or KPI |
-| Consulting | `/problem-solve` | Structured problem decomposition and analysis |
+| Technology | `/review-delivery` | Review delivery maturity and engineering excellence posture |
+| Consulting | `/find-references` | Deep multi-source research with curated references |
+| Consulting | `/find-benchmark` | Find and analyze industry benchmarks with sources and gap analysis |
+| Consulting | `/problem-solve` | Structured problem decomposition and recommendation |
 | Communication | `/create-improve-email` | Create or improve a professional corporate email |
 | Communication | `/create-executive-summary` | Create a concise executive summary from content or topic |
 | Communication | `/create-improve-powerpoint` | Create or improve a PowerPoint presentation |
 | Communication | `/improve-text` | Refine and elevate professional writing |
 | Communication | `/translate-en-pt` | Translate text from English to Brazilian Portuguese |
 | Communication | `/translate-pt-en` | Translate text from Brazilian Portuguese to English |
-| Finance | `/consolidate-excel` | Consolidate and analyze an Excel file using TBM frameworks |
+| Finance | `/assess-portfolio` | Assess an IT application portfolio using TIME model |
+| Finance | `/build-tbm-model` | Build a TBM cost model or taxonomy mapping in Excel |
+| Finance | `/consolidate-excel` | Consolidate and analyze financial data in Excel |
 | Finance | `/evaluate-business-case` | Evaluate a business case proposal for technology investment |
 | AI | `/create-plugin` | Create a new plugin from scratch |
 | AI | `/update-plugin` | Update an existing plugin |
@@ -323,6 +343,12 @@ Each command automatically updates this README and syncs the Obsidian vault afte
 | Finance Expert | v1.0.0 | 2026-02-22 | Updated commands: consolidate-excel, evaluate-business-case |
 | AI Expert | v1.1.0 | 2026-02-22 | New plugin: 8 skills, 7 commands |
 | GitHub Expert | v1.0.0 | 2026-02-22 | New plugin: 1 skill, 3 commands |
+| Consulting Expert | v2.0.0 | 2026-02-22 | Massive update: all skills + commands rewritten with layered What/How/Why, cross-plugin orchestration |
+| Communication Expert | v2.0.0 | 2026-02-22 | Massive update: PowerPoint as flagship (JP Morgan design), all skills + commands rewritten |
+| GitHub Expert | v2.0.0 | 2026-02-22 | Format alignment: skill + commands rewritten with layered What/How/Why framework |
+| Technology Expert | v4.0.0 | 2026-02-22 | Massive update: 5 skills updated, 4 new commands (advise-strategy, assess-architecture, brief-ai-topic, review-delivery) |
+| Finance Expert | v4.0.0 | 2026-02-22 | Massive update: 1 new skill (excel-for-finance), 2 new commands (assess-portfolio, build-tbm-model), all content updated |
+| AI Expert | v2.0.0 | 2026-02-22 | Massive update: all 8 skills + 7 commands rewritten with v2.0.0 format standardization |
 
 ## How to Use
 
@@ -361,4 +387,4 @@ Private repository - All rights reserved
 
 **Last Updated:** 2026-02-22
 **Repository:** https://github.com/arthurpaivar/TBM
-**Total Expertise:** 6 plugins, 24 skills, 23 commands
+**Total Expertise:** 6 plugins, 25 skills, 29 commands
