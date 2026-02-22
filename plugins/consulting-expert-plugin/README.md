@@ -1,6 +1,6 @@
-# Consulting Expert Plugin (v1.0.0)
+# Consulting Expert Plugin
 
-Your AI-powered coworker for structured problem solving, research, benchmarking, and business cases at JP Morgan LATAM. Four specialist skills and four commands covering consulting-grade analysis methodologies for payments technology decisions.
+Your AI-powered coworker for structured problem solving, research, benchmarking, and business cases at JP Morgan LATAM. Four specialist skills covering consulting-grade analysis methodologies for payments technology decisions.
 
 Built on the **SPAR agent framework** (Sense → Plan → Act → React) and **Pyramid Principles** logic (Barbara Minto).
 
@@ -12,15 +12,6 @@ Built on the **SPAR agent framework** (Sense → Plan → Act → React) and **P
 | **4.2** | **Deep Search Specialist** | Multi-source research, vendor evaluation, landscape analysis, trend synthesis |
 | **4.3** | **Industry Benchmark Specialist** | Gartner/Forrester/McKinsey benchmarks, peer comparison, maturity models, KPI targets |
 | **4.4** | **Business Case Specialist** | NPV, IRR, TCO, cost-benefit analysis, investment proposals, stakeholder-specific framing |
-
-## Commands
-
-| Command | What It Does |
-|---------|-------------|
-| `/research` | Deep multi-source research and synthesis on any topic |
-| `/business-case` | Build a technology investment business case with ROI/NPV/IRR |
-| `/benchmark` | Find and apply industry benchmarks from Gartner, Forrester, McKinsey |
-| `/problem-solve` | Structured problem decomposition using MECE, SCQA, and root cause analysis |
 
 ## Core Principles (All Skills)
 
@@ -36,13 +27,13 @@ Every skill follows these governing principles:
 
 ## How to Use
 
-Each skill activates when you mention relevant topics, or use the slash commands for structured workflows:
+Each skill activates when you mention relevant topics. For example:
 
-- `/problem-solve payment failure rate` → Structured MECE decomposition of the issue
-- `/research LATAM real-time payments landscape` → Deep multi-source research
-- `/benchmark DORA metrics vs industry` → Peer comparison with Gartner/Forrester data
-- `/business-case cloud migration` → Full business case with NPV/IRR analysis
+- "What's causing the increase in failed transactions?" → Problem-Solving Specialist
+- "Research the LATAM real-time payments landscape" → Deep Search Specialist
+- "How do our DORA metrics compare to industry?" → Industry Benchmark Specialist
+- "Build a business case for cloud migration" → Business Case Specialist
 
 ## Setup
 
-No configuration needed. Install the plugin and all 4 skills and 4 commands will be available automatically.
+No configuration needed. Install the plugin and all 4 skills will be available automatically.

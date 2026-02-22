@@ -1,5 +1,5 @@
 ---
-description: Deep research and analysis on any topic
+description: Deep research and find references on any topic
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash, WebSearch, WebFetch, Task
 argument-hint: [topic to research]
 ---

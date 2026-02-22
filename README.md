@@ -30,14 +30,13 @@ This repository contains **generic, non-proprietary expert knowledge** that acts
 TBM/
 ├── README.md
 ├── plugins/
-│   ├── technology-expert-plugin/              [5 skills + 3 commands]
+│   ├── technology-expert-plugin/              [5 skills + 2 commands]
 │   │   ├── .claude-plugin/
 │   │   │   └── plugin.json
 │   │   ├── README.md
 │   │   ├── commands/
-│   │   │   ├── tech-assess.md
-│   │   │   ├── architecture-review.md
-│   │   │   └── agile-metrics.md
+│   │   │   ├── explain-tech-concept.md
+│   │   │   └── list-tech-references.md
 │   │   └── skills/
 │   │       ├── ai-specialist/SKILL.md
 │   │       ├── agile-specialist/SKILL.md
@@ -45,14 +44,13 @@ TBM/
 │   │       ├── tech-delivery-specialist/SKILL.md
 │   │       └── tech-strategy-advisory/SKILL.md
 │   │
-│   ├── consulting-expert-plugin/              [4 skills + 4 commands]
+│   ├── consulting-expert-plugin/              [4 skills + 3 commands]
 │   │   ├── .claude-plugin/
 │   │   │   └── plugin.json
 │   │   ├── README.md
 │   │   ├── commands/
-│   │   │   ├── research.md
-│   │   │   ├── business-case.md
-│   │   │   ├── benchmark.md
+│   │   │   ├── find-benchmark.md
+│   │   │   ├── find-references.md
 │   │   │   └── problem-solve.md
 │   │   └── skills/
 │   │       ├── problem-solving-specialist/SKILL.md
@@ -60,31 +58,66 @@ TBM/
 │   │       ├── industry-benchmark-specialist/SKILL.md
 │   │       └── business-case-specialist/SKILL.md
 │   │
-│   ├── communication-expert-plugin/           [4 skills + 4 commands]
+│   ├── communication-expert-plugin/           [4 skills + 6 commands]
 │   │   ├── .claude-plugin/
 │   │   │   └── plugin.json
 │   │   ├── README.md
 │   │   ├── commands/
-│   │   │   ├── draft-email.md
-│   │   │   ├── translate.md
+│   │   │   ├── create-executive-summary.md
+│   │   │   ├── create-improve-email.md
+│   │   │   ├── create-improve-powerpoint.md
 │   │   │   ├── improve-text.md
-│   │   │   └── presentation.md
+│   │   │   ├── translate-en-pt.md
+│   │   │   └── translate-pt-en.md
 │   │   └── skills/
 │   │       ├── e-mail-generator/SKILL.md
 │   │       ├── translation-specialist/SKILL.md
 │   │       ├── powerpoint-specialist/SKILL.md
 │   │       └── text-improver-specialist/SKILL.md
 │   │
-│   └── finance-expert-plugin/                 [2 skills + 2 commands]
+│   ├── finance-expert-plugin/                 [2 skills + 2 commands]
+│   │   ├── .claude-plugin/
+│   │   │   └── plugin.json
+│   │   ├── README.md
+│   │   ├── commands/
+│   │   │   ├── consolidate-excel.md
+│   │   │   └── evaluate-business-case.md
+│   │   └── skills/
+│   │       ├── tech-bm-specialist/SKILL.md
+│   │       └── it-portfolio-management/SKILL.md
+│   │
+│   ├── ai-expert-plugin/                      [8 skills + 7 commands]
+│   │   ├── .claude-plugin/
+│   │   │   └── plugin.json
+│   │   ├── README.md
+│   │   ├── commands/
+│   │   │   ├── create-commands.md
+│   │   │   ├── create-context-window.md
+│   │   │   ├── create-plugin.md
+│   │   │   ├── create-skill.md
+│   │   │   ├── update-commands.md
+│   │   │   ├── update-plugin.md
+│   │   │   └── update-skill.md
+│   │   └── skills/
+│   │       ├── agent-creation-specialist/SKILL.md
+│   │       ├── command-creation-specialist/SKILL.md
+│   │       ├── command-specialist/SKILL.md
+│   │       ├── context-window-specialist/SKILL.md
+│   │       ├── plugin-creation-specialist/SKILL.md
+│   │       ├── plugin-specialist/SKILL.md
+│   │       ├── skill-creation-specialist/SKILL.md
+│   │       └── skill-specialist/SKILL.md
+│   │
+│   └── github-expert-plugin/                  [1 skill + 3 commands]
 │       ├── .claude-plugin/
 │       │   └── plugin.json
 │       ├── README.md
 │       ├── commands/
-│       │   ├── cost-analysis.md
-│       │   └── portfolio-review.md
+│       │   ├── create-github-element.md
+│       │   ├── update-github-element.md
+│       │   └── remove-github-element.md
 │       └── skills/
-│           ├── tech-bm-specialist/SKILL.md
-│           └── it-portfolio-management/SKILL.md
+│           └── github-repository-specialist/SKILL.md
 │
 └── skills/
     ├── public/     (Anthropic built-in skills - docx, pdf, pptx, xlsx, etc.)
@@ -92,7 +125,7 @@ TBM/
     └── examples/   (Reference examples)
 ```
 
-**Total:** 4 plugins | 15 skills | 13 commands
+**Total:** 6 plugins | 24 skills | 23 commands
 
 ## Plugin Suite Overview
 
@@ -109,9 +142,8 @@ TBM/
 
 | Command | What It Does |
 |---------|-------------|
-| `/tech-assess` | Comprehensive technology assessment using SPAR framework with specialist skill selection |
-| `/architecture-review` | Architecture review using enterprise patterns, ADRs, and best practices |
-| `/agile-metrics` | Analyze DORA and agile delivery metrics with industry benchmarking |
+| `/explain-tech-concept` | Explain a technology concept clearly and thoroughly |
+| `/list-tech-references` | List technology references and resources for a topic |
 
 ### 2. Consulting Expert Plugin (v1.0.0)
 **Expert in:** Structured problem-solving, research, benchmarking, business cases
@@ -125,10 +157,9 @@ TBM/
 
 | Command | What It Does |
 |---------|-------------|
-| `/research` | Deep multi-source research and synthesis on any topic |
-| `/business-case` | Build a technology investment business case with ROI/NPV/IRR |
-| `/benchmark` | Find and apply industry benchmarks from Gartner, Forrester, McKinsey |
-| `/problem-solve` | Structured problem decomposition using MECE, SCQA, and root cause analysis |
+| `/find-references` | Deep research and find references on any topic |
+| `/find-benchmark` | Find and apply industry benchmarks for a topic or KPI |
+| `/problem-solve` | Structured problem decomposition and analysis |
 
 ### 3. Communication Expert Plugin (v1.0.0)
 **Expert in:** Professional communication, translation, presentations, writing
@@ -142,10 +173,12 @@ TBM/
 
 | Command | What It Does |
 |---------|-------------|
-| `/draft-email` | Draft a professional corporate email with pyramid principle and cultural sensitivity |
-| `/translate` | Professional EN↔PT-BR translation with terminology accuracy |
-| `/improve-text` | Refine and elevate professional writing for clarity, tone, and structure |
-| `/presentation` | Structure a presentation using pyramid principle and SCQA framework |
+| `/create-improve-email` | Create or improve a professional corporate email |
+| `/create-executive-summary` | Create a concise executive summary from content or topic |
+| `/create-improve-powerpoint` | Create or improve a PowerPoint presentation |
+| `/improve-text` | Refine and elevate professional writing |
+| `/translate-en-pt` | Translate text from English to Brazilian Portuguese |
+| `/translate-pt-en` | Translate text from Brazilian Portuguese to English |
 
 ### 4. Finance Expert Plugin (v1.0.0)
 **Expert in:** Technology Business Management, IT Portfolio governance
@@ -157,8 +190,45 @@ TBM/
 
 | Command | What It Does |
 |---------|-------------|
-| `/cost-analysis` | Analyze IT costs using TBM Framework 2.0 and FinOps principles |
-| `/portfolio-review` | Review and optimize IT application portfolio with rationalization frameworks |
+| `/consolidate-excel` | Consolidate and analyze an Excel file using TBM frameworks |
+| `/evaluate-business-case` | Evaluate a business case proposal for technology investment |
+
+### 5. AI Expert Plugin (v1.1.0)
+**Expert in:** AI plugins, skills, commands, agents, and context windows for the Claude/Cowork ecosystem
+
+| Skill | Focus Areas |
+|-------|-------------|
+| **Plugin Specialist** | Existing plugin structure, capabilities, and usage |
+| **Skill Specialist** | Existing skill triggers, patterns, and best practices |
+| **Command Specialist** | Existing command design, execution, and patterns |
+| **Plugin Creation Specialist** | Guide for creating new plugins from scratch |
+| **Skill Creation Specialist** | Guide for creating new skills from scratch |
+| **Command Creation Specialist** | Guide for creating new commands from scratch |
+| **Context Window Specialist** | Designing context windows for AI agents |
+| **Agent Creation Specialist** | Building AI agents with tools, memory, and planning |
+
+| Command | What It Does |
+|---------|-------------|
+| `/create-plugin` | Create a new plugin from scratch |
+| `/update-plugin` | Update an existing plugin |
+| `/create-skill` | Create a new skill from scratch |
+| `/update-skill` | Update an existing skill |
+| `/create-commands` | Create new commands for a plugin |
+| `/update-commands` | Update existing commands in a plugin |
+| `/create-context-window` | Create a context window for an AI agent |
+
+### 6. GitHub Expert Plugin (v1.0.0)
+**Expert in:** GitHub repository management for the Tech BM Second Brain
+
+| Skill | Focus Areas |
+|-------|-------------|
+| **GitHub Repository Specialist** | Repository structure, plugin/skill/command sync, vault architecture, version control |
+
+| Command | What It Does |
+|---------|-------------|
+| `/create-github-element` | Create a new plugin, skill, or command in the GitHub Tech BM Second Brain |
+| `/update-github-element` | Update a plugin, skill, or command in the GitHub Tech BM Second Brain |
+| `/remove-github-element` | Remove a plugin, skill, or command from the GitHub Tech BM Second Brain |
 
 ## Core Principles (All Skills)
 
@@ -178,19 +248,29 @@ Commands are slash-triggered shortcuts that invoke specialist skills with struct
 
 | Plugin | Command | Description |
 |--------|---------|-------------|
-| Technology | `/tech-assess` | Run a technology assessment or review |
-| Technology | `/architecture-review` | Review architecture decisions and patterns |
-| Technology | `/agile-metrics` | Analyze agile and DORA delivery metrics |
-| Consulting | `/research` | Deep research and analysis on any topic |
-| Consulting | `/business-case` | Build a technology investment business case |
-| Consulting | `/benchmark` | Find and apply industry benchmarks |
+| Technology | `/explain-tech-concept` | Explain a technology concept clearly and thoroughly |
+| Technology | `/list-tech-references` | List technology references and resources for a topic |
+| Consulting | `/find-references` | Deep research and find references on any topic |
+| Consulting | `/find-benchmark` | Find and apply industry benchmarks for a topic or KPI |
 | Consulting | `/problem-solve` | Structured problem decomposition and analysis |
-| Communication | `/draft-email` | Draft a professional corporate email |
-| Communication | `/translate` | Professional EN↔PT-BR translation |
+| Communication | `/create-improve-email` | Create or improve a professional corporate email |
+| Communication | `/create-executive-summary` | Create a concise executive summary from content or topic |
+| Communication | `/create-improve-powerpoint` | Create or improve a PowerPoint presentation |
 | Communication | `/improve-text` | Refine and elevate professional writing |
-| Communication | `/presentation` | Structure a presentation or slide deck |
-| Finance | `/cost-analysis` | Analyze IT costs using TBM frameworks |
-| Finance | `/portfolio-review` | Review and optimize IT application portfolio |
+| Communication | `/translate-en-pt` | Translate text from English to Brazilian Portuguese |
+| Communication | `/translate-pt-en` | Translate text from Brazilian Portuguese to English |
+| Finance | `/consolidate-excel` | Consolidate and analyze an Excel file using TBM frameworks |
+| Finance | `/evaluate-business-case` | Evaluate a business case proposal for technology investment |
+| AI | `/create-plugin` | Create a new plugin from scratch |
+| AI | `/update-plugin` | Update an existing plugin |
+| AI | `/create-skill` | Create a new skill from scratch |
+| AI | `/update-skill` | Update an existing skill |
+| AI | `/create-commands` | Create new commands for a plugin |
+| AI | `/update-commands` | Update existing commands in a plugin |
+| AI | `/create-context-window` | Create a context window for an AI agent |
+| GitHub | `/create-github-element` | Create a new plugin, skill, or command in GitHub |
+| GitHub | `/update-github-element` | Update a plugin, skill, or command in GitHub |
+| GitHub | `/remove-github-element` | Remove a plugin, skill, or command from GitHub |
 
 ## Design Philosophy
 
@@ -215,22 +295,19 @@ Commands provide **quick-trigger workflows** for common tasks:
 ## Workflow
 
 ### Development Process
-1. **Draft** - Create/update plugins in Obsidian (private drafting environment)
+1. **Draft** - Create/update plugins in Claude/Cowork sessions
 2. **Review** - Validate content quality and framework accuracy
-3. **Deploy** - Use Claude to commit and push to GitHub
+3. **Deploy** - Use GitHub Expert Plugin commands to push to GitHub
 4. **Version** - Git maintains full history for rollbacks
 
 ### Deployment Commands
-```bash
-# Claude handles all git operations
-User: "Claude, deploy [plugin/skill name] - [what changed]"
 
-Claude automatically:
-1. Copies files to /home/claude/TBM/plugins/
-2. Commits with semantic message
-3. Pushes to GitHub
-4. Returns commit hash
-```
+Claude handles all git operations via the GitHub Expert Plugin:
+- `/create-github-element` — Add new plugins, skills, or commands
+- `/update-github-element` — Sync changes from Claude/Cowork to GitHub
+- `/remove-github-element` — Remove elements with double confirmation
+
+Each command automatically updates this README and syncs the Obsidian vault after execution.
 
 ## Version History
 
@@ -240,6 +317,12 @@ Claude automatically:
 | Consulting Expert | v1.0.0 | 2026-02-17 | Initial deployment: 4 skills |
 | Communication Expert | v1.0.0 | 2026-02-17 | Initial deployment: 4 skills |
 | Finance Expert | v1.0.0 | 2026-02-17 | Initial deployment: 2 skills |
+| Technology Expert | v2.1.0 | 2026-02-22 | Updated commands: explain-tech-concept, list-tech-references |
+| Communication Expert | v1.0.0 | 2026-02-22 | Updated commands: 6 commands (email, summary, pptx, text, translate EN/PT) |
+| Consulting Expert | v1.0.0 | 2026-02-22 | Updated commands: find-references, find-benchmark, problem-solve |
+| Finance Expert | v1.0.0 | 2026-02-22 | Updated commands: consolidate-excel, evaluate-business-case |
+| AI Expert | v1.1.0 | 2026-02-22 | New plugin: 8 skills, 7 commands |
+| GitHub Expert | v1.0.0 | 2026-02-22 | New plugin: 1 skill, 3 commands |
 
 ## How to Use
 
@@ -252,21 +335,23 @@ Claude automatically:
 
 ### Example Interactions:
 - `/problem-solve payment failure rate` → Structured MECE decomposition of the issue
-- `/business-case cloud migration` → Full business case with NPV/IRR analysis
-- `/draft-email escalation to CIO about vendor delays` → Professional email with BLUF methodology
-- `/cost-analysis Run/Grow/Transform split` → TBM Framework cost analysis
-- `/translate executive summary to Portuguese` → Professional EN→PT-BR translation
-- `/architecture-review microservices migration` → Enterprise architecture assessment with ADRs
-- `/agile-metrics Q4 sprint delivery` → DORA metrics analysis with industry benchmarks
+- `/find-references LATAM real-time payments` → Deep research and synthesis
+- `/create-improve-email escalation to CIO about vendor delays` → Professional email with BLUF
+- `/consolidate-excel Q4 cost report` → TBM Framework cost analysis
+- `/translate-en-pt executive summary` → Professional EN→PT-BR translation
+- `/explain-tech-concept event-driven architecture` → Clear technology explanation
+- `/create-plugin new-domain-expert` → Scaffold a new plugin from scratch
+- `/update-github-element skill agile-specialist in technology-expert-plugin` → Sync to GitHub
 
 ## Contributing
 
 **Author:** Arthur (JP Morgan LATAM Payments Technology)
 
 **Maintenance:**
-- Updates happen in Obsidian drafting environment
-- Deployments via Claude automation
+- Updates happen in Claude/Cowork sessions
+- Deployments via GitHub Expert Plugin commands
 - All changes version-controlled in GitHub
+- Obsidian vault synced automatically after each deployment
 
 ## License
 
@@ -274,6 +359,6 @@ Private repository - All rights reserved
 
 ---
 
-**Last Updated:** 2026-02-17
+**Last Updated:** 2026-02-22
 **Repository:** https://github.com/arthurpaivar/TBM
-**Total Expertise:** 4 plugins, 15 skills, 13 commands
+**Total Expertise:** 6 plugins, 24 skills, 23 commands

@@ -1,5 +1,5 @@
 ---
-description: Find and apply industry benchmarks
+description: Find and apply industry benchmarks for a topic or KPI
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash, WebSearch, WebFetch, Task
 argument-hint: [area or KPI to benchmark]
 ---

@@ -1,0 +1,8 @@
+{
+  "name": "github-expert-plugin",
+  "version": "1.0.0",
+  "description": "GitHub Expert Plugin — specialist in GitHub repository analysis, code structure, pull requests, issues, workflows, and repository management. Covers repository health, code review, CI/CD pipelines, and GitHub best practices.",
+  "author": {
+    "name": "Arthur"
+  }
+}
