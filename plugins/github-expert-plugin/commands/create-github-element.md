@@ -12,6 +12,26 @@ The GitHub repository is Arthur's **Tech BM Second Brain** — a versioned backu
 
 GitHub is updated ONLY through the three github-expert-plugin commands (`/create-github-element`, `/update-github-element`, `/remove-github-element`). No other process should modify GitHub.
 
+## GitHub Access Method
+
+**CRITICAL — Read this before any GitHub operation.**
+
+The Cowork VM does NOT have the `gh` CLI installed and `api.github.com` is blocked by the VM proxy. Do NOT attempt `gh` commands, `curl`/`python requests` to `api.github.com`, or any GitHub REST API calls — they will all fail.
+
+The ONLY working method is `git clone` with the token embedded in the URL:
+
+```bash
+git clone https://<TOKEN>@github.com/arthurpaivar/TBM.git /tmp/TBM
+```
+
+Arthur's GitHub Personal Access Token is required. If not already known from the current session, **ask Arthur for it**. Once cloned, all read/write operations happen on the local `/tmp/TBM` clone. After making changes, commit and push:
+
+```bash
+cd /tmp/TBM && git add . && git commit -m "message" && git push
+```
+
+If the repo is already cloned in this session, do a `git pull` in `/tmp/TBM` before starting.
+
 ## Process
 
 ### Step 1 — Identify the Element Type
@@ -21,8 +41,8 @@ Determine what is being created. Only three types exist:
 - **Command**: A `.md` file inside a plugin's `commands/` directory
 
 ### Step 2 — Read the Current GitHub Repository Structure
-Use the `gh` CLI or GitHub API to inspect the current repo structure:
-- List existing plugins (top-level directories)
+Clone the repository (or `git pull` if already cloned) and inspect the structure locally:
+- List existing plugins under `plugins/`
 - List skills and commands inside the target plugin
 - Understand naming conventions, directory layout, and file formats already in use
 
@@ -53,9 +73,10 @@ Before creating anything in GitHub, validate ALL of the following:
 **If any check fails, STOP and resolve before proceeding.**
 
 ### Step 6 — Create in GitHub
-Use the `gh` CLI to push the new files to the repository:
+Write the new files to the local `/tmp/TBM` clone, then commit and push:
+- `git add` the new files
 - Commit with a clear message: `"Add [type]: [name] to [plugin-name]"`
-- Push to the main branch
+- `git push` to the main branch
 
 ### Step 7 — Update the Repository Main README.md
 After creating the element, update the **main `README.md`** at the root of the repository (`arthurpaivar/TBM`). This file is the front page of the Tech BM Second Brain and must always reflect the current vault architecture.

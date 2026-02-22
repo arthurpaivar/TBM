@@ -12,6 +12,26 @@ The GitHub repository is Arthur's **Tech BM Second Brain** — a versioned backu
 
 GitHub is updated ONLY through the three github-expert-plugin commands (`/create-github-element`, `/update-github-element`, `/remove-github-element`). No other process should modify GitHub.
 
+## GitHub Access Method
+
+**CRITICAL — Read this before any GitHub operation.**
+
+The Cowork VM does NOT have the `gh` CLI installed and `api.github.com` is blocked by the VM proxy. Do NOT attempt `gh` commands, `curl`/`python requests` to `api.github.com`, or any GitHub REST API calls — they will all fail.
+
+The ONLY working method is `git clone` with the token embedded in the URL:
+
+```bash
+git clone https://<TOKEN>@github.com/arthurpaivar/TBM.git /tmp/TBM
+```
+
+Arthur's GitHub Personal Access Token is required. If not already known from the current session, **ask Arthur for it**. Once cloned, all read/write operations happen on the local `/tmp/TBM` clone. After making changes, commit and push:
+
+```bash
+cd /tmp/TBM && git add . && git commit -m "message" && git push
+```
+
+If the repo is already cloned in this session, do a `git pull` in `/tmp/TBM` before starting.
+
 ## Process
 
 ### Step 1 — Identify What to Remove
@@ -21,7 +41,7 @@ Determine the element type and exact location:
 - **Command**: A specific `commands/[command-name].md` inside a plugin
 
 ### Step 2 — Read the Current State in GitHub
-Use the `gh` CLI or GitHub API to:
+From the local `/tmp/TBM` clone (clone or `git pull` first):
 - Confirm the element exists in the repository
 - Read the element content so you can show Arthur exactly what will be removed
 - For plugins: list all skills and commands that will be removed together
@@ -42,11 +62,12 @@ After Arthur confirms once, ask one final time:
 **Do NOT proceed unless Arthur explicitly says yes to both confirmations.**
 
 ### Step 5 — Remove from GitHub
-Use the `gh` CLI to delete the files from the repository:
+Delete the files from the local `/tmp/TBM` clone, then commit and push:
+- `git rm` the files to be removed
 - Commit with a clear message: `"Remove [type]: [name] from [plugin-name]"`
 - For plugins: also update the repository root if needed
 - For skills/commands: update the parent plugin's `README.md` to reflect the removal
-- Push to the main branch
+- `git push` to the main branch
 
 ### Step 6 — Update the Repository Main README.md
 After removing the element, update the **main `README.md`** at the root of the repository (`arthurpaivar/TBM`). This file is the front page of the Tech BM Second Brain and must always reflect the current vault architecture.

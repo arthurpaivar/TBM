@@ -14,6 +14,26 @@ This is the **primary command** Arthur uses to keep GitHub in sync with changes 
 
 GitHub is updated ONLY through the three github-expert-plugin commands (`/create-github-element`, `/update-github-element`, `/remove-github-element`). No other process should modify GitHub.
 
+## GitHub Access Method
+
+**CRITICAL — Read this before any GitHub operation.**
+
+The Cowork VM does NOT have the `gh` CLI installed and `api.github.com` is blocked by the VM proxy. Do NOT attempt `gh` commands, `curl`/`python requests` to `api.github.com`, or any GitHub REST API calls — they will all fail.
+
+The ONLY working method is `git clone` with the token embedded in the URL:
+
+```bash
+git clone https://<TOKEN>@github.com/arthurpaivar/TBM.git /tmp/TBM
+```
+
+Arthur's GitHub Personal Access Token is required. If not already known from the current session, **ask Arthur for it**. Once cloned, all read/write operations happen on the local `/tmp/TBM` clone. After making changes, commit and push:
+
+```bash
+cd /tmp/TBM && git add . && git commit -m "message" && git push
+```
+
+If the repo is already cloned in this session, do a `git pull` in `/tmp/TBM` before starting.
+
 ## Process
 
 ### Step 1 — Identify the Element to Update
@@ -23,8 +43,8 @@ Determine the element type and exact location:
 - **Command**: A specific `commands/[command-name].md` inside a plugin
 
 ### Step 2 — Read the Current Version in GitHub
-Use the `gh` CLI or GitHub API to read the current version of the element in GitHub:
-- Download and read the existing file content
+Clone the repository (or `git pull` if already cloned) and read the current version of the element from `/tmp/TBM`:
+- Read the existing file content locally
 - Note the current version number (for skills and plugins)
 - Identify the structure and formatting in use
 
@@ -59,11 +79,12 @@ Before pushing to GitHub, validate ALL of the following:
 **If any check fails, STOP and resolve before proceeding.**
 
 ### Step 6 — Push Update to GitHub
-Use the `gh` CLI to push the updated files to the repository:
+Write the updated files to the local `/tmp/TBM` clone, then commit and push:
+- `git add` the changed files
 - Commit with a clear message: `"Update [type]: [name] in [plugin-name] — [brief change summary]"`
 - If the plugin version should increment, update `plugin.json` version
 - Update the plugin `README.md` if the change affects it
-- Push to the main branch
+- `git push` to the main branch
 
 ### Step 7 — Update the Repository Main README.md
 After pushing the update, check if the **main `README.md`** at the root of the repository (`arthurpaivar/TBM`) needs updating. This file is the front page of the Tech BM Second Brain and must always reflect the current vault architecture.
