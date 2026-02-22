@@ -1,7 +1,7 @@
 {
   "name": "technology-expert-plugin",
-  "version": "2.1.0",
-  "description": "Technology Expert Plugin — specialist in AI, Agile, SAFe, Modern Architecture Patterns, Technology Delivery, and Technology Strategy. Covers enterprise AI agents, MCP, DORA metrics, cloud-native architecture, DevOps, CI/CD, and consulting strategy frameworks for payments technology.",
+  "version": "4.0.0",
+  "description": "Technology Expert Plugin — specialist in Enterprise AI, Agile Delivery, Architecture, Engineering Excellence, and Technology Strategy for a Payments CIO. Modular knowledge base used as second brain for CIO-level tech conversations. Skills: ai-specialist (agents, MCP, GenAI, governance, SR 11-7, EU AI Act), agile-specialist (SAFe 6.0, DORA, team topologies, flow metrics, OKRs), architecture-specialist (TOGAF, microservices, cloud-native, API design, data mesh, PCI-DSS, payments architecture), tech-delivery-specialist (SDLC, DevOps/CALMS, CI/CD, SRE, platform engineering, observability), tech-strategy-advisory (McKinsey/BCG/Accenture frameworks, TOM design, capability mapping, Three Horizons, build vs buy). Commands: /explain-tech-concept, /assess-architecture, /review-delivery, /advise-strategy, /brief-ai-topic, /list-tech-references. Cross-plugin: consulting uses skills for tech advisory in problem solving and benchmarks; communication uses skills for PowerPoints and executive narratives; finance uses skills for IT portfolio and cost analysis.",
   "author": {
     "name": "Arthur"
   }

@@ -1,7 +1,7 @@
 {
   "name": "github-expert-plugin",
-  "version": "1.0.0",
-  "description": "GitHub Expert Plugin — specialist in GitHub repository analysis, code structure, pull requests, issues, workflows, and repository management. Covers repository health, code review, CI/CD pipelines, and GitHub best practices.",
+  "version": "2.0.0",
+  "description": "GitHub Expert Plugin — specialist in managing the Tech BM Second Brain GitHub repository (arthurpaivar/TBM). One skill: GitHub Repository Specialist (TBM repository structure, three element types — plugins/skills/commands, git clone with token access method for Cowork VM, Claude/Cowork → GitHub → Obsidian sync workflow, validation standards). Three commands: create-github-element (add new plugins, skills, or commands with validation gate), update-github-element (primary command — sync changes from Claude/Cowork to GitHub with comparison and README cascade), remove-github-element (double confirmation safety gate for permanent removal). All commands follow layered What/How/Why framework and reference the github-repository-specialist skill for access method and validation.",
   "author": {
     "name": "Arthur"
   }

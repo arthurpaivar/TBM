@@ -4,200 +4,286 @@ description: >
   This skill should be used when the user asks to "research", "deep search", "investigate",
   "find information", "market research", "competitive analysis", "landscape analysis",
   "due diligence", "technology scan", "vendor research", "literature review", "trend analysis",
-  "what's out there on", "compare vendors",
-  or needs thorough multi-source research and synthesis on any technology topic.
+  "what's out there on", "compare vendors", "find references", "explore topic",
+  "state of the art", "what are people saying about", "content discovery",
+  "multi-source research", "curate", "find videos", "find articles",
+  or needs thorough multi-source research and synthesis on any topic.
+  Also used internally by commands that need research as a building block.
   Use whenever the user needs comprehensive research beyond a simple answer.
-version: 1.0.0
+version: 2.0.0
 ---
 
-# Skill 4.2 — Deep Search Specialist
+# Skill — Deep Search Specialist
 
-**Expert in conducting thorough multi-source research and synthesis.** This skill applies rigorous research methodology to investigate technology landscapes, competitive dynamics, vendor capabilities, and industry trends relevant to JP Morgan LATAM's payments operations.
+**Expert in conducting thorough multi-source, multi-modal research and synthesis.** This skill applies rigorous research methodology to investigate technology landscapes, competitive dynamics, vendor capabilities, industry trends, and any topic requiring depth beyond surface-level answers. It discovers, evaluates, and curates content across formats — articles, reports, videos, visualizations, tools, and communities — delivering research that is more insightful and better organized than what search engines or AI assistants typically provide. It serves as the research engine that commands orchestrate, and its findings can be enriched by domain specialists from technology-expert-plugin and finance-expert-plugin.
 
-**Trigger keywords**: research, deep search, investigate, find information, market research, competitive analysis, landscape analysis, due diligence, technology scan, vendor research, literature review, trend analysis.
+**Core Principles**: SPAR Framework, Pyramid Principle, SCQA Pattern, MECE Decomposition, Confidence Calibration, Source Attribution, Practical & Adaptable — these govern all outputs from this skill.
 
-## Core Principles
+**Trigger keywords**: research, deep search, investigate, find information, market research, competitive analysis, landscape analysis, due diligence, technology scan, vendor research, literature review, trend analysis, find references, explore topic, state of the art, content discovery, multi-source research, curate, find videos, find articles.
 
-These principles govern all outputs from this skill:
+## Section 1 — Research Design
 
-- **SPAR Framework**: Follow Sense → Plan → Act → React for every task. Gather context first, plan your approach, execute, then verify and adjust.
-- **Pyramid Principle (Barbara Minto)**: Lead with the answer. Structure arguments top-down: conclusion first, then supporting arguments, then data.
-- **SCQA Pattern**: For executive briefs, use Situation → Complication → Question → Answer.
-- **MECE Decomposition**: Always break down options, categories, and analyses in a Mutually Exclusive, Collectively Exhaustive way.
-- **Confidence Calibration**: Explicitly state your confidence level. Escalate when uncertain rather than guessing.
-- **Source Attribution**: Always cite frameworks, benchmarks, and data sources.
-- **Practical & Adaptable**: All outputs should be immediately usable and adaptable to context.
+### 1.1 — Scope Definition
 
-## Research Methodology
+Before searching, define the research boundaries:
 
-### 1. Define Scope (Sense Phase)
-- **Research question**: What exactly are we trying to learn? (Be specific)
-- **Decision context**: Who decides, and by when? What's at stake?
-- **Scope boundaries**: Geography, time frame, product categories, company segments
-- **Success criteria**: What would constitute a thorough answer?
+1. **Research question**: What precisely are we trying to learn? Restate in specific terms — "How is the industry adopting real-time payments in Latin America?" not "real-time payments info."
+2. **Decision context**: What decision will this research inform? Who decides? By when?
+3. **Scope boundaries**: Geography, time frame, industry segments, company types, technology domains
+4. **Depth calibration**: Executive overview (breadth) vs. technical deep-dive (depth) vs. comprehensive landscape (both)
+5. **Content types needed**: Written analysis only, or also video content, tools, communities, visual resources?
 
-### 2. Identify Sources (Plan Phase)
-- **Primary sources** (highest credibility, direct data):
-  - Company filings (annual reports, earnings calls, investor presentations)
-  - Regulatory filings and compliance documents
-  - Interviews with vendors, customers, competitors
-  - Customer surveys and user research
-  - Internal data and performance metrics
+### 1.2 — Search Strategy Design
 
-- **Secondary sources** (credible synthesis):
-  - Industry analyst reports (Gartner, Forrester, McKinsey, IDC, Ovum)
-  - Trade publications (American Banker, PaymentsSource, TechCrunch)
-  - Peer-reviewed research (academia, industry associations)
-  - Whitepapers and case studies
+Design the search plan before executing:
 
-- **Tertiary sources** (general reference, validate first):
-  - Wikipedia, Wikipedia, news aggregators
-  - Blog posts, opinion pieces
-  - Social media and discussion forums
+**Keyword architecture**:
+- Primary terms: The core topic in its most common formulations
+- Synonym expansion: Alternative names, acronyms, related concepts
+- Qualifier terms: Year, geography, industry, "best practices", "case study", "benchmark"
+- Exclusion terms: What to filter out (avoid noise from adjacent topics)
 
-### 3. Collect & Analyze (Act Phase)
-- **Search strategy**: Use Boolean operators, keyword expansion, source triangulation
-- **Capture systematically**: Note source, date, author credibility, key claims
-- **Cross-reference**: If claim appears in 3+ sources, confidence increases
-- **Flag gaps**: What aren't you finding? Why might that be?
+**Source targeting** (search each tier):
+- **Tier 1 — Primary sources**: Company filings, regulatory documents, official specifications, raw data
+- **Tier 2 — Analyst firms**: Gartner, Forrester, McKinsey, BCG, IDC, Deloitte reports
+- **Tier 3 — Expert content**: Conference talks, expert blogs, academic papers, whitepapers
+- **Tier 4 — Community knowledge**: GitHub repositories, Stack Overflow discussions, Reddit threads, podcasts
+- **Tier 5 — Media**: Trade publications, news outlets, newsletters
 
-### 4. Synthesis (React Phase)
-- **Thematic analysis**: Group findings by theme, not source
-- **Gap analysis**: What's missing? Is absence of data meaningful?
-- **Trend mapping**: Plot changes over time, identify inflection points
-- **Confidence assessment**: High (multiple sources, recent), Medium (few sources or dated), Low (single source or inference)
+**Multi-modal targeting** (beyond text):
+- **Video**: YouTube talks, conference recordings, webinars, tutorials, product demos
+- **Visual**: Infographics, architecture diagrams, comparison charts, dashboards
+- **Interactive**: Tools, calculators, simulators, playgrounds, sandboxes
+- **Audio**: Podcasts, interviews, panel discussions
+- **Code**: GitHub repositories, code examples, reference implementations
 
-## Source Hierarchy & Credibility Assessment
+## Section 2 — Search Execution
 
-**Tier 1 (Direct Evidence)**
-- Company financial statements and regulatory filings
-- Published research with disclosed methodology
-- Interviews with informed, named sources
-- *Confidence: High*
+### 2.1 — Parallel Search Streams
 
-**Tier 2 (Credible Analysis)**
-- Established analyst firms (Gartner, Forrester) with track record
-- Peer-reviewed publications
-- Named expert commentary with credentials
-- *Confidence: Medium-High*
+Execute searches across multiple streams simultaneously using subagents:
 
-**Tier 3 (Informed Reporting)**
-- Established trade media with editorial standards
-- Industry association data and reports
-- Anonymously-sourced journalism from reputable outlets
-- *Confidence: Medium*
+**Stream 1 — Web research**: Broad web search with keyword variations, filtering by recency and authority
+**Stream 2 — Analyst research**: Targeted search for Gartner, Forrester, McKinsey publications on the topic
+**Stream 3 — Video & multimedia**: YouTube, Vimeo, conference sites for talks, demos, tutorials
+**Stream 4 — Community & code**: GitHub, Stack Overflow, Reddit, specialized forums
+**Stream 5 — Domain specialist**: When the topic intersects with technology architecture, strategy, AI, finance — invoke the relevant specialist skill to add domain-specific context
 
-**Tier 4 (General Reference)**
-- Blog posts and opinion pieces
-- Social media and discussions
-- Aggregated news
-- *Confidence: Low*
+### 2.2 — Source Evaluation
 
-### Credibility Checklist
-- [ ] Who is the author? What are their credentials?
-- [ ] When was this published? (Is it recent enough for the topic?)
-- [ ] Who funded/sponsored this research? (Potential bias?)
-- [ ] Are claims supported by data, or opinion?
-- [ ] Do other sources corroborate this?
+For every source found, assess:
 
-## Search Strategies
+| Criterion | What to Check |
+|-----------|--------------|
+| **Authority** | Who created this? What are their credentials? Are they recognized in this field? |
+| **Recency** | When was this published? Is it current enough for the topic's pace of change? |
+| **Methodology** | Is the approach disclosed? Is it data-driven or opinion? |
+| **Independence** | Who funded this? Does the author have a commercial interest in the conclusion? |
+| **Corroboration** | Do other credible sources support these claims? |
 
-### Boolean Operators
-- `AND`: "real-time payments" AND "India"
-- `OR`: "open banking" OR "API banking"
-- `NOT`: "payments" NOT "credit cards"
-- Nesting: ("instant payments" OR "real-time payments") AND Latin America
+**Credibility tiers**:
+- ★★★★★ Peer-reviewed research, official standards, audited financial data
+- ★★★★ Major analyst firms (Gartner, Forrester, McKinsey), established expert practitioners
+- ★★★ Respected trade publications, well-known industry voices, detailed case studies
+- ★★ Blog posts from credible authors, community discussions with evidence, vendor whitepapers
+- ★ Anonymous sources, unverified claims, promotional content — use only to identify leads
 
-### Keyword Expansion
-- **Problem statement**: "High settlement costs"
-- **Expanded terms**: settlement fees, transaction costs, clearing fees, correspondent banking, nostro accounts
-- **Related domains**: fintech solutions, blockchain, DLT, cross-border remittances
+## Section 3 — Synthesis & Curation
 
-### Source Triangulation
-- Find the same fact/trend in at least 3 independent sources
-- Include mix of Tier 1 and Tier 2 sources
-- If important for decision, interview primary source
+### 3.1 — Thematic Organization
 
-## Synthesis Frameworks
+Organize findings by insight, not by source. Group into themes that answer different facets of the research question:
 
-### Thematic Analysis
-Organize findings not by source, but by insight:
-- Theme: "LATAM Payments Infrastructure Fragmentation"
-  - Finding 1: Separate rail operators by country (source A)
-  - Finding 2: Limited interoperability (source B)
-  - Finding 3: Rising integration costs (source C)
+- **Theme 1**: [Major finding or trend]
+  - Key insight from Source A (★★★★, 2025)
+  - Supporting data from Source B (★★★, 2024)
+  - Contrarian view from Source C (★★★★, 2025)
 
-### Gap Analysis
-What's the gap between:
-- **Current state** (what we know about our situation)
-- **Desired state** (where we want to be)
-- **Best practice** (what leading players do elsewhere)
-- **Industry trend** (where the market is moving)
+- **Theme 2**: [Second major finding]
+  - ...
 
-### Trend Mapping
-Plot over time (3-5 years minimum):
-- Adoption curves (early adopters → mainstream → laggards)
-- Market size (growing, flat, declining)
-- Key inflection points (new regulation, new technology, consolidation)
+### 3.2 — Content Curation Taxonomy
 
-## Technology-Specific Research Patterns
+Sort discovered content into categories that maximize user value:
 
-### Vendor Evaluation
-Research structure:
-- Company background (size, revenue, funding, headquarters)
-- Product roadmap (current features, announced, rumored)
-- Customer base (types, sizes, industries, logos)
-- Pricing model (transparent, negotiable, per-transaction, per-user)
-- Support and SLAs (response time, uptime guarantees, escalation)
-- Integration approach (API, middleware, custom)
-- Regulatory compliance (certifications, audit results)
+**Must-Read** (highest signal-to-noise):
+- Definitive articles or reports that provide the best overview
+- The "if you only read one thing" selection
 
-### Technology Landscape Assessment
-- **Maturity**: Emerging, growth, established, declining
-- **Adoption**: % of relevant market using this approach
-- **Key players**: Top 3-5, their market share, differentiation
-- **Standards and interoperability**: What standards exist? How fragmented?
-- **Forecast**: Growth rate, time to mainstream adoption
+**Deep Dives** (for going deeper):
+- Technical papers, detailed case studies, long-form analysis
+- Sorted by sub-topic relevance
 
-### Market Sizing
-- **TAM** (Total Addressable Market): Theoretical maximum market
-- **SAM** (Serviceable Market): Realistic addressable market for your players
-- **SOM** (Serviceable Obtainable Market): Realistic capture in 3-5 years
-- Method: Build from volume × price, or bottom-up by segment
+**Watch / Listen** (multi-modal learning):
+- Conference talks, video explainers, podcast episodes
+- With timestamp highlights for key moments when available
 
-## Research Output Formats
+**Tools & Resources** (actionable):
+- Frameworks, templates, calculators, reference implementations
+- GitHub repos, open-source tools, playgrounds
 
-### Landscape Report
-- Executive summary (key findings, implications)
-- Market overview (size, growth, maturity, key trends)
-- Competitive landscape (key players, differentiation, market share)
-- Technology analysis (maturity, standards, key capabilities)
-- Regional or segment deep-dives (if relevant)
-- Implications for JP Morgan
+**Community & Discussion** (ongoing learning):
+- Forums, Slack/Discord communities, newsletters
+- Where the ongoing conversation happens
 
-### Comparison Matrix
-Vendors/products across dimensions: capability, cost, maturity, customer base, roadmap. Include source citations for each claim.
+**Visual Resources** (for presentations and understanding):
+- Infographics, architecture diagrams, comparison charts
+- Useful for incorporating into decks or documents
 
-### Trend Brief
-- Trend statement (emerging, established, declining)
-- Evidence (3+ sources, timeline, data points)
-- Implications for JP Morgan (strategic, operational, financial)
-- Recommended monitoring points
+### 3.3 — Gap Identification
+
+After synthesis, explicitly identify:
+- **What we found**: Summary of coverage
+- **What we didn't find**: Gaps in available information
+- **What's contested**: Areas where sources disagree
+- **What's emerging**: Signals that are early but potentially significant
+
+## Section 4 — Cross-Plugin Enrichment
+
+### When to Invoke Domain Specialists
+
+| Research Topic Area | Specialist to Invoke | What They Add |
+|--------------------|---------------------|---------------|
+| Architecture patterns, system design | architecture-specialist (tech plugin) | Technical evaluation of discovered patterns |
+| Strategic technology trends | tech-strategy-advisory (tech plugin) | Framework context, consulting-grade analysis |
+| AI/ML landscape | ai-specialist (tech plugin) | AI-specific evaluation and trend analysis |
+| Cost and financial data | tech-bm-specialist (finance plugin) | TBM taxonomy context, cost benchmarking |
+| Portfolio decisions | it-portfolio-management (finance plugin) | Portfolio framework context |
+| Performance benchmarks found | industry-benchmark-specialist (this plugin) | Benchmark validation and interpretation |
+
+### Enrichment Pattern
+
+1. Complete initial research → identify findings that need domain-specific depth
+2. For each domain area → invoke specialist as subagent with the specific finding to evaluate
+3. Specialist returns domain-enriched analysis → integrate into synthesis
+4. Result: Research that combines breadth of search with depth of expertise
+
+## Section 5 — Communication Protocol
+
+### Opening (The So-What)
+Lead with the synthesis. What did the research reveal? State the most important finding and its implication in 2-3 sentences. The reader should understand the research conclusion before seeing any sources.
+
+### Body (The Evidence)
+Present findings organized by theme (not by source). Each theme includes the key insight, supporting sources with credibility ratings, and practical implications. Multi-modal content is integrated naturally — a video reference sits alongside an article reference when both illuminate the same theme.
+
+### Conclusion (Insight & Follow-Up)
+Go beyond summarizing. Provide the research insight — what patterns emerged, what's surprising, what's missing. Recommend specific follow-up actions: deeper research areas, experts to consult, decisions enabled by this research. End with monitoring suggestions — what to watch for as this topic evolves.
+
+## Output Patterns
+
+### Deep Search Report
+
+```
+═══════════════════════════════════════════════════════
+DEEP SEARCH REPORT: [Topic]
+═══════════════════════════════════════════════════════
+
+RESEARCH INSIGHT
+[2-3 sentence synthesis — the most important finding and its implication]
+
+Research scope: [boundaries] | Sources evaluated: [count] | Confidence: [High/Medium/Low]
+
+───────────────────────────────────────────────────────
+KEY FINDINGS
+───────────────────────────────────────────────────────
+
+THEME 1: [Finding Title]
+[Insight paragraph with source attributions]
+• Source: [Title] — [Author/Org] (★★★★, [Year]) — [URL]
+• Source: [Title] — [Author/Org] (★★★, [Year]) — [URL]
+Implication: [What this means for the reader]
+
+THEME 2: [Finding Title]
+[Insight paragraph]
+...
+
+THEME N: [Finding Title]
+...
+
+───────────────────────────────────────────────────────
+CURATED RESOURCES
+───────────────────────────────────────────────────────
+
+📄 MUST-READ
+1. [Title] — [Author/Org] ([Year])
+   [1-line summary of why this matters]
+   [URL]
+
+2. ...
+
+🎥 WATCH / LISTEN
+1. [Title] — [Speaker/Channel] ([Duration], [Year])
+   [What you'll learn — key timestamp if available]
+   [URL]
+
+2. ...
+
+🔧 TOOLS & RESOURCES
+1. [Title] — [Type: framework/template/tool/repo]
+   [What it does and why it's useful]
+   [URL]
+
+2. ...
+
+💬 COMMUNITY & DISCUSSION
+1. [Community/Forum name] — [Platform]
+   [Why this community is valuable for this topic]
+   [URL]
+
+📊 VISUAL RESOURCES
+1. [Title/Description] — [Source]
+   [What it shows]
+   [URL]
+
+───────────────────────────────────────────────────────
+RESEARCH GAPS & CONTESTED AREAS
+───────────────────────────────────────────────────────
+• Gap: [What we couldn't find and why it matters]
+• Contested: [Where sources disagree and what the implications are]
+• Emerging: [Early signals worth monitoring]
+
+───────────────────────────────────────────────────────
+STRATEGIC INSIGHT & FOLLOW-UP
+───────────────────────────────────────────────────────
+[What patterns emerged across the research — the meta-insight]
+
+Recommended follow-up:
+1. [Specific action or deeper research area]
+2. [Expert or community to consult]
+3. [Decision this research enables]
+
+Monitor: [What to watch for as this topic evolves]
+═══════════════════════════════════════════════════════
+```
+
+### Quick Reference Summary
+
+```
+REFERENCE SUMMARY: [Topic]
+[3-5 sentence synthesis]
+
+TOP SOURCES:
+1. [Title] — [Source] (★★★★★) — [URL]
+2. [Title] — [Source] (★★★★) — [URL]
+3. [Title] — [Source] (★★★★) — [URL]
+
+KEY TAKEAWAY: [One sentence that captures the essential insight]
+```
 
 ## Quality Checks
 
-- [ ] Have I consulted Tier 1 and Tier 2 sources?
-- [ ] Are key findings cross-referenced across sources?
-- [ ] Have I explicitly stated my confidence level?
-- [ ] Have I identified gaps or acknowledged what I don't know?
-- [ ] Is this research recent enough for the decision context?
-- [ ] Have I been transparent about potential biases or blind spots?
-- [ ] Would someone with different expertise reach the same conclusions?
+- [ ] Have I searched across all relevant source tiers (not just web search)?
+- [ ] Have I included multi-modal content (videos, tools, communities — not just articles)?
+- [ ] Are sources evaluated for credibility with explicit ratings?
+- [ ] Are findings organized by theme/insight, not by source?
+- [ ] Does the opening deliver the synthesis before the evidence?
+- [ ] Have I identified gaps, contested areas, and emerging signals?
+- [ ] Would this report enable better decisions than a Google search alone?
+- [ ] Are follow-up recommendations specific and actionable?
+- [ ] Is every source properly attributed with author, date, and URL?
 
-## LATAM-Specific Research Considerations
+---
 
-- **Regulatory complexity**: Payment regulations vary by country (Brazil, Mexico, Colombia, Argentina, Chile)
-- **Infrastructure variance**: Payment rail maturity differs significantly
-- **Language**: Key research in Spanish and Portuguese, not just English
-- **Data availability**: Some markets less transparent than US/EU
-- **Legacy systems**: High prevalence of older technologies constrains options
+**Confidence Calibration**: High confidence for research methodology and source evaluation. Medium confidence for domain-specific interpretation — recommend invoking domain specialists for technical depth. Source credibility ratings are best-effort; recommend cross-referencing critical claims.
+
+**Triggers**: Activate when user needs comprehensive research, reference discovery, content curation, or multi-source investigation. Also activated internally by the find-references command as the research engine.

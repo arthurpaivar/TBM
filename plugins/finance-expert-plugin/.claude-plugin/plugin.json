@@ -1,7 +1,7 @@
 {
   "name": "finance-expert-plugin",
-  "version": "1.0.0",
-  "description": "Finance Expert Plugin — specialist in Technology Business Management and IT Portfolio governance. Covers TBM Framework 2.0, Taxonomy v5.0.1, cost transparency, FinOps, IT investment governance, and application portfolio management for payments technology.",
+  "version": "4.0.0",
+  "description": "Finance Expert Plugin — specialist in Technology Business Management (TBM) and IT Portfolio governance for a Payments CIO. Modular knowledge base serving as second brain for IT finance conversations. Skills: tech-bm-specialist (TBM Framework 2.0, Taxonomy v5.0.1, cost pools, resource towers/domains, cost allocation, FinOps, Run/Grow/Transform, AI cost management, GreenOps, FAIR, TBM maturity), it-portfolio-management (TIME model, 6-dimension health assessment, 6Rs modernization, investment governance, demand management, WSJF, budget planning, unit economics), excel-for-finance (TBM Excel templates, financial modeling standards, portfolio dashboards, business case models, R/G/T trackers, unit cost workbooks). Commands: /evaluate-business-case, /consolidate-excel, /assess-portfolio, /build-tbm-model. Cross-plugin: technology uses skills for investment categories and cost context; consulting uses skills for financial benchmarks and business cases; communication uses skills for cost narratives and financial presentations.",
   "author": {
     "name": "Arthur"
   }

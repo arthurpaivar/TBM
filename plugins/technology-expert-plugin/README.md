@@ -1,41 +1,55 @@
 # Technology Expert Plugin
 
-Your AI-powered coworker for Technology expertise at JP Morgan LATAM Payments. Five specialist skills covering AI, Agile, Architecture, Delivery, and Strategy — the core technology domains for a LATAM Payments Technology leader.
+Specialist in Enterprise AI, Agile Delivery, Architecture, Engineering Excellence, and Technology Strategy for payments technology. Serves as the **modular knowledge base (second brain)** for a Tech BM working directly with a Payments CIO — providing deep tech insights for CIO-level conversations.
 
-Built on the **SPAR agent framework** (Sense → Plan → Act → React) and **Pyramid Principles** logic (Barbara Minto).
+## Cross-Plugin Architecture
+
+This plugin is designed as a **modular foundation** that other plugins reference:
+- **Consulting Plugin**: Uses technology skills for tech advisory in problem solving, benchmarks, and deep research
+- **Communication Plugin**: Uses technology skills for PowerPoint content, executive narratives, and tech explanations
+- **Finance Plugin**: Uses technology skills for IT portfolio concepts, cost analysis, and TBM-related technology insights
 
 ## Skills
 
-| Skill ID | Skill | Focus Areas |
-|----------|-------|-------------|
-| **1.1** | **AI Specialist** | AI agents, MCP, context windows, plugins, RAG, enterprise AI governance, AI ROI |
-| **1.2** | **Agile Specialist** | SAFe 6.0, DORA metrics, Scrum, Kanban, PI planning, flow metrics, WSJF |
-| **1.3** | **Architecture Specialist** | Enterprise & solution architecture, microservices, API design, TOGAF, cloud-native, CQRS, event sourcing |
-| **1.4** | **Tech Delivery Specialist** | SDLC, DevOps (CALMS), CI/CD, platform engineering, SRE, observability, cloud-native |
-| **1.5** | **Tech Strategy Advisory** | McKinsey 3Ds, BCG Platinion, Accenture frameworks, TOM design, capability mapping, Three Horizons |
+- **AI Specialist** (`ai-specialist`): Enterprise AI — agents (ReAct, Plan-Execute, Reflection, Multi-Agent), MCP protocol and adoption, GenAI, RAG, context windows, AI governance (SR 11-7, EU AI Act, NIST AI RMF), AI ROI frameworks, payments AI use cases, responsible AI principles
+- **Agile Specialist** (`agile-specialist`): SAFe 6.0 competencies, DORA metrics (5 metrics with Elite/High/Medium/Low thresholds), team topologies (Skelton & Pais), Scrum, Kanban, flow metrics, WSJF, OKRs, lean portfolio management, 2025 DORA AI findings
+- **Architecture Specialist** (`architecture-specialist`): Enterprise architecture (TOGAF ADM, Zachman), application patterns (monolith → microservices → serverless), integration patterns (event-driven, CQRS, event sourcing, saga), data architecture (data mesh, lakehouse, polyglot persistence), cloud architecture (Well-Architected, 12-factor, containers/K8s), API strategy (REST, GraphQL, gRPC, AsyncAPI), payments architecture (PCI-DSS, ISO 20022, payment rails, settlement, resilience patterns), ADRs
+- **Tech Delivery Specialist** (`tech-delivery-specialist`): SDLC models, DevOps practices (CALMS framework), CI/CD pipeline design, deployment strategies (rolling, blue-green, canary, feature flags), platform engineering (IDP, golden paths, DevEx), SRE (SLIs/SLOs, error budgets, observability, incident management), quality engineering (testing pyramid, shift-left)
+- **Tech Strategy Advisory** (`tech-strategy-advisory`): McKinsey frameworks (3Ds, Six Building Blocks, Three Horizons), BCG Platinion (transformation phases, GAMMA, Technology Advantage), Accenture (Total Enterprise Reinvention), TOM design (6 components), product operating model, capability mapping, value stream mapping, technology radar, build vs buy vs partner, business case structure, technology governance, investment categories (Run/Grow/Transform)
 
-## Core Principles (All Skills)
+## Commands
 
-Every skill follows these governing principles:
+| Command | Description | Skills Used |
+|---------|-------------|-------------|
+| `/explain-tech-concept` | Explain a technology concept clearly for CIO-level understanding | Routes to appropriate skill by topic |
+| `/assess-architecture` | Assess an architecture design or pattern against best practices | `architecture-specialist` |
+| `/review-delivery` | Review delivery maturity and engineering excellence posture | `tech-delivery-specialist` + `agile-specialist` |
+| `/advise-strategy` | Provide technology strategy advisory using consulting frameworks | `tech-strategy-advisory` |
+| `/brief-ai-topic` | Create an AI briefing for CIO-level conversations | `ai-specialist` |
+| `/list-tech-references` | Find and compile technology references for a topic | Routes to appropriate skill by topic |
 
-- **SPAR Framework**: Sense → Plan → Act → React
-- **Pyramid Principle**: Lead with the answer, structure top-down
-- **SCQA Pattern**: Situation → Complication → Question → Answer
-- **MECE Decomposition**: Mutually Exclusive, Collectively Exhaustive
-- **Confidence Calibration**: Explicit confidence levels, escalate when uncertain
-- **Source Attribution**: Always cite frameworks and data sources
-- **Practical & Adaptable**: Immediately usable, context-aware outputs
+## Skill-to-Command Mapping
 
-## How to Use
+```
+ai-specialist         ← /brief-ai-topic, /explain-tech-concept, /list-tech-references
+agile-specialist      ← /review-delivery, /explain-tech-concept, /list-tech-references
+architecture-specialist ← /assess-architecture, /explain-tech-concept, /list-tech-references
+tech-delivery-specialist ← /review-delivery, /explain-tech-concept, /list-tech-references
+tech-strategy-advisory  ← /advise-strategy, /explain-tech-concept, /list-tech-references
+```
 
-Each skill activates when you mention relevant topics. For example:
+Every skill is reachable via at least one dedicated command and also via the routing commands (`/explain-tech-concept`, `/list-tech-references`).
 
-- "Design an MCP integration strategy" → AI Specialist
-- "Create a DORA metrics dashboard for leadership" → Agile Specialist
-- "Review our microservices architecture" → Architecture Specialist
-- "Help me set up a CI/CD pipeline" → Tech Delivery Specialist
-- "Build a technology strategy using McKinsey 3Ds" → Tech Strategy Advisory
+## Usage Examples
 
-## Setup
+```
+/explain-tech-concept event sourcing for payment ledgers
+/assess-architecture microservices migration for our payment processing platform
+/review-delivery DevOps maturity assessment for the payments engineering organization
+/advise-strategy build vs buy decision for real-time fraud detection
+/brief-ai-topic AI agents for autonomous payment operations
+/list-tech-references data mesh implementation in financial services
+```
 
-No configuration needed. Install the plugin and all 5 skills will be available automatically.
+## Author
+Arthur

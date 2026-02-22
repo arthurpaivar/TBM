@@ -4,305 +4,211 @@ description: >
   This skill should be used when the user asks about "business case", "investment case",
   "ROI", "NPV", "IRR", "payback period", "cost-benefit", "TCO", "total cost of ownership",
   "funding request", "investment proposal", "financial justification", "make the case for",
-  "justify the investment", "funding approval",
+  "justify the investment", "funding approval", "cost of inaction",
+  "financial model", "investment analysis", "benefit realization",
+  "sensitivity analysis", "scenario planning", "risk-adjusted return",
   or needs help building technology investment business cases.
+  Also used internally by other commands that need financial justification as a building block.
   Use whenever the user needs to justify a technology investment financially.
-version: 1.0.0
+version: 2.0.0
 ---
 
-# Skill 4.4 — Business Case Specialist
+# Skill — Business Case Specialist
 
-**Expert in building technology investment business cases.** This skill builds compelling financial and strategic cases for technology investments, justifies funding requests, and structures financial models that can withstand CFO scrutiny while remaining strategically grounded.
+**Expert in building technology investment business cases that withstand C-suite scrutiny.** This skill constructs compelling financial and strategic cases for technology investments — structuring costs, quantifying benefits, modeling scenarios, and framing recommendations for specific stakeholder audiences. It serves as the financial justification engine that other commands can invoke when analysis leads to investment recommendations, and it draws on finance-expert-plugin skills (TBM, portfolio management) for cost allocation depth and technology-expert-plugin skills for technical feasibility validation.
 
-**Trigger keywords**: business case, investment case, ROI, NPV, IRR, payback period, cost-benefit, TCO, total cost of ownership, funding request, investment proposal, financial justification, make the case for, funding approval.
+**Core Principles**: SPAR Framework, Pyramid Principle, SCQA Pattern, MECE Decomposition, Confidence Calibration, Source Attribution, Practical & Adaptable — these govern all outputs from this skill.
 
-## Core Principles
+**Trigger keywords**: business case, investment case, ROI, NPV, IRR, payback period, cost-benefit, TCO, total cost of ownership, funding request, investment proposal, financial justification, make the case for, funding approval, cost of inaction, financial model, sensitivity analysis, scenario planning, benefit realization.
 
-These principles govern all outputs from this skill:
+## Section 1 — Business Case Structure
 
-- **SPAR Framework**: Follow Sense → Plan → Act → React for every task. Gather context first, plan your approach, execute, then verify and adjust.
-- **Pyramid Principle (Barbara Minto)**: Lead with the answer. Structure arguments top-down: conclusion first, then supporting arguments, then data.
-- **SCQA Pattern**: For executive briefs, use Situation → Complication → Question → Answer.
-- **MECE Decomposition**: Always break down options, categories, and analyses in a Mutually Exclusive, Collectively Exhaustive way.
-- **Confidence Calibration**: Explicitly state your confidence level. Escalate when uncertain rather than guessing.
-- **Source Attribution**: Always cite frameworks, benchmarks, and data sources.
-- **Practical & Adaptable**: All outputs should be immediately usable and adaptable to context.
+### 1.1 — The Executive Summary (1 Page)
 
-## Business Case Structure
+Every business case leads with the recommendation:
+- **Recommendation**: Clear statement — "Approve investment of $X over Y years"
+- **Why now**: The urgency driver (regulatory deadline, competitive pressure, operational risk)
+- **Financial summary**: NPV, IRR, payback period at a glance
+- **Key assumptions**: The 2-3 biggest assumptions the case depends on
+- **Next steps**: What happens immediately if approved
 
-### Executive Summary (1 page)
-- **Recommendation**: Clear statement: "Approve investment of $X million over Y years"
-- **Why now**: Urgency and business driver (regulatory, competitive, operational)
-- **Financial summary**: NPV, IRR, payback period, key risks
-- **Key assumptions**: 2-3 biggest assumptions underlying the case
-- **Next steps**: If approved, what happens immediately?
+### 1.2 — Strategic Context
 
-### Strategic Context (0.5 page)
-- **Current situation**: Where we stand, what's working, what's not
-- **Market/regulatory drivers**: Why this matters now
-- **Strategic alignment**: How this supports JPM's strategy
-- **Competitive context**: What are competitors doing?
+- **Current situation**: What's working, what's not — factual, not emotional
+- **Market/regulatory drivers**: External forces creating urgency
+- **Strategic alignment**: How this investment supports the broader technology strategy
+- **Cost of inaction**: Quantified — "If we don't act, we face $X in additional costs or Y% revenue at risk by year 3"
 
-### Current State Assessment (1-2 pages)
-- **Pain points**: What's driving the need?
-- **Cost of doing nothing**: Explicitly quantify: "If we don't act, we'll lose $X in revenue or incur $X in additional costs by year 3"
-- **Operational impact**: Customer impact, employee productivity, risk exposure
-- **Financial impact**: Annual run-rate cost/loss
+### 1.3 — Options Analysis
 
-### Options Analysis (1-2 pages)
-**Option A: Status Quo / Minimal Investment**
-- Pros: Minimal upfront cost
-- Cons: Doesn't solve root problem, increases future cost
-- 3-year cost: $X
-- Risks: High; competitive disadvantage, regulatory exposure
+Always present 3-4 options (minimum viable, balanced/recommended, comprehensive):
+- For each: scope, cost (CapEx + OpEx over 3-5 years), benefits (quantified), timeline, risks
+- Clear recommendation with rationale for why the balanced option wins
+- Honest assessment of trade-offs — no straw men to make the preferred option look good
 
-**Option B: Recommended Approach (Balanced)**
-- Pros: Best risk-adjusted return, achievable timeline
-- Cons: Requires organizational change, execution risk
-- 3-year investment: $X, 3-year benefit: $Y
-- NPV @ 10% discount: $Z
-- Risks: Moderate; mitigation plan included
+## Section 2 — Financial Modeling
 
-**Option C: Comprehensive Approach (Premium)**
-- Pros: Fastest path, maximum long-term value, lowest operational risk
-- Cons: Highest upfront cost and complexity
-- 3-year investment: $X, 3-year benefit: $Y
-- NPV @ 10% discount: $Z
-- Risks: Lower, but requires larger upfront commitment
+### 2.1 — Key Metrics
 
-## Financial Modeling Framework
+| Metric | Formula | Decision Rule | Typical Target |
+|--------|---------|---------------|----------------|
+| **NPV** | Sum of (Cash flow / (1 + r)^n) | Approve if > 0 | Positive at cost of capital |
+| **IRR** | Rate where NPV = 0 | Approve if > cost of capital | >10-12% for large enterprises |
+| **Payback** | Years to recover investment | Shorter is better | <3 years for tech, <5 for transformational |
+| **ROI** | (Benefits - Costs) / Costs | Higher is better | >100% over 3 years |
+| **TCO** | All costs over lifecycle | Lower is better | Context-dependent |
 
-### Key Financial Metrics
+### 2.2 — Cost Categories (MECE)
 
-**Net Present Value (NPV)**
-- Formula: Sum of (Annual cash flow / (1 + discount rate)^year)
-- Discount rate guidance: 10% for mature businesses, 15% for higher-risk initiatives
-- Decision rule: Approve if NPV > 0; compare across options
-- Example: $1M investment year 1, $500K benefit years 2-4 @ 10% discount rate = NPV of ~$270K
+**By nature**: CapEx (assets, one-time) vs. OpEx (ongoing, operational)
+**By timing**: One-time (implementation, migration) vs. Recurring (licenses, support)
+**By attribution**: Direct (project-specific) vs. Indirect (shared overhead)
+**By phase**: Build (implementation) vs. Run (operations) vs. Grow (enhancement)
 
-**Internal Rate of Return (IRR)**
-- Definition: The discount rate at which NPV = 0
-- Interpretation: "This investment returns 18% annually"
-- Compare to: Cost of capital (usually 10-12% for large banks)
-- Decision rule: Approve if IRR exceeds cost of capital; higher IRR = more attractive
+### 2.3 — Benefit Quantification
 
-**Payback Period**
-- Definition: Years to recover initial investment
-- Target: <3 years for most technology investments, <5 years for transformational ones
-- Limitation: Doesn't account for cash flows after payback; use with NPV/IRR
-- Use case: Quick gut-check; communicates to non-financial stakeholders
+**Hard benefits** (verifiable, auditable):
+- Cost reduction: Vendor consolidation, headcount optimization, infrastructure savings
+- Revenue increase: New capability, faster time-to-market, expanded capacity
+- Risk avoidance: Reduced penalties, lower incident costs, compliance savings
 
-**Total Cost of Ownership (TCO) over 3-5 years**
-- Includes all costs: hardware, software, implementation, training, ongoing support
-- Annualized TCO: Total TCO / number of years
-- Compare to: Annual benefits (cost avoidance, revenue uplift)
-- Example: TCO $10M over 3 years = $3.3M annually; if delivering $5M annual benefit, ROI = 52%
+**Soft benefits** (real but harder to quantify):
+- Agility improvement, employee satisfaction, customer experience, strategic optionality
+- Conservative approach: Quantify at 50% of modeled value (or 0% in conservative scenario)
 
-### Cost Categories
+### 2.4 — Sensitivity & Scenarios
 
-**CapEx (Capital Expenditure) — Asset purchases**
-- Infrastructure (servers, network, storage)
-- Software licenses (multi-year)
-- One-time implementation costs
-- Asset depreciation: typically 3-5 years for technology
+**Three scenarios** (always):
+- **Conservative** (30% probability): 70% benefit realization, 6-month delay
+- **Base case** (50% probability): 100% benefit realization, on-time
+- **Upside** (20% probability): 120% benefit realization, early wins
 
-**OpEx (Operating Expense) — Ongoing costs**
-- Software subscriptions (annual or monthly)
-- Hosting/cloud fees
-- Support and maintenance contracts (typically 15-20% of license cost annually)
-- Staffing (headcount or contractors)
-- Ongoing training and change management
+**Sensitivity testing**: Vary key assumptions ±20% and show NPV impact. Identify which assumption the case is most sensitive to — that's where to focus risk mitigation.
 
-**Direct vs. Indirect Costs**
-- Direct: Costs directly attributable (e.g., software license for this project)
-- Indirect: Shared costs (e.g., portion of IT operations team)
-- Allocation method: Transparent, defensible, consistent
+## Section 3 — Stakeholder-Specific Framing
 
-**One-time vs. Recurring**
-- One-time: Implementation, migration, training
-- Recurring: Support, licenses, hosting
-- Separate in financial model for clarity
+The same business case, framed differently for each audience:
 
-## Benefit Quantification
+| Stakeholder | Lead With | Emphasize | Language |
+|-------------|-----------|-----------|----------|
+| **CFO** | Financial returns | NPV, IRR, payback, TCO reduction | "Returns 18% IRR, above our 10% hurdle" |
+| **CIO** | Strategic value | Technical debt reduction, capability unlock, roadmap | "Unblocks real-time payments and reduces incidents 50%" |
+| **COO** | Operational efficiency | Process improvement, headcount, SLAs | "Eliminates 20 FTE manual processing, 99%+ uptime" |
+| **Board** | Strategic context | Market position, competitive advantage, growth | "Positions us for $X market opportunity" |
 
-### Hard Benefits (Easy to quantify and verify)
-- **Cost reduction**: Vendor consolidation saves $2M/year (verify with procurement)
-- **Revenue increase**: Faster payment clearing attracts $50M in new merchant volume @ 5% margin
-- **Headcount reduction**: Automation eliminates 20 FTE roles @ $150K loaded cost
-- **Asset sale**: Retiring 500 legacy servers generates $3M in hardware revenue
+## Section 4 — Cross-Plugin Integration
 
-**Quantification rigor**:
-- Unit economics method: Volume × unit impact
-- Benchmark method: Industry best-practice savings
-- Pilot method: Test on small segment, extrapolate
-- Always stress-test: What if we only achieve 60% of modeled benefit?
+### When Other Skills Enrich the Business Case
 
-### Soft Benefits (Real but harder to quantify; use conservative estimates)
-- **Risk reduction**: "Reduces regulatory audit findings by estimated 40%" → estimate annual audit cost savings
-- **Speed/agility**: "Faster deployment" → estimate time-to-market value or revenue impact
-- **Customer experience**: "Improves NPS by 10 points" → estimate customer lifetime value impact
-- **Employee engagement**: "Reduces manual work, improves job satisfaction" → estimate attrition reduction value
-- **Strategic optionality**: "Enables future product lines" → estimate as % of potential revenue
+| Business Case Element | Specialist to Invoke | What They Add |
+|----------------------|---------------------|---------------|
+| Cost allocation and taxonomy | tech-bm-specialist (finance plugin) | TBM-aligned cost structure, showback model |
+| Portfolio context | it-portfolio-management (finance plugin) | TIME model categorization, rationalization savings |
+| Technical feasibility | architecture-specialist (tech plugin) | Architecture validation, complexity assessment |
+| Strategic alignment | tech-strategy-advisory (tech plugin) | Framework alignment, transformation context |
+| Industry benchmarks | industry-benchmark-specialist (this plugin) | Peer cost comparisons, performance targets |
+| Supporting research | deep-search-specialist (this plugin) | Market data, vendor comparisons, trend evidence |
 
-**Conservative approach**: Quantify soft benefits at 50% of model (or 0% in conservative scenario)
+## Section 5 — Communication Protocol
 
-## Sensitivity Analysis & Scenario Planning
+### Opening (The So-What)
+State the investment recommendation and its expected return in 2-3 sentences. The decision-maker should know the ask, the return, and the urgency before reading anything else.
 
-### Sensitivity Analysis
-Test how NPV changes with variations in key assumptions:
-```
-BASE CASE NPV: $500K @ 10% discount rate
+### Body (The Evidence)
+Present the financial model, options analysis, and risk assessment. Each section directly supports the opening recommendation. Include sensitivity analysis to show robustness.
 
-If deployment timeline slips 6 months:
-- NPV = $350K (30% reduction due to delayed benefits)
-
-If benefit realization is only 80% of model:
-- NPV = $200K (60% reduction)
-
-If discount rate is 15% (not 10%):
-- NPV = $300K (40% reduction)
-
-If annual savings only reach 80% and timeline slips 6 months:
-- NPV = $100K (80% reduction; business case still positive)
-```
-
-### Scenario Planning
-Present three scenarios:
-
-| Scenario | Probability | NPV | IRR | Payback | Key Assumption |
-|----------|-------------|-----|-----|---------|-----------------|
-| **Conservative** | 30% | $150K | 8% | 4.2 years | 70% benefit realization, 6-month delay |
-| **Base Case** | 50% | $500K | 15% | 2.8 years | 100% benefit realization, on-time delivery |
-| **Upside** | 20% | $900K | 22% | 2.1 years | 120% benefit realization, early wins captured |
-| **Expected Value** | | $455K | 14.2% | 3.0 years | Probability-weighted average |
-
-## Risk Assessment & Mitigation
-
-### Risk Categories
-| Risk | Impact | Probability | Mitigation |
-|------|--------|-------------|-----------|
-| Execution delay | 6 months | Medium (40%) | Experienced vendor, fixed-price contract, weekly governance |
-| Benefit realization shortfall | 20% reduction | Medium (35%) | Pilot program, clear success metrics, incentive alignment |
-| Vendor viability | Total loss | Low (10%) | Escrow, source code access, support from established vendor |
-| Regulatory change | Investment becomes unnecessary | Low (15%) | Flexible architecture, modular approach, phased implementation |
-
-### Contingency Approach
-- Add 10-15% schedule contingency (embedded in timeline)
-- Create benefit realization reserve: Assume 80-90% success in base case
-- Reserve budget for risk items (typically 5-10% of total CapEx)
-
-## Common Technology Business Cases
-
-### Cloud Migration
-```
-INVESTMENT: $15M year 1 (implementation), $5M/year ongoing (lower than current $12M/year on-prem)
-BENEFITS:
-- Data center exit: $3M/year OpEx reduction
-- License optimization: $2M/year (move to consumption-based)
-- Headcount reduction: 12 FTE @ $150K = $1.8M/year
-- Improved uptime/disaster recovery: $500K/year risk reduction value
-- Total annual benefit: $7.3M
-
-FINANCIALS:
-- Year 1: -$15M investment + $3.7M benefit = -$11.3M
-- Years 2-5: $7.3M annual benefit
-- Payback period: 1.9 years
-- 5-year NPV @ 10%: $18.2M
-- IRR: 32%
-```
-
-### Platform Modernization
-```
-INVESTMENT: $8M over 2 years (refactor legacy monolith to microservices)
-BENEFITS:
-- Faster feature delivery: 8 weeks → 2 weeks per feature (estimate $1M/year value in competitive advantage)
-- Reduced production incidents: 50% reduction in failures (estimate $500K/year risk value)
-- Improved customer experience: Enable real-time payments (attract $100M in volume @ 2% margin = $2M annual)
-- Better scalability: Support 5x growth without infrastructure overhaul (enable future growth)
-- Headcount reduction: 5 FTE freed for innovation (estimate $750K/year)
-- Total quantified benefit: $4.25M/year
-
-FINANCIALS:
-- 2-year investment: $8M
-- Annual benefit year 3+: $4.25M
-- Payback period: 2.4 years (assumes half benefit in year 2)
-- 5-year NPV @ 10%: $8.4M
-- IRR: 18%
-```
-
-### Vendor Consolidation
-```
-INVESTMENT: $3M (data migration, integration, training)
-BENEFITS:
-- License savings: Reduce from 4 vendors to 1; negotiate 30% discount on consolidated volume = $2M/year
-- Reduced integration overhead: 2 FTE saved = $300K/year
-- Improved vendor relationship: Faster support, better roadmap alignment = $200K/year (estimated)
-- Total annual benefit: $2.5M/year
-
-FINANCIALS:
-- One-time investment: $3M year 1
-- Annual benefit year 2+: $2.5M
-- Payback period: 1.4 years (conservatively assume 50% benefit in year 1)
-- 3-year NPV @ 10%: $4.8M
-- IRR: 45%
-```
-
-## Stakeholder-Specific Framing
-
-**For the CFO**: Lead with financial returns
-- "This investment delivers 32% IRR with 1.9-year payback, well above our 10% cost of capital hurdle rate"
-- Show TCO reduction: "Reduces annual OpEx from $12M to $5M over 3 years"
-- Include conservative and upside scenarios
-
-**For the CIO**: Lead with strategic value
-- "Modernizes our payment platform, reducing technical debt and enabling real-time payments capabilities"
-- Show roadmap impact: "Unblocks ability to launch X, Y, Z in 2026"
-- Include risk mitigation: "Reduces security exposure and operational incidents"
-
-**For the COO**: Lead with operational efficiency
-- "Eliminates 20 FTE of manual processing, improves transaction success rate from 96% to 99%"
-- Show customer impact: "Reduces payment settlement time from 2 days to real-time"
-- Include resilience: "Disaster recovery improves from 8-hour RPO to 1-hour"
-
-**For the Board**: Lead with strategic context
-- "Closes competitive gap vs. peers and enables next-generation payment capabilities"
-- Show market opportunity: "Positions LATAM for $X market expansion"
-- Include track record: "Vendor has successfully deployed at JPM in North America; benefits realized exceeded targets"
+### Conclusion (Insight & Action)
+Beyond the numbers: What strategic capability does this investment unlock? What is the cost of waiting? Provide specific approval steps, governance structure, and first 90-day actions.
 
 ## Output Patterns
 
-### 1-Page Executive Brief
-- Recommendation and investment amount
-- Strategic rationale (2 sentences)
-- Financial summary: NPV, IRR, payback, conservative/base/upside scenarios
-- Key risks and mitigation
-- Approval checklist and decision date
+### Business Case Executive Brief
 
-### Full Business Case Document (8-12 pages)
-1. Executive summary
-2. Strategic context and current state
-3. Problem statement and cost of inaction
-4. Options analysis (3-4 options)
-5. Recommended approach detail
-6. Financial model and projections
-7. Risk assessment and mitigation
-8. Implementation roadmap and governance
-9. Appendix: Detailed assumptions, benchmark data, vendor responses
+```
+═══════════════════════════════════════════════════════
+INVESTMENT RECOMMENDATION: [Title]
+═══════════════════════════════════════════════════════
 
-### Financial Model (Excel/Spreadsheet)
-- Assumptions tab (centralized, easy to adjust)
-- Year-by-year detail: CapEx, OpEx, benefits, net cash flow
-- NPV/IRR calculation (automated)
-- Scenario tabs (conservative, base, upside)
-- Sensitivity analysis (data table or charts)
+RECOMMENDATION: [Approve/Reject] investment of $[X]M over [Y] years
+Expected return: NPV $[X]M | IRR [X]% | Payback [X] years
+
+STRATEGIC RATIONALE: [2 sentences on why this matters strategically]
+URGENCY: [Why now — regulatory, competitive, operational driver]
+
+───────────────────────────────────────────────────────
+FINANCIAL SUMMARY
+───────────────────────────────────────────────────────
+| Scenario | NPV | IRR | Payback | Probability |
+|----------|-----|-----|---------|-------------|
+| Conservative | $[X]M | [X]% | [X]yr | 30% |
+| Base Case | $[X]M | [X]% | [X]yr | 50% |
+| Upside | $[X]M | [X]% | [X]yr | 20% |
+| Expected Value | $[X]M | [X]% | [X]yr | |
+
+───────────────────────────────────────────────────────
+OPTIONS COMPARISON
+───────────────────────────────────────────────────────
+| Option | Investment | 3yr Benefit | NPV | Risk |
+|--------|-----------|------------|-----|------|
+| A: [Minimum] | $[X]M | $[X]M | $[X]M | [Level] |
+| B: [Balanced] ★ | $[X]M | $[X]M | $[X]M | [Level] |
+| C: [Comprehensive] | $[X]M | $[X]M | $[X]M | [Level] |
+
+★ Recommended
+
+───────────────────────────────────────────────────────
+KEY RISKS & MITIGATION
+───────────────────────────────────────────────────────
+1. [Risk] → [Mitigation] | Impact on NPV if realized: [X]%
+2. [Risk] → [Mitigation] | Impact on NPV if realized: [X]%
+
+───────────────────────────────────────────────────────
+STRATEGIC INSIGHT
+───────────────────────────────────────────────────────
+[What capability this unlocks beyond the immediate ROI]
+Cost of waiting: [$X per quarter in lost value or increased cost]
+
+NEXT STEPS:
+1. [Approval action] → [Who] | [When]
+2. [First implementation step] → [Who] | [When]
+═══════════════════════════════════════════════════════
+```
+
+### Scenario Comparison Summary
+
+```
+SCENARIO COMPARISON: [Investment Title]
+
+| Element | Conservative (30%) | Base Case (50%) | Upside (20%) |
+|---------|-------------------|-----------------|--------------|
+| Benefit realization | [X]% of model | 100% of model | [X]% of model |
+| Timeline | +[X] months | On schedule | -[X] months |
+| NPV | $[X]M | $[X]M | $[X]M |
+| IRR | [X]% | [X]% | [X]% |
+| Payback | [X] years | [X] years | [X] years |
+
+Expected Value (probability-weighted): NPV $[X]M | IRR [X]%
+
+SENSITIVITY: NPV is most sensitive to [assumption]. A ±20% change in [variable] moves NPV by ±$[X]M.
+
+BREAK-EVEN: The case remains NPV-positive if benefit realization stays above [X]% and timeline slips by no more than [X] months.
+
+KEY RISK: [The single biggest risk and its mitigation]
+```
 
 ## Quality Checks
 
-- [ ] Is my recommendation clear and justified by the financials?
-- [ ] Have I stress-tested the model against ±20% variance in key assumptions?
-- [ ] Are hard vs. soft benefits clearly separated?
-- [ ] Have I identified and mitigated the top 3-4 risks?
-- [ ] Would a CFO challenge my numbers? Have I defended each major assumption?
-- [ ] Is the payback period realistic for this investment type?
-- [ ] Have I compared this business case to benchmarks for similar investments?
-- [ ] Is the implementation roadmap actually achievable in the stated timeline?
+- [ ] Is the recommendation clear, specific, and justified by the financials?
+- [ ] Are hard and soft benefits clearly separated?
+- [ ] Have I stress-tested with ±20% variance on key assumptions?
+- [ ] Are all three scenarios (conservative, base, upside) presented?
+- [ ] Could a CFO challenge my numbers? Have I defended each major assumption?
+- [ ] Is the cost of inaction quantified (not just mentioned)?
+- [ ] Is the framing appropriate for the primary stakeholder audience?
+- [ ] Does the conclusion provide strategic insight beyond the financial return?
+
+---
+
+**Confidence Calibration**: High confidence for business case structure and financial modeling methodology. Medium confidence for specific financial projections — these depend on input data quality. Recommend invoking tech-bm-specialist for cost allocation precision and industry-benchmark-specialist for peer comparison validation.
+
+**Triggers**: Activate when user needs investment justification, financial analysis, or business case construction. Also activated internally by other commands when analysis leads to investment recommendations.

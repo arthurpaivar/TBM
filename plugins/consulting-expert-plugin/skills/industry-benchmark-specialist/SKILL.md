@@ -5,217 +5,265 @@ description: >
   "industry average", "best practice", "peer comparison", "maturity model",
   "Gartner", "Forrester", "McKinsey benchmark", "industry standard", "KPI targets",
   "performance comparison", "how do we compare", "what's the standard",
+  "DORA metrics", "competitive position", "gap analysis", "market position",
+  "best in class", "industry leaders", "performance gap", "benchmark report",
   or needs help finding, interpreting, and applying industry benchmarks.
+  Also used internally by commands that need benchmark data as a building block.
   Use whenever the user wants to compare performance against external standards.
-version: 1.0.0
+version: 2.0.0
 ---
 
-# Skill 4.3 — Industry Benchmark Specialist
+# Skill — Industry Benchmark Specialist
 
-**Expert in finding, interpreting, and applying industry benchmarks.** This skill helps contextualize JP Morgan LATAM's technology performance against peer and best-practice standards, identify performance gaps, and justify investments or improvement initiatives.
+**Expert in finding, interpreting, and applying industry benchmarks from authoritative sources (Gartner, Forrester, McKinsey, IDC, TBM Council, DORA).** This skill contextualizes technology performance against peer and best-practice standards, identifies gaps, quantifies improvement potential, and produces benchmark reports that withstand executive scrutiny. It serves as the benchmarking engine that commands orchestrate, and its findings can be enriched by domain specialists from technology-expert-plugin for technical context and finance-expert-plugin for financial benchmarking depth.
 
-**Trigger keywords**: benchmark, benchmarking, industry average, best practice, peer comparison, maturity model, Gartner, Forrester, McKinsey, KPI targets, performance comparison, how do we compare, competitive position.
+**Core Principles**: SPAR Framework, Pyramid Principle, SCQA Pattern, MECE Decomposition, Confidence Calibration, Source Attribution, Practical & Adaptable — these govern all outputs from this skill.
 
-## Core Principles
+**Trigger keywords**: benchmark, benchmarking, industry average, best practice, peer comparison, maturity model, Gartner, Forrester, McKinsey, KPI targets, performance comparison, how do we compare, competitive position, DORA metrics, gap analysis, best in class, industry leaders, benchmark report.
 
-These principles govern all outputs from this skill:
+## Section 1 — Benchmark Design
 
-- **SPAR Framework**: Follow Sense → Plan → Act → React for every task. Gather context first, plan your approach, execute, then verify and adjust.
-- **Pyramid Principle (Barbara Minto)**: Lead with the answer. Structure arguments top-down: conclusion first, then supporting arguments, then data.
-- **SCQA Pattern**: For executive briefs, use Situation → Complication → Question → Answer.
-- **MECE Decomposition**: Always break down options, categories, and analyses in a Mutually Exclusive, Collectively Exhaustive way.
-- **Confidence Calibration**: Explicitly state your confidence level. Escalate when uncertain rather than guessing.
-- **Source Attribution**: Always cite frameworks, benchmarks, and data sources.
-- **Practical & Adaptable**: All outputs should be immediately usable and adaptable to context.
+### 1.1 — Metric Definition
 
-## Benchmarking Methodology
+Before searching for benchmarks, define precisely what to measure:
 
-### 1. Identify Metrics (Sense Phase)
-- **What to measure**: Define the KPI precisely (not just "costs" but "cost per transaction" or "infrastructure cost as % revenue")
-- **Performance tiers**: Best-in-class, good, average, below-average
-- **Time period**: Annual? Quarterly? Rolling 12-month?
+1. **Metric specificity**: Not "costs" but "cost per transaction for card payments" or "IT spend as % of revenue for payments operations"
+2. **Unit of measure**: Currency, percentage, ratio, count, time — be explicit
+3. **Time period**: Annual, quarterly, rolling 12-month, point-in-time
+4. **Performance tiers**: Define what "good" means — best-in-class, upper quartile, median, lower quartile
+5. **Normalization needs**: What factors require adjustment? (scale, geography, business model, maturity)
 
-### 2. Find Peer Group (Plan Phase)
-- **Internal benchmarks**: Compare across JP Morgan regions, business units
-- **Competitive benchmarks**: Direct competitors (other large banks)
-- **Functional benchmarks**: Best performers in non-competing companies
-- **Generic benchmarks**: Industry-wide standards (e.g., Gartner Magic Quadrant, analyst rankings)
+### 1.2 — Peer Group Design
 
-### 3. Collect & Normalize (Act Phase)
-- **Source the data**: Company reports, analyst surveys, industry associations
-- **Normalize differences**: Account for geography, scale, business model, maturity
-- **Document assumptions**: Why are these peers comparable?
+The peer group determines whether the comparison is meaningful:
 
-### 4. Compare & Interpret (React Phase)
-- **Gap analysis**: Where do we stand relative to peers and best-in-class?
-- **Context assessment**: Are differences due to strategy, capability, or data quality?
-- **Actionability**: What would it take to close significant gaps?
+**Concentric peer groups** (from closest to broadest):
+- **Ring 1 — Direct peers**: Same industry, similar scale, same geography
+- **Ring 2 — Industry peers**: Same industry, different scale or geography
+- **Ring 3 — Functional peers**: Different industry, similar function (e.g., payment processing across industries)
+- **Ring 4 — Aspirational peers**: Best-in-class performers regardless of industry
 
-## Types of Benchmarks
+**Selection criteria for each peer**:
+- Why is this a valid comparison point?
+- What material differences exist that require normalization?
+- Is the data source comparable (same methodology, same time period)?
 
-| Type | Example | Use Case |
-|------|---------|----------|
-| **Internal** | JPM LATAM vs. JPM North America | Identify regional performance drivers |
-| **Competitive** | JPM vs. Santander vs. BBVA | Competitive positioning |
-| **Functional** | JPM Payments vs. Amazon AWS costs | Best practice, regardless of industry |
-| **Generic** | Gartner IT Maturity Model | Industry standards and expectations |
+### 1.3 — Source Strategy
 
-## Key Technology Benchmark Sources
+**Tier 1 — Authoritative benchmark sources** (always search first):
+- **Gartner**: IT Key Metrics Data, Magic Quadrants, Critical Capabilities, Peer Insights
+- **Forrester**: Wave reports, TEI studies, benchmark surveys
+- **McKinsey**: Digital Quotient, Technology trends, industry benchmarks
+- **BCG**: Technology advantage, digital maturity assessments
+- **IDC**: MarketScape, market sizing, technology forecasts
+- **TBM Council**: Technology Business Management metrics, taxonomy benchmarks
+- **DORA**: State of DevOps reports (deployment frequency, lead time, MTTR, change failure rate)
 
-### Research Firms
-- **Gartner**: Magic Quadrants, Critical Capabilities, Peer Insights, IT Key Metrics
-- **Forrester**: Wave reports, Technology and Professional Services surveys
-- **McKinsey Digital**: Technology reports, benchmarking studies (often paywalled)
-- **IDC**: Market sizing, technology forecasts
-- **Ovum/Omdia**: Technology trends, vendor assessments
+**Tier 2 — Industry-specific sources**:
+- Financial services: Oliver Wyman, Celent, Aite-Novarica
+- Technology: Thoughtworks Technology Radar, CNCF surveys
+- Operations: FinOps Foundation benchmarks, SRE surveys
+- Regional: Local regulatory bodies, industry associations
 
-### Industry Associations
-- **FinOps Foundation**: Cloud cost optimization benchmarks
-- **TBM Council**: Technology Business Management metrics and maturity models
-- **SWIFT**: Payment volume and standardization metrics
-- **FedACH**: ACH payment volume and performance data
-- **Regional regulators**: Payment system data (Brazil's Banco Central, Banco de México, etc.)
+**Tier 3 — Public data sources**:
+- Company annual reports and investor presentations
+- Regulatory filings and compliance data
+- Open benchmarks and industry surveys
 
-### Open Benchmarks
-- **DORA Metrics** (DevOps Research and Assessment):
-  - Deployment frequency
-  - Lead time for changes
-  - Mean time to recovery (MTTR)
-  - Change failure rate
-  - Performance tiers defined (Elite, High, Medium, Low)
+## Section 2 — Benchmark Collection & Analysis
 
-## Common Technology Benchmarks for Payments
+### 2.1 — Data Collection
 
-### IT Spend & Investment
-- **IT spend as % of revenue**: Financial services typically 6-8% (all business), 10-15% for payment-intensive operations
-- **Run/Grow/Transform ratio**: Typical 70-80% run / 15-20% grow / 5-10% transform
-- **Cost per transaction**: Varies by payment type (ACH: $0.50-2.00, Card: $0.10-0.30, Wire: $5-15)
+For each benchmark found, capture:
+- **Metric name and definition**: Exactly how the source defines this metric
+- **Value**: The benchmark number (median, mean, percentile ranges)
+- **Source**: Publication name, author, date, methodology
+- **Sample**: How many organizations? What types? What geography?
+- **Recency**: Publication date — is this still valid for current analysis?
+- **Methodology**: How was data collected? Self-reported? Audited?
 
-### Operational Metrics
-- **Platform uptime**: Payment systems 99.95%-99.99%+
-- **Transaction processing latency**: Real-time payments <5 seconds, batch <4 hours
-- **First-pass settlement success rate**: 98%+ for mature payment flows
-- **Integration time**: Vendor onboarding 4-12 weeks (depending on complexity)
+### 2.2 — Normalization
 
-### Technology Maturity
-- **Cloud adoption**: Legacy banks 10-20%, leading banks 40-60% of workloads
-- **API maturity**: Gartner API Management Maturity Model (Ad hoc → Managed → Optimized)
-- **Application modernization**: Monolith → SOA/Microservices → API-first (timeline varies by organization)
-- **Data infrastructure**: Data warehouse → Data lake → Data mesh (emerging)
+Raw benchmarks are rarely directly comparable. Normalize for:
 
-### Developer Productivity (DORA Metrics by Tier)
-| Metric | Elite | High | Medium | Low |
-|--------|-------|------|--------|-----|
-| **Deployment Frequency** | On-demand (multiple/day) | 1/week-1/month | 1/month-1/quarter | Quarterly+ |
-| **Lead Time for Changes** | <1 hour | <1 day | 1-6 months | >6 months |
-| **MTTR** | <1 hour | <1 hour | 1-6 hours | >6 hours |
-| **Change Failure Rate** | 0-15% | 0-15% | 15-45% | 45%+ |
+| Factor | How to Normalize |
+|--------|-----------------|
+| **Scale** | Use per-unit metrics (cost per transaction, cost per employee) rather than absolutes |
+| **Geography** | Adjust for purchasing power, regulatory burden, labor costs |
+| **Business model** | Compare like-for-like (acquiring bank vs. acquiring bank, not vs. issuer) |
+| **Maturity** | A startup's metrics aren't comparable to a 50-year-old institution |
+| **Scope** | Ensure both sides measure the same scope (full IT vs. just payments) |
 
-### Security & Compliance
-- **Vulnerability disclosure timeline**: Best practice <30 days, industry average 60-90 days
-- **Penetration testing frequency**: Annual minimum, quarterly recommended for critical systems
-- **Access reviews**: Quarterly for privileged access, semi-annual for general users
-- **Data retention compliance**: Varies by regulation (Brazil LGPD, Mexico GDPR-like)
+### 2.3 — Gap Analysis
 
-## Benchmark Interpretation: Context Matters
+For each benchmarked metric:
 
-**Why direct comparison can mislead**:
-- **Scale**: JPM's transaction volume 100x+ larger than regional competitor; different efficiency dynamics
-- **Geography**: Brazil's payment infrastructure more mature than Argentina or Venezuela; different cost/complexity
-- **Business model**: Acquiring bank vs. issuer vs. network operator; different operating expense structures
-- **Regulatory burden**: Compliance costs vary by geography and license type
-- **Technology maturity**: Greenfield build vs. legacy integration; different timelines
-
-### Normalization Approach
-When comparing to benchmark:
-1. Identify the key difference (e.g., scale, geography, regulatory)
-2. Adjust benchmark mathematically if possible (e.g., cost per transaction)
-3. Document assumptions transparently
-4. State confidence level: "This comparison is directionally valid but likely understates JP Morgan's cost pressure due to regulatory compliance requirements in LATAM"
-
-## Benchmark Application Patterns
-
-### Radar Charts
-Plot JP Morgan position vs. peers on 4-6 dimensions (cost, speed, maturity, reliability, security, scalability). Visual gap identification.
-
-### Gap Analysis Report
 ```
-METRIC: Cost per transaction
-PEER BENCHMARK: $0.85 (median), $0.65 (best-in-class)
-JPM LATAM CURRENT: $1.20
-GAP: -$0.35 per transaction (40% above peer median)
-
-CONTEXT:
-- High regulatory compliance costs
-- Lower transaction volume per institution
-- Legacy system integration premium
-
-IMPROVEMENT PATHWAY:
-- Consolidate payment flows (est. $0.10/txn improvement)
-- Cloud migration of batch processing (est. $0.15/txn improvement)
-- Negotiate better interchange rates (est. $0.05/txn improvement)
-TOTAL POTENTIAL: $0.30/txn, reducing gap to $0.05 (industry-competitive)
+Metric: [Name]
+Current performance: [Value]
+Peer median: [Value] | Best-in-class: [Value]
+Gap to median: [Value and %] | Gap to best: [Value and %]
+Context: [Why this gap exists — structural, strategic, or capability]
+Actionability: [Can we close this gap? At what cost? In what timeframe?]
 ```
 
-### Maturity Curve Visualization
-Plot benchmark maturity model (1-5) with current state marker and roadmap showing target maturity by year.
+### 2.4 — Cross-Plugin Enrichment
 
-### Competitive Positioning Summary
-- Where we're leading (and why we should defend/invest)
-- Where we're at parity (focus on differentiation)
-- Where we're behind (whether important for strategy)
+When benchmark analysis requires domain depth, invoke specialists as subagents:
 
-## Common Benchmarking Pitfalls
+| Benchmark Domain | Specialist to Invoke | What They Add |
+|-----------------|---------------------|---------------|
+| Architecture & system performance | architecture-specialist (tech plugin) | Technical root cause for performance gaps, pattern comparison |
+| Strategic technology metrics | tech-strategy-advisory (tech plugin) | Framework context, transformation maturity interpretation |
+| AI/ML capability benchmarks | ai-specialist (tech plugin) | AI maturity assessment, capability comparison |
+| DORA & delivery metrics | tech-delivery-specialist (tech plugin) | CI/CD maturity context, pipeline benchmarking |
+| Agile & velocity metrics | agile-specialist (tech plugin) | Sprint velocity interpretation, SAFe metrics |
+| IT cost & spend benchmarks | tech-bm-specialist (finance plugin) | TBM taxonomy alignment, cost allocation context |
+| Portfolio health metrics | it-portfolio-management (finance plugin) | TIME model context, rationalization benchmarks |
+| Financial model validation | business-case-specialist (this plugin) | ROI benchmarks, investment threshold comparison |
 
-**Apples-to-Oranges Comparison**
-- Problem: Comparing JPM's global payment volume to smaller regional player
-- Solution: Adjust for scale, or find peer at similar scale
+**Orchestration pattern**:
+1. Identify which benchmarks require domain interpretation beyond raw numbers
+2. For each domain area → invoke the relevant specialist as a subagent via Task tool
+3. Specialist returns domain-enriched interpretation → integrate into gap analysis
+4. Result: Benchmarks that explain why gaps exist, not just that they exist
 
-**Survivorship Bias**
-- Problem: Only benchmarking against companies still in business (failed ones omitted)
-- Solution: Acknowledge data represents "successful" operators
+## Section 3 — Benchmark Interpretation
 
-**Outdated Benchmarks**
-- Problem: Using 2-year-old analyst report in fast-moving market (cloud, real-time payments)
-- Solution: Use most recent data available; note publication date
+### 3.1 — Avoiding Common Pitfalls
 
-**Data Aggregation**
-- Problem: "Average spend on cloud" masks that some orgs spend nothing, others 100% of budget
-- Solution: Request percentile breakdown, not just mean/median
+**Apples-to-oranges**: Different scale, geography, or business model makes comparison misleading. Always normalize.
 
-**Selection Bias**
-- Problem: Survey respondents aren't random; high-performers more likely to participate
-- Solution: Acknowledge survey limitations; validate with alternative sources
+**Survivorship bias**: Published benchmarks represent organizations that reported — often the more mature ones. Adjust expectations.
 
-## Benchmark Presentation Patterns
+**Outdated data**: Technology benchmarks can become stale within 12-18 months. Always check publication date.
 
-### Executive Brief
+**Aggregation masking**: "Average IT spend of 7%" masks that some organizations spend 3% and others 15%. Request distribution data.
+
+**Selection bias**: Vendor-sponsored benchmarks may oversample their customers. Note sponsorship.
+
+**Cherry-picking**: Using only benchmarks that support a predetermined narrative. Present the full picture.
+
+### 3.2 — Contextual Interpretation Framework
+
+For every significant gap, answer:
+1. **Is this gap structural?** (Inherent to our operating context — hard to change)
+2. **Is this gap strategic?** (A conscious choice we made — may be intentional)
+3. **Is this gap capability-driven?** (Something we could improve with investment)
+4. **Is this gap data quality?** (Are we even measuring the same thing?)
+
+Only capability-driven gaps are improvement opportunities. Present all four categories honestly.
+
+## Section 4 — Communication Protocol
+
+### Opening (The So-What)
+Lead with the benchmark verdict. Where do we stand? State the most significant finding — the gap or the strength — and its implication in 2-3 sentences. The executive should know the competitive position before seeing any data.
+
+### Body (The Evidence)
+Present benchmark comparisons organized by significance (biggest gaps first). Each comparison includes the metric, current vs. peer performance, gap quantification, contextual explanation, and improvement potential. Sources are cited inline with credibility indicators.
+
+### Conclusion (Insight & Action)
+Synthesize across all benchmarks: What is the overall competitive position? Where are the genuine improvement opportunities vs. structural differences? Provide specific improvement pathways with estimated cost and timeline for closing priority gaps. Recommend monitoring cadence for ongoing benchmarking.
+
+## Output Patterns
+
+### Benchmark Report
+
 ```
-COMPETITIVE POSITION: Below peer median on cost per transaction
+═══════════════════════════════════════════════════════
+BENCHMARK REPORT: [Topic/Domain]
+═══════════════════════════════════════════════════════
+
+COMPETITIVE POSITION
+[2-3 sentence verdict — where we stand and what it means]
+
+Peer group: [Definition] | Sources: [Count] | Data recency: [Range]
+
+───────────────────────────────────────────────────────
+BENCHMARK COMPARISON
+───────────────────────────────────────────────────────
+
+METRIC 1: [Name]
+Current: [Value] | Peer Median: [Value] | Best-in-Class: [Value]
+Gap: [Value and %] | Assessment: [Leading / At Parity / Behind]
+Source: [Publication, Author, Date] (★★★★)
+Context: [Why this gap exists]
+Improvement potential: [Realistic target, estimated effort]
+
+METRIC 2: [Name]
+...
+
+───────────────────────────────────────────────────────
+GAP ANALYSIS SUMMARY
+───────────────────────────────────────────────────────
+
+| Metric | Current | Median | Gap | Type | Priority |
+|--------|---------|--------|-----|------|----------|
+| [name] | [val] | [val] | [val] | [Capability/Structural/Strategic] | [High/Med/Low] |
+| ... | ... | ... | ... | ... | ... |
+
+───────────────────────────────────────────────────────
+IMPROVEMENT ROADMAP
+───────────────────────────────────────────────────────
+
+Priority 1: [Metric] — Close gap from [current] to [target]
+• Action: [Specific initiative]
+• Estimated effort: [Cost / timeline]
+• Expected impact: [Improvement amount]
+
+Priority 2: [Metric]
+...
+
+───────────────────────────────────────────────────────
+SOURCES & METHODOLOGY
+───────────────────────────────────────────────────────
+1. [Full citation with credibility rating]
+2. ...
+
+Normalization notes: [How data was adjusted for comparability]
+Limitations: [What this benchmark doesn't capture]
+
+───────────────────────────────────────────────────────
+STRATEGIC INSIGHT
+───────────────────────────────────────────────────────
+[Pattern across benchmarks — what the data collectively reveals]
+
+Monitoring cadence: [How often to refresh these benchmarks]
+Next benchmark cycle: [Suggested date and focus]
+═══════════════════════════════════════════════════════
+```
+
+### Benchmark Executive Brief
+
+```
+BENCHMARK BRIEF: [Topic]
+
+POSITION: [Leading / At Parity / Behind] on [metric area]
+
 KEY FINDINGS:
-- JP Morgan LATAM: $1.20/txn vs. peer median $0.85/txn (40% premium)
-- Root causes: legacy integration costs, low volume per institution, regulatory burden
-- Improvement potential: $0.30/txn realistic over 3 years
+• [Metric]: [Current] vs. [Peer median] — [Gap %] [above/below]
+• [Metric]: [Current] vs. [Peer median] — [Gap %] [above/below]
+• [Metric]: [Current] vs. [Peer median] — [Gap %] [above/below]
 
-RECOMMENDATION:
-Pursue cost reduction roadmap focused on platform consolidation and cloud migration.
-Progress will likely reach peer median by 2027.
+TOP INSIGHT: [The single most important finding and its implication]
+
+RECOMMENDATION: [What to do about the findings]
+SOURCE: [Primary benchmark source with date]
 ```
-
-### Detailed Benchmark Report
-- Benchmark source and methodology
-- Peer group definition and rationale
-- Detailed metric comparisons (current year, trend over 3 years)
-- Gap analysis for each key metric
-- Contextual explanation for significant deviations
-- Improvement roadmap and potential
-- Risks and mitigation
 
 ## Quality Checks
 
-- [ ] Is the benchmark recent and from a credible source?
-- [ ] Have I adjusted for material differences in scale, geography, or business model?
-- [ ] Have I stated assumptions and confidence levels explicitly?
-- [ ] Could someone else reasonably reach a different conclusion from the same data?
-- [ ] Have I avoided cherry-picking benchmarks that support a predetermined view?
-- [ ] Does the benchmark actually measure what we care about (outcome, not just activity)?
+- [ ] Are benchmark sources from Tier 1 or Tier 2 (authoritative, not promotional)?
+- [ ] Have I normalized for material differences (scale, geography, model)?
+- [ ] Is the peer group defensible (not cherry-picked to support a narrative)?
+- [ ] Are gaps categorized by type (structural, strategic, capability, data)?
+- [ ] Does the opening state the competitive position before showing data?
+- [ ] Are improvement pathways realistic and specific (not generic "improve metrics")?
+- [ ] Have I stated data recency and methodology limitations?
+- [ ] Would this report change a decision or just confirm what everyone already knows?
+
+---
+
+**Confidence Calibration**: High confidence for benchmark methodology and interpretation frameworks. Medium confidence for specific benchmark values — these depend on source recency and availability. Recommend invoking domain specialists for technical context on performance gaps.
+
+**Triggers**: Activate when user needs benchmark comparison, competitive positioning, performance gap analysis, or KPI target setting. Also activated internally by the find-benchmark command as the benchmarking engine.

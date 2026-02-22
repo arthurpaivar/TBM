@@ -6,6 +6,7 @@ description: >
   "update GitHub", "create in GitHub", "remove from GitHub",
   "vault sync", "Obsidian sync", "backup plugins",
   "git clone", "git push", "GitHub token",
+  "sync plugins", "push changes", "version backup",
   or needs help managing, syncing, or maintaining the TBM repository.
   Use whenever the user wants to create, update, or remove plugins, skills,
   or commands in the GitHub repository.
@@ -14,33 +15,28 @@ version: 2.0.0
 
 # Skill — GitHub Repository Specialist
 
-**Expert in managing the Tech BM Second Brain GitHub repository.** This skill provides comprehensive understanding of the TBM repository structure, element types (plugins, skills, commands), sync workflows between Claude/Cowork → GitHub → Obsidian, and the technical constraints of the Cowork VM environment.
+**Expert in managing the Tech BM Second Brain GitHub repository.** This skill provides comprehensive understanding of the TBM repository structure, element types (plugins, skills, commands), sync workflows between Claude/Cowork → GitHub → Obsidian, and the technical constraints of the Cowork VM environment. It serves as the knowledge base that the three GitHub commands (create, update, remove) orchestrate.
 
-**Trigger keywords**: GitHub, repository, repo, TBM, Tech BM Second Brain, sync, push, backup, vault sync, Obsidian sync, git clone, git push, GitHub token.
+**Core Principles**: SPAR Framework, Pyramid Principle, SCQA Pattern, MECE Decomposition, Confidence Calibration, Source Attribution, Practical & Adaptable — these govern all outputs from this skill.
 
-## Core Principles
+**Trigger keywords**: GitHub, repository, repo, TBM, Tech BM Second Brain, sync, push, backup, vault sync, Obsidian sync, git clone, git push, GitHub token, sync plugins, push changes, version backup.
 
-These principles govern all outputs from this skill:
+## Section 1 — The Tech BM Second Brain
 
-- **SPAR Framework**: Follow Sense → Plan → Act → React for every task. Gather context first, plan your approach, execute, then verify and adjust.
-- **Pyramid Principle (Barbara Minto)**: Lead with the answer. Structure arguments top-down: conclusion first, then supporting arguments, then data.
-- **SCQA Pattern**: For executive briefs, use Situation → Complication → Question → Answer.
-- **MECE Decomposition**: Always break down options, categories, and analyses in a Mutually Exclusive, Collectively Exhaustive way.
-- **Confidence Calibration**: Explicitly state your confidence level. Escalate when uncertain rather than guessing.
-- **Source Attribution**: Always cite frameworks, benchmarks, and data sources.
-- **Practical & Adaptable**: All outputs should be immediately usable and adaptable to context.
+### 1.1 — What It Is
 
-## The Tech BM Second Brain
-
-### What It Is
 The GitHub repository `arthurpaivar/TBM` is Arthur's **Tech BM Second Brain** — a versioned backup of all plugins, skills, and commands used in the Claude/Cowork environment. It is NOT a code repository. It stores only three types of elements.
 
-### The Three Element Types
-- **Plugin**: A full plugin directory containing `.claude-plugin/plugin.json`, `README.md`, `skills/`, and `commands/`
-- **Skill**: A `SKILL.md` file inside a plugin's `skills/[skill-name]/` directory
-- **Command**: A `.md` file inside a plugin's `commands/` directory
+### 1.2 — The Three Element Types
 
-### Repository Structure (GitHub — Nested by Plugin)
+| Element | What It Contains | Location in GitHub |
+|---------|-----------------|-------------------|
+| **Plugin** | `.claude-plugin/plugin.json`, `README.md`, `skills/`, `commands/` | `plugins/[plugin-name]/` |
+| **Skill** | `SKILL.md` file | `plugins/[plugin-name]/skills/[skill-name]/SKILL.md` |
+| **Command** | `.md` file | `plugins/[plugin-name]/commands/[command-name].md` |
+
+### 1.3 — Repository Structure (GitHub — Nested by Plugin)
+
 ```
 TBM/
 ├── README.md                          [Main vault architecture page]
@@ -65,7 +61,8 @@ TBM/
 └── ...
 ```
 
-### Obsidian Structure (Flat by Type)
+### 1.4 — Obsidian Structure (Flat by Type)
+
 ```
 Vault/
 ├── Plugin/
@@ -82,11 +79,11 @@ Vault/
     └── ...
 ```
 
-**Important**: GitHub nests everything under plugin directories. Obsidian organizes everything flat by element type. All skills from every plugin live together in `Skill/`, all commands in `Command/`, all plugins in `Plugin/`.
+**Critical distinction**: GitHub nests everything under plugin directories. Obsidian organizes everything flat by element type. All skills from every plugin live together in `Skill/`, all commands in `Command/`, all plugins in `Plugin/`.
 
-## GitHub Access Method
+## Section 2 — GitHub Access Method
 
-**CRITICAL — The Cowork VM has specific technical constraints.**
+**CRITICAL — The Cowork VM has specific technical constraints that must be respected.**
 
 The `gh` CLI is NOT installed. `api.github.com` is blocked by the VM proxy. Python `requests` to GitHub API, `curl` to GitHub API, and MCP fetch tools all fail.
 
@@ -106,32 +103,42 @@ If the repo is already cloned in the current session, start with `git pull` inst
 
 Arthur's GitHub Personal Access Token is required for every session. If not already known, **ask Arthur for it** before attempting any GitHub operation.
 
-### What NOT to Do
+### 2.1 — What NOT to Do
+
 - Do NOT run `gh` commands — the CLI is not installed
 - Do NOT use `curl` or `python requests` to `api.github.com` — it's proxy-blocked
 - Do NOT use MCP fetch tools with GitHub API URLs — they block tokens
 - Do NOT use WebFetch with `api.github.com` — it's blocked
 - Do NOT waste time trying alternative access methods — `git clone` with token is the answer
 
-## Sync Workflow
+## Section 3 — Sync Workflow
 
-### Direction
+### 3.1 — Direction
+
 The sync direction is always: **Claude/Cowork → GitHub → Obsidian**. Never the reverse.
 
-### Source of Truth
-- **Claude/Cowork**: Where Arthur works and makes changes during sessions
-- **GitHub**: The versioned backup and source of truth for all elements
-- **Obsidian**: The test environment that mirrors GitHub
+### 3.2 — Source of Truth
 
-### Authorized Modification
+| Environment | Role |
+|------------|------|
+| **Claude/Cowork** | Where Arthur works and makes changes during sessions |
+| **GitHub** | The versioned backup and source of truth for all elements |
+| **Obsidian** | The test environment that mirrors GitHub |
+
+### 3.3 — Authorized Modification
+
 The GitHub repository is updated ONLY through the three github-expert-plugin commands:
-- `/create-github-element` — for new elements
-- `/update-github-element` — for syncing changes (primary, most-used command)
-- `/remove-github-element` — for removing elements (requires double confirmation)
+
+| Command | Purpose | Usage |
+|---------|---------|-------|
+| `/create-github-element` | Add new elements | New plugins, skills, or commands |
+| `/update-github-element` | Sync changes | **Primary, most-used command** |
+| `/remove-github-element` | Remove elements | Requires double confirmation |
 
 No other process should modify GitHub.
 
-### The Main README.md
+### 3.4 — The Main README.md
+
 The `README.md` at the root of the repository is the front page of the Tech BM Second Brain. It must always reflect the current vault architecture. After every create, update, or remove operation, check if these sections need updating:
 
 1. **Repository Structure** — Plugin list, skill/command counts
@@ -142,63 +149,90 @@ The `README.md` at the root of the repository is the front page of the Tech BM S
 6. **Version History** — Plugin version entries
 7. **Last Updated** — Today's date
 
-## Validation Standards
+## Section 4 — Validation Standards
 
-### For Plugins
+### 4.1 — For Plugins
+
 - `plugin.json` has `name`, `version`, `description`, `author`
 - `README.md` describes the plugin's purpose, skills, and commands
 - Directory uses kebab-case naming
 
-### For Skills
-- Frontmatter has `name`, `description`, `version`
-- Content includes Core Principles, capability sections, output patterns, quality checks
-- Trigger keywords are specific and non-overlapping
+### 4.2 — For Skills
 
-### For Commands
+- Frontmatter has `name`, `description`, `version`
+- Content includes sections with domain methodology, output patterns, quality checks
+- Trigger keywords are specific and non-overlapping
+- Communication Protocol section present
+
+### 4.3 — For Commands
+
 - Frontmatter has `description`, `allowed-tools`, `argument-hint`
-- Process steps are clear and actionable (5-8 steps)
-- References the correct parent skill
+- Layered What/How/Why structure
+- References the correct parent skill(s)
 - No placeholders or TODOs remain
 
-### General
+### 4.4 — General
+
 - All naming follows kebab-case convention
 - Content is complete and production-ready
 - No software development references (PRs, issues, CI/CD) unless specifically relevant
-- Consistent with the plugin's overall structure and the other plugins in the vault
+- Consistent with the plugin's overall structure and other plugins in the vault
+
+## Section 5 — Communication Protocol
+
+### Opening (The Result)
+Lead with what happened: "Sync complete — [X] elements [created/updated/removed] in [plugin-name]." The reader should know the outcome before any details.
+
+### Body (The Details)
+Show what changed: file paths, version numbers, commit references, README updates. Keep it factual and scannable — a table or bullet list of changes, not a narrative.
+
+### Conclusion (The Verification)
+Confirm that all validation checks passed, Obsidian is synced, and the main README reflects the current state. Flag any anomalies.
 
 ## Output Patterns
 
 ### Sync Summary
+
 ```
+═══════════════════════════════════════════════════════
 SYNC COMPLETE: [scope]
+═══════════════════════════════════════════════════════
 
 CHANGES:
-- [Created/Updated/Removed]: [element type] — [name] in [plugin]
-- ...
+• [Created/Updated/Removed]: [element type] — [name] in [plugin]
+• ...
 
-GITHUB: Commit [hash] pushed to main
-README: [Updated / No changes needed]
-OBSIDIAN: [X] files synced to [Plugin/Skill/Command]
-
-VALIDATION: All checks passed
+───────────────────────────────────────────────────────
+DETAILS
+───────────────────────────────────────────────────────
+GitHub: Commit [hash] pushed to main
+README: [Updated sections / No changes needed]
+Obsidian: [X] files synced to [Plugin/Skill/Command]
+Validation: All checks passed
+═══════════════════════════════════════════════════════
 ```
 
 ### Element Inventory
+
 ```
+═══════════════════════════════════════════════════════
 CURRENT VAULT: X plugins, Y skills, Z commands
+═══════════════════════════════════════════════════════
 
 PLUGINS:
 1. [Plugin Name] — [skill count] skills, [command count] commands
 2. ...
 
+───────────────────────────────────────────────────────
 TOTAL: X plugins | Y skills | Z commands
+═══════════════════════════════════════════════════════
 ```
 
 ## Quality Checks
 
 - [ ] Have I used `git clone` with token (not `gh` CLI or API)?
 - [ ] Have I read the current GitHub state before making changes?
-- [ ] Have I validated all elements against the standards above?
+- [ ] Have I validated all elements against the standards in Section 4?
 - [ ] Have I updated the main README.md if counts or names changed?
 - [ ] Have I synced the Obsidian vault (flat by type, not nested)?
 - [ ] Is the sync direction correct (Claude/Cowork → GitHub → Obsidian)?

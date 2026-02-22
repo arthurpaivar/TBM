@@ -6,102 +6,77 @@ argument-hint: [element type and identifier — e.g., "command draft-email from 
 
 Remove an element from the GitHub Tech BM Second Brain repository for $ARGUMENTS using the github-repository-specialist skill.
 
-## Context
+**This command requires DOUBLE CONFIRMATION before any deletion. No exceptions.**
 
-The GitHub repository is Arthur's **Tech BM Second Brain** — a versioned backup of all plugins, skills, and commands used in the Claude/Cowork environment. It is NOT a code repository. It stores only three types of elements: **plugins**, **skills**, and **commands**.
+## Layer 1 — Knowledge Loading & Element Identification
 
-GitHub is updated ONLY through the three github-expert-plugin commands (`/create-github-element`, `/update-github-element`, `/remove-github-element`). No other process should modify GitHub.
+**What:** Load the skill and determine what is being removed.
+**How:**
+1. Read the github-repository-specialist skill from this plugin — it contains the repository structure, access method, validation standards, and sync workflow
+2. Parse $ARGUMENTS to identify:
+   - **Element type**: Plugin, skill, or command
+   - **Target plugin**: Which plugin contains the element
+   - **Element name**: The specific element to remove
 
-## GitHub Access Method
+**Why:** Removal is permanent in the working tree (though versioned in git history). Loading the skill ensures correct access method and understanding of cascading impacts.
 
-**CRITICAL — Read this before any GitHub operation.**
+## Layer 2 — Read Current State & Assess Impact
 
-The Cowork VM does NOT have the `gh` CLI installed and `api.github.com` is blocked by the VM proxy. Do NOT attempt `gh` commands, `curl`/`python requests` to `api.github.com`, or any GitHub REST API calls — they will all fail.
+**What:** Confirm the element exists and assess what will be affected.
+**How:**
+1. Clone the repo (or `git pull` if already cloned) following the access method in the skill
+2. If the token is not known, **ask Arthur for it** before proceeding
+3. Confirm the element exists in the repository
+4. Read the element content to show Arthur exactly what will be removed
+5. Assess cascading impact:
+   - For plugins: list ALL skills and commands inside it that will be removed
+   - For skills: check if any commands reference this skill
+   - For commands: check if any other commands or README reference it
 
-The ONLY working method is `git clone` with the token embedded in the URL:
+**Why:** Showing the full impact before confirmation prevents accidental data loss. A plugin removal cascades to every skill and command inside it.
 
-```bash
-git clone https://<TOKEN>@github.com/arthurpaivar/TBM.git /tmp/TBM
-```
+## Layer 3 — Double Confirmation
 
-Arthur's GitHub Personal Access Token is required. If not already known from the current session, **ask Arthur for it**. Once cloned, all read/write operations happen on the local `/tmp/TBM` clone. After making changes, commit and push:
+**What:** Get explicit confirmation from Arthur — twice.
+**How:**
 
-```bash
-cd /tmp/TBM && git add . && git commit -m "message" && git push
-```
+**First confirmation**: Present a clear summary:
+- Element type, name, and location
+- For plugins: list every skill and command that will be removed
+- File paths affected
+- Any downstream impact
 
-If the repo is already cloned in this session, do a `git pull` in `/tmp/TBM` before starting.
+Ask: "Are you sure you want to remove [element]? This will delete [details]."
 
-## Process
-
-### Step 1 — Identify What to Remove
-Determine the element type and exact location:
-- **Plugin**: An entire plugin directory (`.claude-plugin/`, `README.md`, `skills/`, `commands/`)
-- **Skill**: A specific `skills/[skill-name]/SKILL.md` inside a plugin
-- **Command**: A specific `commands/[command-name].md` inside a plugin
-
-### Step 2 — Read the Current State in GitHub
-From the local `/tmp/TBM` clone (clone or `git pull` first):
-- Confirm the element exists in the repository
-- Read the element content so you can show Arthur exactly what will be removed
-- For plugins: list all skills and commands that will be removed together
-
-### Step 3 — First Confirmation: Show What Will Be Removed
-Present to Arthur a clear summary of what will be deleted:
-- Element type, name, and location in the repository
-- For plugins: list every skill and command inside it
-- File paths that will be removed
-- Any downstream impact (e.g., commands that reference a skill being removed)
-
-**Ask Arthur to confirm: "Are you sure you want to remove [element]? This will delete [details]."**
-
-### Step 4 — Second Confirmation: Final Safety Check
-After Arthur confirms once, ask one final time:
+**Second confirmation**: After Arthur confirms once:
 - "Confirmed: I will permanently remove [element] from the GitHub repository. The Obsidian vault will also be updated. Proceed? (yes/no)"
 
-**Do NOT proceed unless Arthur explicitly says yes to both confirmations.**
+**Do NOT proceed unless Arthur explicitly says yes to BOTH confirmations.**
 
-### Step 5 — Remove from GitHub
-Delete the files from the local `/tmp/TBM` clone, then commit and push:
-- `git rm` the files to be removed
-- Commit with a clear message: `"Remove [type]: [name] from [plugin-name]"`
-- For plugins: also update the repository root if needed
-- For skills/commands: update the parent plugin's `README.md` to reflect the removal
-- `git push` to the main branch
+**Why:** Double confirmation is the safety gate. Removal is versioned in git (rollback possible), but the friction of double confirmation prevents hasty deletions.
 
-### Step 6 — Update the Repository Main README.md
-After removing the element, update the **main `README.md`** at the root of the repository (`arthurpaivar/TBM`). This file is the front page of the Tech BM Second Brain and must always reflect the current vault architecture.
+## Layer 4 — Remove from GitHub & Update README
 
-Read the current `README.md` and update these specific sections:
+**What:** Delete files, commit, push, and update the main README.
+**How:**
+1. `git rm` the files from `/tmp/TBM`
+2. If removing a skill or command: update the parent plugin's `README.md` to reflect the removal
+3. Commit with message: `"Remove [type]: [name] from [plugin-name]"` and `git push`
+4. Read the main `README.md` and update: Repository Structure counts, Plugin Suite Overview, Commands Reference, Example Interactions, Footer totals, Version History, Last Updated
+5. Commit and push the README update: `"Update README.md — remove [type]: [name]"`
 
-1. **"Repository Structure"** — Update the plugin list and the skill/command counts (e.g., `[5 skills + 3 commands]`). If a plugin was removed, delete its bullet. If a skill or command was removed, decrement the parent plugin's counts.
-2. **"Plugin Suite Overview"** — Under the relevant plugin heading (e.g., `### 1. Technology Expert Plugin`), remove the skill from the **Skills** list or the command from the **Commands** list. If removing an entire plugin, delete its full numbered subsection and renumber the remaining ones.
-3. **"Commands Reference"** — Update the total command count (e.g., `13 total commands`).
-4. **"Example Interactions"** — Remove any examples that reference the deleted command.
-5. **Footer totals** — Update `**Total Expertise:** X plugins, Y skills, Z commands` at the bottom.
-6. **"Version History"** — If the plugin version changed, update the version entry.
-7. **"Last Updated"** — Set to today's date.
+**Why:** Both the plugin README and the main repository README must be updated to reflect the removal. Stale references create confusion.
 
-Commit with a clear message: `"Update README.md — remove [type]: [name]"`
-Push to the main branch.
+## Layer 5 — Sync Obsidian & Deliver
 
-### Step 7 — Sync the Claude Vault (Obsidian)
-After successful GitHub removal, update the Obsidian vault to stay in sync.
+**What:** Remove from Obsidian vault and confirm the operation.
+**How:**
+1. Delete the corresponding files from Obsidian in the **flat by type** structure:
+   - Plugin → delete `Plugin/[Display Name].md`
+   - Skill → delete `Skill/[skill-id].md`
+   - Command → delete `Command/[command-name].md`
+   - For plugin removal: also delete all its skills from `Skill/` and commands from `Command/`
+2. Deliver using the Sync Summary output pattern from the skill
+3. Include note: "This action is versioned in GitHub — rollback is possible if needed."
 
-**Important**: The Obsidian vault is organized **by element type** (flat), NOT by plugin. All skills from every plugin live together in `Skill/`, all commands in `Command/`, all plugins in `Plugin/`. This is different from GitHub where files are nested under their parent plugin directory.
-
-Obsidian sync targets to remove:
-- **Plugin** → Delete `Plugin/[Plugin Display Name].md` (e.g., `Plugin/Communication Expert Plugin.md`)
-- **Skill** → Delete `Skill/[skill-id].md` (e.g., `Skill/agile-specialist.md`)
-- **Command** → Delete `Command/[command-name].md` (e.g., `Command/draft-email.md`)
-- When removing a **plugin**, also remove all its skills from `Skill/` and all its commands from `Command/`
-
-The Obsidian vault is the test environment. It must always reflect what is in GitHub. The sync direction is always **GitHub → Obsidian**, never the reverse.
-
-## Output
-Confirmation of the removed element with:
-- Element type and name
-- GitHub commit reference
-- List of files deleted
-- Obsidian vault sync confirmation
-- Note: "This action is versioned in GitHub — you can roll back if needed."
+**Why:** Obsidian must mirror GitHub. Confirming rollback capability provides peace of mind for irreversible-feeling operations.

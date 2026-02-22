@@ -2,421 +2,394 @@
 name: powerpoint-specialist
 description: >
   This skill should be used when the user asks about "presentation", "slide", "slides",
-  "deck", "pitch", "powerpoint", "pptx", "keynote", "slide structure",
-  "presentation outline", "executive presentation", "slide design",
-  or needs help structuring and designing presentation content for technology leadership.
-  Use whenever the user mentions creating or improving a presentation or deck.
-version: 1.0.0
+  "deck", "pitch", "powerpoint", "pptx", "slide structure", "executive presentation",
+  "slide design", "board deck", "QBR", "quarterly review", "strategy deck",
+  "presentation outline", "keynote", "slide content", "deck design",
+  "JP Morgan presentation", "McKinsey slides", "consulting deck",
+  or needs help structuring, designing, and creating presentation content.
+  Also used internally by the create-improve-powerpoint command as the core
+  presentation knowledge base. Use whenever the user mentions creating or improving
+  a presentation or deck.
+version: 2.0.0
 ---
 
-# Skill 2.3 — PowerPoint Specialist
+# Skill — PowerPoint Specialist
 
-Expert in structuring and designing presentation content for technology leadership. Creates clear, visually-informed slide decks that communicate strategy, data, and recommendations with impact and precision.
+**Expert in structuring, designing, and creating executive presentations following JP Morgan design standards and top-tier consulting methodologies (McKinsey, BCG, Bain).** This skill produces clear, understated, visually refined slide decks that communicate strategy, data, and recommendations with precision and authority. Every presentation follows the Pyramid Principle — leading with the answer, supporting with evidence, concluding with actionable insight. It serves as the core presentation knowledge base that the create-improve-powerpoint command orchestrates, and it can invoke skills from consulting-expert-plugin (problem-solving, benchmarking, deep search) and technology-expert-plugin (strategy, architecture) for content depth.
 
-## Core Principles
+**Core Principles**: SPAR Framework, Pyramid Principle, SCQA Pattern, MECE Decomposition, Confidence Calibration, Source Attribution, Practical & Adaptable — these govern all outputs from this skill.
 
-These principles govern all outputs from this skill:
+**Trigger keywords**: presentation, slide, slides, deck, pitch, powerpoint, pptx, slide structure, executive presentation, slide design, board deck, QBR, strategy deck, presentation outline, keynote, JP Morgan presentation, McKinsey slides, consulting deck.
 
-- **SPAR Framework**: Follow Sense → Plan → Act → React for every task. Gather context first, plan your approach, execute, then verify and adjust.
-- **Pyramid Principle (Barbara Minto)**: Lead with the answer. Structure arguments top-down: conclusion first, then supporting arguments, then data.
-- **SCQA Pattern**: For executive briefs, use Situation → Complication → Question → Answer.
-- **MECE Decomposition**: Always break down options, categories, and analyses in a Mutually Exclusive, Collectively Exhaustive way.
-- **Confidence Calibration**: Explicitly state your confidence level. Escalate when uncertain rather than guessing.
-- **Source Attribution**: Always cite frameworks, benchmarks, and data sources.
-- **Practical & Adaptable**: All outputs should be immediately usable and adaptable to context.
+## Section 1 — JP Morgan Design System
 
-## Scope & Triggers
+### 1.1 — Color Palette
 
-**Activation Keywords**: presentation, slide, slides, deck, pitch, powerpoint, pptx, keynote, slide structure, presentation outline, executive presentation, business review, quarterly review, strategy deck
+The design philosophy is **understated authority** — colors support the message without competing for attention. Light, warm, institutional.
 
-**Common Deck Types**:
-1. Quarterly Business Reviews (QBR)
-2. Budget Proposals & Approval
-3. Technology Transformation Roadmaps
-4. Technology Assessments & Evaluations
-5. Vendor Selection/RFP Reviews
-6. Strategic Alignment & Planning
-7. Incident Post-mortems
-8. Board Presentations
+**Primary Palette:**
 
-## Presentation Structure Frameworks
+| Role | Color | Hex | Usage |
+|------|-------|-----|-------|
+| **JP Morgan Blue** (Primary) | Deep Navy | `002D72` | Titles, key headers, cover slide background, accent lines |
+| **JP Morgan Warm** (Secondary) | Warm Brown | `6C3B2A` | Section headers, secondary accents, category labels |
+| **Background Light** | Warm White | `F8F6F3` | Content slide backgrounds — never pure white |
+| **Background Dark** | Deep Navy | `002D72` | Cover and conclusion slide backgrounds |
+| **Text Primary** | Charcoal | `2D2D2D` | Body text, descriptions |
+| **Text Secondary** | Medium Gray | `6B7280` | Footnotes, captions, supporting text |
 
-### Framework 1: Pyramid Principle (Barbara Minto)
+**Accent Colors (use sparingly):**
+
+| Role | Color | Hex | Usage |
+|------|-------|-----|-------|
+| **Positive/Success** | Muted Teal | `0D7377` | Upward trends, positive metrics, checkmarks |
+| **Caution** | Warm Amber | `B8860B` | Warnings, attention items (never bright yellow) |
+| **Negative/Risk** | Muted Burgundy | `8B2252` | Downward trends, risks (never bright red) |
+| **Neutral** | Slate Blue | `4A6FA5` | Charts, data series, neutral information |
+
+**Design Rules:**
+- Never use bright, saturated colors — they feel aggressive and unprofessional
+- Background should be warm white (`F8F6F3`) or very light gray — never stark white (`FFFFFF`)
+- Maximum 3 colors visible on any single slide (excluding text colors)
+- Charts use the JP Morgan Blue + Slate Blue + Muted Teal palette
+- All colors should feel like they belong in a room with mahogany furniture
+
+### 1.2 — Typography
+
+| Element | Font | Size | Style |
+|---------|------|------|-------|
+| **Slide Title** | Georgia or Calibri | 36-40pt | Bold, JP Morgan Blue |
+| **Section Header** | Calibri | 20-24pt | Bold, JP Morgan Warm |
+| **Body Text** | Calibri Light | 14-16pt | Regular, Charcoal |
+| **Data Labels** | Calibri | 12-14pt | Regular, Medium Gray |
+| **Footnotes** | Calibri Light | 9-10pt | Italic, Medium Gray |
+| **Cover Title** | Georgia | 40-44pt | Bold, White on navy |
+| **Cover Subtitle** | Calibri Light | 18-20pt | Regular, Light gray on navy |
+
+**Font Pairing:** Georgia (titles — serif for authority) + Calibri Light (body — clean, modern). If Georgia unavailable, use Calibri Bold for titles.
+
+### 1.3 — Layout Grid
+
+- **Margins**: 0.5" on all sides (sacred — never violate)
+- **Content area**: 9" × 4.625" (within a 10" × 5.625" slide)
+- **Title zone**: Top 0.8" of slide
+- **Footer zone**: Bottom 0.4" (page number, date, confidentiality)
+- **Whitespace**: Minimum 25% of each slide should be empty space — breathing room signals confidence
+- **Alignment**: Left-align body text always. Center only titles and cover elements.
+
+### 1.4 — Visual Motif
+
+**Consistent across all slides:**
+- Thin horizontal line (`002D72`, 0.5pt) below slide title — separates title from content
+- Page number bottom-right (Calibri Light, 10pt, Medium Gray)
+- No logos on content slides (logo only on cover and conclusion)
+- No accent lines under elements (hallmark of AI-generated slides — avoid)
+- Cards/boxes use subtle shadow (outer, blur: 4, offset: 1, opacity: 0.10) instead of borders
+
+## Section 2 — Deck Size Framework
+
+Every presentation should use the smallest format that communicates the message. More slides dilute impact. Each slide earns its place by delivering exactly one message.
+
+### 2.1 — Small Deck (Cover + 3 Slides)
+
+**Total: 4 slides.** The default. Use for most internal communications.
+
+| Slide | Purpose | Content |
+|-------|---------|---------|
+| **Cover** | Set context | Title, subtitle, date, presenter |
+| **Slide 1** | The So-What | Executive summary — recommendation or key finding (SCQA) |
+| **Slide 2** | The Evidence | Supporting analysis — data, comparison, or issue tree |
+| **Slide 3** | The Action | Next steps, timeline, decision required |
+
+**When to use:** Status updates, single-topic briefings, approval requests, quick recommendations.
+
+### 2.2 — Medium Deck (Cover + 4 Slides)
+
+**Total: 5 slides.** When the evidence needs one more supporting slide.
+
+| Slide | Purpose | Content |
+|-------|---------|---------|
+| **Cover** | Set context | Title, subtitle, date, presenter |
+| **Slide 1** | The So-What | Executive summary (SCQA) |
+| **Slide 2** | Evidence A | Primary supporting analysis |
+| **Slide 3** | Evidence B | Secondary supporting analysis or comparison |
+| **Slide 4** | The Action | Next steps, timeline, decision required |
+
+**When to use:** Strategy updates, vendor comparisons, budget proposals, performance reviews.
+
+### 2.3 — High Deck (Cover + 7 Slides)
+
+**Total: 8 slides.** For comprehensive topics requiring multiple evidence layers.
+
+| Slide | Purpose | Content |
+|-------|---------|---------|
+| **Cover** | Set context | Title, subtitle, date, presenter |
+| **Slide 1** | Executive Summary | SCQA — the complete answer in one slide |
+| **Slide 2** | Situation & Context | Current state, what's driving this |
+| **Slide 3** | Problem / Opportunity | The complication — why action is needed |
+| **Slide 4** | Analysis / Evidence | Core analytical finding (issue tree, benchmark, data) |
+| **Slide 5** | Options / Comparison | Options evaluated, recommendation highlighted |
+| **Slide 6** | Roadmap / Timeline | Implementation plan, milestones |
+| **Slide 7** | Risks & Mitigation | Top risks with mitigation strategies |
+| **Slide 8** | Decision & Next Steps | Specific ask, owners, timeline |
+
+**When to use:** QBRs, transformation proposals, board-level briefings, investment cases.
+
+### 2.4 — Ultra High Deck (Cover + N Slides)
+
+**Total: Cover + as many as needed.** Only for complex, multi-topic sessions.
+
+Structure: Cover → Executive Summary → Topic sections (each following its own Small/Medium structure) → Consolidated Next Steps → Appendix.
+
+**When to use:** Annual planning, multi-workstream reviews, offsite agendas. Default to High or below — Ultra High requires justification.
+
+### 2.5 — Deck Size Selection Logic
+
 ```
-Slide 1 (Title): [Main Conclusion]
-   ├─ Slide 2: Supporting Argument 1
-   ├─ Slide 3: Supporting Argument 2
-   └─ Slide 4: Supporting Argument 3
-       └─ Slides 5-7: Data/Evidence
-Slide 8: Call to Action / Next Steps
-```
-
-**Rule**: Every slide should answer one question. Conclusion first, then proof.
-
-### Framework 2: SCQA Pattern (Situation → Complication → Question → Answer)
-Ideal for executive-level decks and strategic narratives.
-
-```
-Slide 1: Title
-Slide 2: Situation (What is the context?)
-Slide 3: Complication (What is the problem/opportunity?)
-Slide 4: Question (What should we do?)
-Slide 5: Answer (Our Recommendation)
-Slides 6-N: Support (Evidence, data, risks, next steps)
-```
-
-### Framework 3: Narrative Arc (Problem → Solution → Impact)
-Ideal for transformational or change-management presentations.
-
-```
-Slides 1-3: PROBLEM
-  - Current state
-  - Why it matters
-  - Gap/risk identified
-Slides 4-6: SOLUTION
-  - What we propose
-  - How it works
-  - Why this approach
-Slides 7-9: IMPACT
-  - Business outcomes
-  - Timeline
-  - Investment/ROI
-Slides 10-N: EXECUTION
-  - Plan, risks, dependencies
-  - Next steps, governance
-```
-
-## Slide Type Reference
-
-### 1. Title Slide
-**Purpose**: Establish topic, context, and audience awareness
-
-**Content**:
-- Main title (compelling statement, not just topic)
-- Date/version
-- Presenter name
-- For internal: Meeting type (QBR, Board Review, etc.)
-
-**Example**: "Payment Gateway Modernization: Delivering 40% Cost Reduction & 99.99% Uptime"
-
-### 2. Agenda Slide
-**Purpose**: Set expectations for flow and time allocation
-
-**Content**:
-- 4-6 topics maximum (one idea per topic)
-- Optional: Time allocation (e.g., 15 min, 10 min)
-- Optional: Decision points flagged
-
-**Format**: Bullet list or visual flow diagram (choose one style, not mixed)
-
-### 3. Executive Summary Slide
-**Purpose**: Standalone summary for executives who may skip details
-
-**Content** (SCQA):
-- Situation: Context in 1 sentence
-- Complication: Problem/opportunity in 1 sentence
-- Question: What we need to decide
-- Answer: Our recommendation
-
-**Rule**: Should be understandable without presenter narration
-
-### 4. Data/Chart Slide
-**Purpose**: Present quantitative or comparative evidence
-
-**Content Rules**:
-- One chart/visual per slide
-- Data clearly labeled (axes, legend, units)
-- Title that states the insight (not just "Revenue Trend")
-- Data source cited (small text, bottom)
-
-**Bad Title**: "Q3 Payment Volume"
-**Good Title**: "Q3 Payment Volume Up 23% YoY, Driven by New Partnerships"
-
-### 5. Comparison Slide
-**Purpose**: Evaluate multiple options (vendors, approaches, scenarios)
-
-**Structure** (MECE):
-- Rows: Evaluation criteria (cost, timeline, risk, capability) — mutually exclusive
-- Columns: Options being compared
-- Each cell: Specific data or rating
-
-**Rule**: Use consistent scoring (High/Medium/Low OR numerical) — never mixed
-
-### 6. Timeline/Roadmap Slide
-**Purpose**: Show sequence of activities and milestones
-
-**Content**:
-- Clear phases or quarters
-- Milestones marked with deliverables
-- Dependencies shown (if complex, use separate diagram)
-- Owner/accountability for each phase
-
-**Format**: Horizontal timeline (left-to-right reading) or Gantt-style (cleaner for complex projects)
-
-### 7. Recommendation Slide
-**Purpose**: Clearly state what action is needed
-
-**Content**:
-- One recommendation per slide
-- Supporting rationale (3 bullet points max)
-- Decision/approval format
-- Next steps if approved
-
-**Example Structure**:
-```
-RECOMMENDATION: Migrate to Vendor A for Gateway
-
-Why: ✓ 40% cost savings | ✓ 6-month timeline | ✓ Proven LATAM experience
-
-Decision: Approval required by [DATE]
-Next: Contract negotiation begins [DATE]
+Is there ONE message to communicate?
+├── YES → Small (Cover + 3)
+│   └── Does the evidence need a second supporting view?
+│       ├── NO → Small (Cover + 3)
+│       └── YES → Medium (Cover + 4)
+└── NO → Is there a natural Problem → Analysis → Solution → Action arc?
+    ├── YES → High (Cover + 7)
+    └── NO → Ultra High (Cover + N) — structure as modular sections
 ```
 
-### 8. Risk/Mitigation Slide
-**Purpose**: Acknowledge and address risks proactively
+**Golden rule:** When in doubt, choose the smaller format. You can always add slides if asked — you can never un-bore an audience.
 
-**Content** (MECE):
-- Risk identified (specific, not vague)
-- Probability & Impact (High/Medium/Low)
-- Mitigation strategy
-- Owner & timeline for mitigation
+## Section 3 — Slide Architecture
 
-**Format**: Table or visual risk matrix
+### 3.1 — The One-Message Rule
 
-### 9. Appendix Slides
-**Purpose**: Supporting data, glossary, detailed analysis
+Every slide communicates exactly ONE message. The slide title IS the message — not a label.
 
-**Rule**: Appendix slides come AFTER main presentation; marked clearly "Appendix - Slide A1"
+**Labels (weak):** "Q3 Performance" / "Cost Analysis" / "Risk Assessment"
+**Messages (strong):** "Q3 volume up 23%, driven by new partnerships" / "Cloud migration saves $3.2M annually" / "Vendor delay is the critical risk — mitigation in place"
 
-**Content**:
-- Detailed data tables
-- Backup analysis
-- Assumptions & methodology
-- References/sources
+**Test:** Cover the slide body. Can the audience understand the key point from the title alone? If yes, the title works. If no, rewrite it.
 
----
+### 3.2 — Slide Types
 
-## Content Density & Formatting Rules
+**Cover Slide:**
+- Dark background (JP Morgan Blue `002D72`)
+- White title text (Georgia, 40-44pt)
+- Light subtitle (Calibri Light, 18-20pt, light gray)
+- Date, presenter name, confidentiality notice
+- No bullet points, no body text — clean and authoritative
 
-### The 6x6 Rule
-- **Maximum 6 bullet points per slide**
-- **Maximum 6 words per bullet point**
-- Exception: Table cells and captions can exceed 6 words if necessary for clarity
+**Executive Summary Slide (SCQA):**
+- Warm white background
+- Four clearly labeled sections: Situation, Complication, Question, Answer
+- Answer section visually emphasized (slightly larger, bolder, or with subtle background card)
+- Should be standalone — an executive who reads only this slide should understand everything
 
-### Visual Hierarchy
-- **Title**: 44-54pt, bold, state-the-insight (not just topic)
-- **Body text**: 28-32pt (readable from 10 feet away)
-- **Data labels**: 14-18pt (clear but not intrusive)
-- **Footnotes/sources**: 10-12pt
+**Data / Evidence Slide:**
+- ONE chart or data visualization per slide
+- Title states the insight, not the topic
+- Source citation in footnote
+- Chart uses JP Morgan Blue palette — no rainbow charts
 
-### Whitespace Rule
-- Minimum 20% of slide should be blank space
-- Avoids cognitive overload
-- Makes slides feel organized and premium
+**Comparison / Options Slide:**
+- Table or card layout
+- Recommended option visually distinguished (subtle highlight, star marker)
+- MECE criteria in rows, options in columns
+- Consistent scoring throughout
 
-### Color & Design
-- Use 2-3 colors maximum (brand color + 1-2 accents)
-- Avoid red/green for colorblind accessibility (use blue/orange instead)
-- Charts: Use distinct colors; avoid gradients (hard to see in print/projection)
-- One style throughout (consistent font, layout, visual language)
+**Timeline / Roadmap Slide:**
+- Horizontal flow, left to right
+- Phases with clear milestones
+- Current state marker if showing progress
+- Dependencies shown if critical
 
----
+**Action / Decision Slide:**
+- Clear recommendation statement
+- Specific decision format ("Approve / Defer / Reject")
+- Owner and deadline for each next step
+- This slide should create urgency to act
 
-## Storytelling for Technology Leadership
+### 3.3 — Narrative Structures
 
-### Core Narrative Structure (Problem → Solution → Impact)
-
-**Slide Sequence Example**:
+**Structure A — Pyramid (Default):**
 ```
-Slide 1: [Compelling title about business outcome]
-
-Slides 2-4: PROBLEM (Why are we here?)
-  - Current market position / technical debt
-  - What's changing? (market, regulation, competition)
-  - Why it matters (business impact, risk)
-
-Slides 5-7: SOLUTION (What do we propose?)
-  - Our approach (simple, visual)
-  - How it compares to alternatives
-  - Why this is the right move
-
-Slides 8-10: IMPACT (What do we achieve?)
-  - Business outcomes (revenue, cost, efficiency)
-  - Timeline to value
-  - Investment required
-
-Slides 11-13: EXECUTION (How will we deliver?)
-  - 90-day plan or phased approach
-  - Key risks & mitigation
-  - Governance, accountability
-
-Slide 14: Decision/Next Steps
+Slide 1: Answer (recommendation/finding)
+Slide 2: Reason 1 (strongest supporting argument)
+Slide 3: Reason 2 (second strongest)
+Slide 4: Next Steps (action)
 ```
 
-### Narrative Rules
-- **Lead with business impact, not technology**: "Reduce payment processing cost by $2.5M annually" (not "Upgrade API gateway")
-- **Show causation**: Explain WHY the solution delivers the impact
-- **Acknowledge constraints**: Builds credibility; show you've thought it through
-- **End with clarity**: What happens next, who decides, when
-
----
-
-## Common Deck Templates
-
-### Template 1: Quarterly Business Review (QBR)
+**Structure B — SCQA (for executive audiences):**
 ```
-1. Title: Q3 2025 Technology QBR — JP Morgan LATAM
-2. Agenda (4-5 topics)
-3. Executive Summary (SCQA)
-4. Performance vs. Plan (metrics/KPIs)
-5. Key Accomplishments (3-4 major wins)
-6. Challenges & Mitigation (risks, roadblocks)
-7. Upcoming Priorities (next quarter focus)
-8. Investment/Budget Summary (actual vs. plan)
-9. Appendix (detail tables, project status)
+Slide 1: Situation + Complication
+Slide 2: Question + Answer
+Slides 3-N: Evidence
+Final Slide: Action
 ```
 
-### Template 2: Budget Proposal
+**Structure C — Problem → Solution → Impact (for transformation proposals):**
 ```
-1. Title: [Initiative Name] — Business Case
-2. Executive Summary (SCQA)
-3. Current State (pain point, opportunity)
-4. Proposed Solution
-5. Business Case (financials: cost, ROI, payback)
-6. Timeline & Milestones
-7. Key Risks & Mitigation
-8. Recommendation & Decision Format
-9. Appendix (detailed budgets, assumptions)
+Slides 1-2: Problem (current state, what's broken, why it matters)
+Slides 3-4: Solution (what we propose, how it works)
+Slides 5-6: Impact (outcomes, timeline, investment)
+Slide 7: Action (decision needed)
 ```
 
-### Template 3: Vendor Evaluation
-```
-1. Title: [Vendor Category] — Selection Summary
-2. Context & Requirements
-3. Evaluation Framework (MECE criteria)
-4. Comparison Matrix (vendors vs. criteria)
-5. Recommendation (winner and why)
-6. Risk Assessment (any gaps/mitigations)
-7. Next Steps (contract, implementation timeline)
-8. Appendix (detailed vendor RFP responses)
-```
+## Section 4 — Content Density Rules
 
-### Template 4: Technology Transformation Roadmap
-```
-1. Title: [Transformation Initiative] — 3-Year Roadmap
-2. Vision & Business Case
-3. Current State Assessment
-4. Transformation Pillars (MECE breakdown)
-5-7. Detailed Timeline (Phase 1, Phase 2, Phase 3)
-8. Investment & ROI
-9. Key Risks & Dependencies
-10. Governance & Accountability
-11. Next Steps & Approvals
-```
+### 4.1 — The Restraint Principle
 
----
+Less content per slide = more impact per message. JP Morgan presentations should feel like they're communicating important things calmly — never shouting.
 
-## Audience Calibration
+- **Maximum 4 bullet points per slide** (not 6 — that's too many for executive attention)
+- **Maximum 8 words per bullet** (distill to the essential)
+- **One visual element per slide** (chart, table, or diagram — never two)
+- **Whitespace is content** — empty space signals confidence and authority
+- **No animations, transitions, or decorative elements** — they diminish credibility
 
-### CIO-Level Presentations
-- **Focus**: Business impact, strategic alignment, risk management
-- **Data depth**: KPIs only; appendix for detail
-- **Tone**: Confident, data-driven, forward-looking
-- **Time**: 20-30 minutes; expect deep dives on specific topics
-- **Key Question**: "Will this move our technology strategy forward?"
+### 4.2 — Data Presentation
 
-### Board-Level Presentations
-- **Focus**: Competitive advantage, shareholder value, compliance/risk
-- **Data depth**: Headlines only; no technical detail
-- **Tone**: Strategic, confident, governance-aware
-- **Time**: 10-15 minutes; highly polished
-- **Key Question**: "Is this good stewardship of shareholder capital?"
+- **Headlines, not data dumps**: "Cost reduced 32% YoY" not a table of 12 months
+- **Comparison over absolute**: "2x faster than industry average" is more powerful than "450ms latency"
+- **Round numbers for strategy**: "$3.2M" not "$3,187,421" — precision isn't always accuracy
+- **Source everything**: Small footnote with source and date — builds trust silently
 
-### Working-Team Presentations
-- **Focus**: Execution details, dependencies, ownership clarity
-- **Data depth**: Granular; timelines, resource plans
-- **Tone**: Collaborative, transparent about constraints
-- **Time**: 45-60 minutes; expect questions throughout
-- **Key Question**: "What do I need to do, and by when?"
+## Section 5 — Cross-Plugin Orchestration
 
----
+### When to Invoke Other Skills
+
+The PowerPoint command orchestrates content depth by dispatching subagents:
+
+| Content Need | Specialist to Invoke | What They Produce |
+|-------------|---------------------|-------------------|
+| Problem decomposition for a strategy deck | problem-solving-specialist (consulting) | SCQA framing, issue tree, options analysis |
+| Industry benchmarks for a performance review | industry-benchmark-specialist (consulting) | Peer comparison data, gap analysis, sources |
+| Research for a landscape or trend deck | deep-search-specialist (consulting) | Curated findings, source-attributed insights |
+| Financial justification for a budget deck | business-case-specialist (consulting) | NPV/IRR analysis, scenario comparison |
+| Technology strategy context | tech-strategy-advisory (technology) | Framework context, transformation patterns |
+| Architecture assessment for a tech deck | architecture-specialist (technology) | Architecture patterns, trade-off analysis |
+| Cost allocation for a budget deck | tech-bm-specialist (finance) | TBM taxonomy, cost transparency data |
+
+### Orchestration Pattern
+
+1. User provides context (theme, files, question)
+2. Command determines deck type and narrative structure
+3. For each content section needing depth → dispatch specialist subagent
+4. Specialist returns structured analysis → transform into slide content
+5. Apply JP Morgan design system → build actual .pptx file
+6. Visual QA → refine → deliver
+
+## Section 6 — Communication Protocol
+
+### Opening (Cover + Executive Summary)
+The first two things the audience sees must communicate the complete answer. The cover sets the stakes. The executive summary delivers the So-What. An executive who leaves after slide 2 should still understand the recommendation.
+
+### Body (Evidence Slides)
+Each slide supports the opening with one piece of evidence. Ordered by importance, not chronology. Every slide earns its place — if removing a slide doesn't weaken the argument, remove it.
+
+### Conclusion (Action Slide)
+End with clarity and urgency. What decision is needed? Who decides? By when? What happens next? The audience should leave knowing exactly what to do.
+
+## Section 7 — Technical Integration
+
+### Creating the Actual .pptx File
+
+This skill provides the strategic and design knowledge. The actual file creation uses the **pptx Cowork skill** (at `/mnt/.skills/skills/pptx/`):
+
+1. Read `pptx/SKILL.md` for the creation workflow
+2. Read `pptx/pptxgenjs.md` for the JavaScript API
+3. Apply the JP Morgan design system (Section 1) to the pptxgenjs code
+4. Use `pptx/editing.md` if modifying an existing template
+
+**Key technical mappings:**
+- JP Morgan Blue → `fill: { color: "002D72" }` (no # prefix)
+- Warm White background → `slide.background = { color: "F8F6F3" }`
+- Georgia titles → `fontFace: "Georgia"`
+- Subtle shadows → `shadow: { type: "outer", blur: 4, offset: 1, color: "000000", opacity: 0.10 }`
+- Never reuse option objects between calls (PptxGenJS mutates them)
+
+**QA process:**
+- Convert to PDF then images for visual inspection
+- Use a subagent with fresh eyes for visual QA
+- Fix and re-verify until clean
 
 ## Output Patterns
 
-### Pattern 1: Slide-by-Slide Outline
+### Slide-by-Slide Blueprint
+
 ```
-SLIDE 1: [Title]
-Content: [Main message]
-Speaker Notes: [30-second intro]
+═══════════════════════════════════════════════════════
+PRESENTATION BLUEPRINT: [Title]
+═══════════════════════════════════════════════════════
 
-SLIDE 2: [Topic]
-Content: [Key insight / data]
-Speaker Notes: [2-3 sentences explaining slide]
+FORMAT: [Small/Medium/High/Ultra High] ([N] slides)
+AUDIENCE: [CIO/Board/Working Team]
+NARRATIVE: [Pyramid/SCQA/Problem-Solution-Impact]
 
-[... continues for each slide]
+───────────────────────────────────────────────────────
 
-APPENDIX: [Supporting slides]
-```
+SLIDE 0 — COVER
+Background: JP Morgan Blue (#002D72)
+Title: [Compelling title — message, not label]
+Subtitle: [Context — date, meeting type]
+Presenter: [Name, role]
 
-### Pattern 2: Presentation Narrative + Outline
-```
-NARRATIVE ARC:
-[Overall story: Problem → Solution → Impact]
+───────────────────────────────────────────────────────
 
-SLIDE SEQUENCE (X slides total):
-
-Slides 1-3: [Section title & purpose]
-  - Slide 1: [Slide title & purpose]
-  - Slide 2: [Slide title & purpose]
-
-Slides 4-6: [Section title & purpose]
-  - [...]
-
-NOTES:
-- [Timing recommendation]
-- [Audience calibration notes]
-- [Key talking points]
-```
-
-### Pattern 3: Full Slide Content (Ready to Copy)
-```
-SLIDE [#]: [TITLE]
-
-Title: [Slide title — should state the insight]
+SLIDE 1 — [TITLE AS MESSAGE]
+Layout: [Type — executive summary / data / comparison / timeline / action]
+Key Message: [The one thing the audience should remember]
 
 Content:
-• [Bullet 1 — max 6 words]
+• [Bullet 1]
 • [Bullet 2]
 • [Bullet 3]
 
-Visual: [Chart/table/diagram description]
+Visual: [Chart type / table / diagram description]
+Source: [Data source if applicable]
 
-Speaker Notes:
-[30-45 seconds of talking points]
+Speaker Notes: [30-45 seconds of talking points]
 
-Key Message:
-[1 sentence: what should audience remember?]
+───────────────────────────────────────────────────────
+
+[... continues for each slide]
+
+───────────────────────────────────────────────────────
+DESIGN NOTES
+───────────────────────────────────────────────────────
+Palette: JP Morgan Blue + Warm White + [accent if needed]
+Typography: Georgia titles / Calibri Light body
+Special elements: [Any charts, diagrams, or visuals needed]
+═══════════════════════════════════════════════════════
 ```
 
+### Quick Deck Outline
+
+```
+DECK OUTLINE: [Title] | [N] slides | [Audience]
+
+Cover: [Title]
+S1: [Message — slide type]
+S2: [Message — slide type]
+S3: [Message — slide type]
+...
+
+NARRATIVE ARC: [1-sentence description of the story]
+```
+
+## Quality Checks
+
+- [ ] Does the deck use the smallest size that communicates the message?
+- [ ] Does every slide title state a message (not a label)?
+- [ ] Does the executive summary slide work standalone?
+- [ ] Is the JP Morgan color palette applied consistently?
+- [ ] Are there maximum 4 bullets per slide, 8 words per bullet?
+- [ ] Is whitespace at least 25% of each slide?
+- [ ] Does the conclusion slide create urgency to act?
+- [ ] Would a McKinsey partner present this with confidence?
+- [ ] Is the .pptx file visually clean (QA verified with images)?
+
 ---
 
-## Checklist Before Presenting
+**Confidence Calibration**: High confidence for deck structure, narrative design, and JP Morgan design standards. Medium confidence for domain-specific content — recommend invoking specialist subagents for technical depth. High confidence for pptxgenjs integration when following the technical skill guide.
 
-- [ ] Slide count appropriate for time (rule: 1 min per slide + 1 min intro)
-- [ ] Title slide sets tone and stakes
-- [ ] Agenda slide included and clear
-- [ ] Story arc: Problem → Solution → Impact evident
-- [ ] Every slide answers one question clearly
-- [ ] Data accurate, sources cited, labeled clearly
-- [ ] No typos, consistent formatting, professional design
-- [ ] Recommendation slide includes decision format & deadline
-- [ ] Appendix clearly marked, organized by topic
-- [ ] Presenter notes complete (30-45 sec per slide)
-- [ ] Tested for projection/readability at distance
-- [ ] Audience calibration checked (CIO vs. board vs. team)
-
----
-
-**Confidence Calibration**: High confidence for standard corporate deck structures. Medium confidence for highly creative/innovative presentation approaches — recommend design review.
-
-**Triggers**: Activate when user requests presentation structure, slide outline, deck content, or presentation strategy.
+**Triggers**: Activate when user requests presentation creation, slide design, deck structuring, or presentation improvement. Also activated internally by the create-improve-powerpoint command as the core presentation engine.

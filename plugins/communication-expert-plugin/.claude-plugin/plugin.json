@@ -1,7 +1,7 @@
 {
   "name": "communication-expert-plugin",
-  "version": "1.0.0",
-  "description": "Communication Expert Plugin — specialist in professional communication, translation, presentations, and writing quality. Covers E-mail Generation, EN↔PT-BR Translation, PowerPoint Structure, and Text Improvement for technology leadership in LATAM.",
+  "version": "2.0.0",
+  "description": "Communication Expert Plugin — specialist in professional communication for technology leadership. Four skills: PowerPoint Specialist (JP Morgan design system, Pyramid Principle, SCQA, 4 deck sizes, cross-plugin orchestration with consulting and technology specialists), E-mail Generator (BLUF methodology, tone calibration, LATAM cultural sensitivity), Text Improver Specialist (5-dimension improvement: clarity, conciseness, tone, structure, impact), Translation Specialist (EN↔PT-BR corporate translation with cultural adaptation). Six commands: create-improve-powerpoint (flagship — orchestrates specialist subagents from consulting-expert-plugin for content depth, builds production-ready .pptx with JP Morgan design and visual QA), create-improve-email (BLUF-structured email with tone calibration and optional PT-BR translation), improve-text (5-dimension systematic text improvement), translate-en-pt (English to Brazilian Portuguese with cultural adaptation), translate-pt-en (Portuguese to English with tone recalibration), create-executive-summary (SCQA-structured 1-page brief using text-improver-specialist for structure and e-mail-generator for executive tone — internal skill orchestration without external subagents). PowerPoint command dispatches subagents to problem-solving-specialist, industry-benchmark-specialist, deep-search-specialist, and business-case-specialist from consulting-expert-plugin for analytical content depth.",
   "author": {
     "name": "Arthur"
   }

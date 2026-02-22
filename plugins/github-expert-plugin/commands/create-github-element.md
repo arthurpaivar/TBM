@@ -6,108 +6,69 @@ argument-hint: [element type and details — e.g., "skill finance-specialist in 
 
 Create a new element in the GitHub Tech BM Second Brain repository for $ARGUMENTS using the github-repository-specialist skill.
 
-## Context
+## Layer 1 — Knowledge Loading & Element Identification
 
-The GitHub repository is Arthur's **Tech BM Second Brain** — a versioned backup of all plugins, skills, and commands used in the Claude/Cowork environment. It is NOT a code repository. It stores only three types of elements: **plugins**, **skills**, and **commands**.
+**What:** Load the skill and determine what is being created.
+**How:**
+1. Read the github-repository-specialist skill from this plugin — it contains the repository structure, access method, validation standards, and sync workflow
+2. Parse $ARGUMENTS to identify:
+   - **Element type**: Plugin, skill, or command (only three types exist)
+   - **Target plugin**: Which plugin this element belongs to (unless creating a new plugin)
+   - **Element name**: The kebab-case identifier
 
-GitHub is updated ONLY through the three github-expert-plugin commands (`/create-github-element`, `/update-github-element`, `/remove-github-element`). No other process should modify GitHub.
+**Why:** The skill contains the GitHub access method (git clone with token — the ONLY working method in Cowork VM) and all validation standards. Loading it first prevents wasted effort from wrong access methods.
 
-## GitHub Access Method
+## Layer 2 — Read Current State
 
-**CRITICAL — Read this before any GitHub operation.**
+**What:** Clone the repository and understand the current structure.
+**How:**
+1. Clone the repo (or `git pull` if already cloned in this session) following the access method in the skill
+2. If the token is not known, **ask Arthur for it** before proceeding
+3. List existing plugins under `plugins/`
+4. List skills and commands inside the target plugin
+5. Read at least one existing element of the same type to extract the exact format and quality standard
 
-The Cowork VM does NOT have the `gh` CLI installed and `api.github.com` is blocked by the VM proxy. Do NOT attempt `gh` commands, `curl`/`python requests` to `api.github.com`, or any GitHub REST API calls — they will all fail.
+**Why:** You need to confirm the element doesn't already exist (no duplicates) and understand the format conventions before creating anything.
 
-The ONLY working method is `git clone` with the token embedded in the URL:
+## Layer 3 — Prepare & Validate
 
-```bash
-git clone https://<TOKEN>@github.com/arthurpaivar/TBM.git /tmp/TBM
-```
-
-Arthur's GitHub Personal Access Token is required. If not already known from the current session, **ask Arthur for it**. Once cloned, all read/write operations happen on the local `/tmp/TBM` clone. After making changes, commit and push:
-
-```bash
-cd /tmp/TBM && git add . && git commit -m "message" && git push
-```
-
-If the repo is already cloned in this session, do a `git pull` in `/tmp/TBM` before starting.
-
-## Process
-
-### Step 1 — Identify the Element Type
-Determine what is being created. Only three types exist:
-- **Plugin**: A full plugin directory with `.claude-plugin/plugin.json`, `README.md`, `skills/`, and `commands/`
-- **Skill**: A `SKILL.md` file inside a plugin's `skills/[skill-name]/` directory
-- **Command**: A `.md` file inside a plugin's `commands/` directory
-
-### Step 2 — Read the Current GitHub Repository Structure
-Clone the repository (or `git pull` if already cloned) and inspect the structure locally:
-- List existing plugins under `plugins/`
-- List skills and commands inside the target plugin
-- Understand naming conventions, directory layout, and file formats already in use
-
-### Step 3 — Read Reference Files for Format Compliance
-Read at least one existing file of the same type from the repo to extract the exact format:
-- For a plugin: read an existing `plugin.json` and `README.md`
-- For a skill: read an existing `SKILL.md` from the same or similar plugin
-- For a command: read an existing command `.md` from the same or similar plugin
-
-### Step 4 — Prepare the New Element
-Build the new element content following the patterns found in Step 3:
-- Respect naming conventions (kebab-case directories and filenames)
-- Follow the exact frontmatter structure (for skills and commands)
-- Match the content depth and quality of existing elements
-
-### Step 5 — Validation Gate
-Before creating anything in GitHub, validate ALL of the following:
-- [ ] Element type is one of: plugin, skill, or command
-- [ ] Target plugin exists (unless creating a new plugin)
-- [ ] No duplicate — an element with this name does not already exist
-- [ ] File format matches the reference files read in Step 3
-- [ ] Naming follows kebab-case convention
-- [ ] For skills: frontmatter has `name`, `description`, `version`
-- [ ] For commands: frontmatter has `description`, `allowed-tools`, `argument-hint`
-- [ ] For plugins: `plugin.json` has `name`, `version`, `description`, `author`
-- [ ] Content is complete and ready (no placeholders, no TODOs)
+**What:** Build the new element content and validate it before writing to GitHub.
+**How:**
+1. Prepare the element content following the patterns found in Layer 2:
+   - Kebab-case naming, correct frontmatter structure, production-ready content
+2. Run the validation gate (from skill Section 4):
+   - [ ] Element type is plugin, skill, or command
+   - [ ] Target plugin exists (unless creating a new plugin)
+   - [ ] No duplicate with the same name
+   - [ ] For skills: frontmatter has `name`, `description`, `version`
+   - [ ] For commands: frontmatter has `description`, `allowed-tools`, `argument-hint`
+   - [ ] For plugins: `plugin.json` has `name`, `version`, `description`, `author`
+   - [ ] Content is complete — no placeholders or TODOs
 
 **If any check fails, STOP and resolve before proceeding.**
 
-### Step 6 — Create in GitHub
-Write the new files to the local `/tmp/TBM` clone, then commit and push:
-- `git add` the new files
-- Commit with a clear message: `"Add [type]: [name] to [plugin-name]"`
-- `git push` to the main branch
+**Why:** Validation before creation prevents broken elements in the repository. Once pushed to GitHub, mistakes require additional cleanup commits.
 
-### Step 7 — Update the Repository Main README.md
-After creating the element, update the **main `README.md`** at the root of the repository (`arthurpaivar/TBM`). This file is the front page of the Tech BM Second Brain and must always reflect the current vault architecture.
+## Layer 4 — Create in GitHub & Update README
 
-Read the current `README.md` and update these specific sections:
+**What:** Write files, commit, push, and update the main README.
+**How:**
+1. Write the new files to `/tmp/TBM` in the correct locations
+2. `git add`, commit with message: `"Add [type]: [name] to [plugin-name]"`, and `git push`
+3. Read the main `README.md` at the repository root
+4. Update the sections specified in the skill (Section 3.4): Repository Structure, Plugin Suite Overview, Commands Reference, Footer totals, Version History, Last Updated
+5. Commit and push the README update separately: `"Update README.md — add [type]: [name]"`
 
-1. **"Repository Structure"** — Update the plugin list and the skill/command counts (e.g., `[5 skills + 3 commands]`). If a new plugin was created, add a new bullet. If a skill or command was added to an existing plugin, increment its counts.
-2. **"Plugin Suite Overview"** — Under the relevant plugin heading (e.g., `### 1. Technology Expert Plugin`), add the new skill to the **Skills** list or the new command to the **Commands** list. If creating a new plugin, add a new numbered subsection following the existing pattern (name, version, "Expert in", Skills list, Commands list).
-3. **"Commands Reference"** — Update the total command count (e.g., `13 total commands`).
-4. **Footer totals** — Update `**Total Expertise:** X plugins, Y skills, Z commands` at the bottom.
-5. **"Version History"** — If the plugin version changed, add or update the version entry.
-6. **"Last Updated"** — Set to today's date.
+**Why:** The main README is the front page of the Tech BM Second Brain. It must always reflect the current state. A separate commit keeps the history clean.
 
-Commit with a clear message: `"Update README.md — add [type]: [name]"`
-Push to the main branch.
+## Layer 5 — Sync Obsidian & Deliver
 
-### Step 8 — Sync the Claude Vault (Obsidian)
-After successful GitHub creation, update the Obsidian vault to stay in sync.
+**What:** Sync the Obsidian vault and confirm the operation.
+**How:**
+1. Write the element to the Obsidian vault in the **flat by type** structure:
+   - Plugin → `Plugin/[Display Name].md`
+   - Skill → `Skill/[skill-id].md`
+   - Command → `Command/[command-name].md`
+2. Deliver using the Sync Summary output pattern from the skill
 
-**Important**: The Obsidian vault is organized **by element type** (flat), NOT by plugin. All skills from every plugin live together in `Skill/`, all commands in `Command/`, all plugins in `Plugin/`. This is different from GitHub where files are nested under their parent plugin directory.
-
-Obsidian sync targets:
-- **Plugin** → `Plugin/[Plugin Display Name].md` (e.g., `Plugin/Communication Expert Plugin.md`)
-- **Skill** → `Skill/[skill-id].md` (e.g., `Skill/agile-specialist.md`)
-- **Command** → `Command/[command-name].md` (e.g., `Command/draft-email.md`)
-
-The Obsidian vault is the test environment. It must always reflect what is in GitHub. The sync direction is always **GitHub → Obsidian**, never the reverse.
-
-## Output
-Confirmation of the created element with:
-- Element type and name
-- GitHub commit reference
-- Obsidian vault sync confirmation
-- Validation checklist results (all passed)
+**Why:** Obsidian must mirror GitHub. The flat structure is different from GitHub's nested structure — skills from all plugins live together in `Skill/`, commands in `Command/`.

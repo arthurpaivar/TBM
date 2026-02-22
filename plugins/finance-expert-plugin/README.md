@@ -1,37 +1,51 @@
 # Finance Expert Plugin
 
-Your AI-powered coworker for Technology Business Management and IT Portfolio governance at JP Morgan LATAM. Two specialist skills covering TBM Framework 2.0, Taxonomy v5.0.1, cost transparency, FinOps, IT investment governance, and application portfolio management.
+Specialist in Technology Business Management (TBM) and IT Portfolio governance for payments technology. Serves as the **modular knowledge base (second brain)** for a Tech BM working directly with a Payments CIO — providing deep IT finance insights for CIO/CFO-level conversations.
 
-Built on the **SPAR agent framework** (Sense → Plan → Act → React) and **Pyramid Principles** logic (Barbara Minto).
+Built on TBM Framework 2.0 and TBM Taxonomy v5.0.1 (July 2025), the global standards maintained by the TBM Council.
+
+## Cross-Plugin Architecture
+
+This plugin is designed as a **modular foundation** that other plugins reference:
+- **Technology Plugin**: Uses finance skills for investment categories (R/G/T), cost context, and benchmark data
+- **Consulting Plugin**: Uses finance skills for financial benchmarks, business case evaluation, and cost-benefit analysis
+- **Communication Plugin**: Uses finance skills for cost narratives, financial presentations, and executive summaries
 
 ## Skills
 
-| Skill ID | Skill | Focus Areas |
-|----------|-------|-------------|
-| **3.1** | **Tech BM Specialist** | TBM Framework 2.0, Taxonomy v5.0.1, cost transparency, showback/chargeback, Run/Grow/Transform, FinOps |
-| **3.2** | **IT Portfolio Management** | Application portfolio (TIME model), investment governance, ITFM, FinOps, demand management, 6Rs |
+- **Tech BM Specialist** (`tech-bm-specialist`): TBM Framework 2.0 (Foundations, Model, Outcomes, Value Drivers), TBM Taxonomy v5.0.1 (4 layers: Cost Pools, Resource Towers with Resource Domains, Solutions, Consumers), cost allocation models (direct, usage-based, weighted, even-split), showback/chargeback maturity, Run/Grow/Transform investment classification, investment typification, value realization, FinOps integration, AI cost management (GPU/TPU, model licensing, MLOps), GreenOps/sustainability, FAIR cybersecurity risk quantification, TBM Maturity Model (Crawl/Walk/Run + 4×4 Maturity Assessment 2.0), IT spend benchmarks
 
-## Core Principles (All Skills)
+- **IT Portfolio Management** (`it-portfolio-management`): Application portfolio rationalization (TIME model), 6-dimension application health assessment (weighted composite scoring), application lifecycle management with governance gates, modernization patterns (6Rs with sequencing), portfolio analytics (capability heat maps, cost Pareto, age distribution, redundancy maps), IT investment governance (3-tier structure), demand management process, investment prioritization (WSJF, value-effort, scoring model), budget planning cycle, unit economics for payments, cost optimization levers
 
-Every skill follows these governing principles:
+- **Excel for Finance** (`excel-for-finance`): Financial modeling standards (color coding, number formatting, formula discipline), TBM Excel templates (taxonomy mapping workbook, R/G/T tracker, unit cost dashboard), portfolio Excel templates (application portfolio assessment, business case financial model, demand pipeline tracker), Excel execution workflow bridging to the Cowork xlsx skill, data validation dropdowns for TBM/portfolio classifications
 
-- **SPAR Framework**: Sense → Plan → Act → React
-- **Pyramid Principle**: Lead with the answer, structure top-down
-- **SCQA Pattern**: Situation → Complication → Question → Answer
-- **MECE Decomposition**: Mutually Exclusive, Collectively Exhaustive
-- **Confidence Calibration**: Explicit confidence levels, escalate when uncertain
-- **Source Attribution**: Always cite frameworks and data sources
-- **Practical & Adaptable**: Immediately usable, context-aware outputs
+## Commands
 
-## How to Use
+| Command | Description | Skills Used |
+|---------|-------------|-------------|
+| `/evaluate-business-case` | Evaluate a business case proposal for technology investment | `tech-bm-specialist` + `it-portfolio-management` |
+| `/consolidate-excel` | Consolidate and analyze financial data in Excel using TBM frameworks | `tech-bm-specialist` + `excel-for-finance` + `xlsx` |
+| `/assess-portfolio` | Assess an IT application portfolio using TIME model and health scoring | `it-portfolio-management` + `excel-for-finance` (optional) |
+| `/build-tbm-model` | Build a TBM cost model or taxonomy mapping in Excel | `tech-bm-specialist` + `excel-for-finance` + `xlsx` |
 
-Each skill activates when you mention relevant topics. For example:
+## Skill-to-Command Mapping
 
-- "Help me build a TBM taxonomy mapping" → Tech BM Specialist
-- "Assess our application portfolio using the TIME model" → IT Portfolio Management
-- "What's our Run/Grow/Transform split?" → Tech BM Specialist
-- "Create an investment governance framework" → IT Portfolio Management
+```
+tech-bm-specialist      ← /evaluate-business-case, /consolidate-excel, /build-tbm-model
+it-portfolio-management ← /evaluate-business-case, /assess-portfolio
+excel-for-finance       ← /consolidate-excel, /assess-portfolio (optional), /build-tbm-model
+```
 
-## Setup
+Every skill is reachable via at least one dedicated command. The `excel-for-finance` skill always works alongside the Cowork `xlsx` skill for technical Excel execution.
 
-No configuration needed. Install the plugin and both skills will be available automatically.
+## Usage Examples
+
+```
+/evaluate-business-case cloud migration business case for payments processing
+/consolidate-excel Q4 IT cost data — map to TBM taxonomy and calculate unit costs
+/assess-portfolio payments application portfolio — TIME model and health scoring
+/build-tbm-model R/G/T investment tracker for 2026 budget planning
+```
+
+## Author
+Arthur

@@ -1,7 +1,7 @@
 {
   "name": "consulting-expert-plugin",
-  "version": "1.0.0",
-  "description": "Consulting Expert Plugin — specialist in structured problem solving, deep research, industry benchmarking, and technology investment business cases. Covers MECE decomposition, multi-source research, Gartner/Forrester benchmarks, and NPV/IRR/TCO financial modeling for payments technology.",
+  "version": "2.0.0",
+  "description": "Consulting Expert Plugin — specialist in structured problem solving (/problem-solve), deep multi-source research (/find-references), and industry benchmarking (/find-benchmark). Features McKinsey/BCG-grade problem decomposition with MECE issue trees and hypothesis-driven analysis, comprehensive multi-modal research with curated references across articles, videos, tools and communities, and authoritative benchmark reports from Gartner, Forrester, McKinsey with gap analysis. Commands orchestrate cross-plugin specialists from technology-expert-plugin and finance-expert-plugin as subagents for domain depth. Includes business-case-specialist for investment justification. Skills: problem-solving-specialist, deep-search-specialist, industry-benchmark-specialist, business-case-specialist.",
   "author": {
     "name": "Arthur"
   }

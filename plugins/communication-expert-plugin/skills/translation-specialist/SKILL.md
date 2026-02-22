@@ -3,240 +3,192 @@ name: translation-specialist
 description: >
   This skill should be used when the user asks to "translate", "translation",
   "Portuguese", "English to Portuguese", "Portuguese to English", "localize",
-  "localization", "bilingual", "adapt language", "PT-BR",
+  "localization", "bilingual", "adapt language", "PT-BR", "traduzir",
+  "tradução", "inglês para português", "português para inglês",
   or needs professional translation between English and Portuguese (Brazil)
   for corporate and technology contexts. Use whenever language conversion is needed.
-version: 1.0.0
+version: 2.0.0
 ---
 
-# Skill 2.2 — Translation Specialist
+# Skill — Translation Specialist
 
-Expert in professional translation between English and Portuguese (Brazil) for corporate and technology contexts. Preserves tone, accuracy, and cultural nuance while maintaining technical precision for LATAM audiences.
+**Expert in professional translation between English and Portuguese (Brazil) for corporate and technology contexts.** This skill preserves tone, accuracy, and cultural nuance while maintaining technical precision for LATAM audiences. It handles corporate emails, presentations, reports, executive summaries, and technical documentation with native-level fluency in both directions. It serves as the translation engine that the translate commands orchestrate.
 
-## Core Principles
+**Core Principles**: SPAR Framework, Pyramid Principle, SCQA Pattern, MECE Decomposition, Confidence Calibration, Source Attribution, Practical & Adaptable — these govern all outputs from this skill.
 
-These principles govern all outputs from this skill:
+**Trigger keywords**: translate, translation, Portuguese, English to Portuguese, Portuguese to English, localize, localization, bilingual, adapt language, PT-BR, traduzir, tradução, inglês para português, português para inglês.
 
-- **SPAR Framework**: Follow Sense → Plan → Act → React for every task. Gather context first, plan your approach, execute, then verify and adjust.
-- **Pyramid Principle (Barbara Minto)**: Lead with the answer. Structure arguments top-down: conclusion first, then supporting arguments, then data.
-- **SCQA Pattern**: For executive briefs, use Situation → Complication → Question → Answer.
-- **MECE Decomposition**: Always break down options, categories, and analyses in a Mutually Exclusive, Collectively Exhaustive way.
-- **Confidence Calibration**: Explicitly state your confidence level. Escalate when uncertain rather than guessing.
-- **Source Attribution**: Always cite frameworks, benchmarks, and data sources.
-- **Practical & Adaptable**: All outputs should be immediately usable and adaptable to context.
+## Section 1 — Translation Principles
 
-## Scope & Triggers
+### 1.1 — Core Rules
 
-**Activation Keywords**: translate, translation, Portuguese, English to Portuguese, Portuguese to English, localize, localization, bilingual, adapt language, BR, LATAM
+- **Accuracy first**: Technical terms must be precise; business meaning preserved
+- **Tone matching**: Formal English → Formal Portuguese; conversational English → natural Brazilian Portuguese
+- **Context preservation**: Understand what the document accomplishes, not just word-for-word meaning
+- **Read-aloud test**: Final translation should sound natural when read aloud in the target language
+- **Structure preservation**: Maintain original formatting — bullets, tables, sections, numbering
 
-**Document Types Covered**:
-1. Emails (corporate, formal)
-2. Presentations (executive summaries, decks)
-3. Reports (technical, strategic, status)
-4. Executive Summaries (briefs, decision memos)
-5. Policies/Guidelines (formal documentation)
-6. Meeting Notes (action items, decisions)
+### 1.2 — Formality Levels
 
-## Professional Translation Guidelines
-
-### Core Principles
-- **Accuracy First**: Technical terms must be precise; business meaning preserved
-- **Tone Matching**: Formal English → Formal Portuguese; conversational English → Brazilian Portuguese (mais natural)
-- **Context Preservation**: Understand what the document accomplishes, not just word-for-word meaning
-- **Read-Aloud Test**: Final translation should sound natural when read aloud in Portuguese
-
-### Formality Levels
 | Context | English | Portuguese (PT-BR) |
 |---------|---------|-------------------|
-| C-Level Email | Formal, concise | Formal, but warmer tone acceptable |
-| Technical Doc | Neutral, precise | Technical precision; avoid jargon when local term exists |
-| Process/Policy | Formal, structured | Formal, structured (maintain original format) |
-| Team Communication | Professional, conversational | Professional, natural conversation tone |
+| **C-Level Email** | Formal, concise | Formal, but warmer tone acceptable |
+| **Technical Doc** | Neutral, precise | Technical precision; use Brazilian standard terms |
+| **Process/Policy** | Formal, structured | Formal, structured (maintain original format) |
+| **Team Communication** | Professional, conversational | Professional, natural conversation tone |
+| **Presentations** | Strategic, authoritative | Strategic, slightly warmer authority |
 
-## Technical Terminology: English Terms to Preserve vs. Translate
+## Section 2 — Terminology Management
 
-### PRESERVE (Standard in Brazilian Tech)
-- Deploy → Deploy
-- Sprint → Sprint
-- Backlog → Backlog
-- Pipeline → Pipeline
-- Dashboard → Dashboard
-- API → API
-- SLA → SLA
-- ROI → ROI
-- Roadmap → Roadmap
-- Middleware → Middleware
-- Gateway → Gateway
+### 2.1 — Terms to PRESERVE in English (Standard in Brazilian Tech)
 
-### TRANSLATE (Portuguese Equivalents Standard)
-- Payment → Pagamento
-- Settlement → Liquidação
-- Reconciliation → Reconciliação
-- Vendor → Fornecedor
-- Stakeholder → Stakeholder OU Partes Interessadas
-- Budget → Orçamento
-- Timeline → Cronograma
-- Escalation → Escalação
-- Risk → Risco
-- Compliance → Conformidade
+Deploy, Sprint, Backlog, Pipeline, Dashboard, API, SLA, ROI, Roadmap, Middleware, Gateway, Feedback, Cloud, Framework, Benchmark, Stakeholder (accepted in BR tech), Software, Hardware, Data Lake, Machine Learning, Startup, Compliance (context-dependent)
 
-### CONTEXT-DEPENDENT (Choose based on audience/document type)
-| English | PT-BR Option 1 | PT-BR Option 2 | When to use |
-|---------|---|---|---|
-| Approval | Aprovação | Autorização | Approval (formal decision) vs. authorization (grant access) |
-| Request | Solicitação | Pedido | Request (formal) vs. pedido (informal, more natural) |
-| Issue | Problema | Questão | Technical issue vs. discussion question |
-| Owner | Proprietário | Responsável | Property owner vs. responsible party |
-| Feedback | Feedback | Retorno | Use "feedback" (standard in BR); "retorno" = return/response |
+### 2.2 — Terms to TRANSLATE
 
-## Cultural Adaptation Rules
-
-### Formality & Grammar
-- **PT-BR prefers "você"** (not formal "Vossa Excelência"). Professional but less stuffy than European Portuguese
-- **Omit unnecessary articles**: English precision vs. PT-BR flow. Example: "The approval process takes 5 days" → "O processo de aprovação leva 5 dias" (more natural with article)
-- **Passive voice**: English uses more passive voice (corporate preference). PT-BR is naturally more active but accept passive when original intends it
-
-### Common Pitfalls to Avoid
-
-| Pitfall | English Original | WRONG PT-BR | CORRECT PT-BR |
-|---------|------------------|-----------|---------------|
-| False cognates | "Actual situation" | Situação Atual ❌ | Situação Atualmente ✓ |
-| Over-translation | "Action items" | Itens de Ação ❌ | Ações Necessárias ✓ |
-| Anglicisms | "Let's loop in John" | Vamos fazer loop com John ❌ | Vamos incluir/informar John ✓ |
-| Verb tense | "We have approved..." | Temos aprovado ❌ | Aprovamos ✓ |
-| Corporate clichés | "Drill down into" | Perfurar em ❌ | Aprofundar em / Detalhar ✓ |
-
-## Document Type Guidelines
-
-### 1. Corporate Emails
-- Maintain BLUF (Bottom Line Up Front) structure in Portuguese
-- Preserve action-required flags in Portuguese: `[AÇÃO NECESSÁRIA]` or `[PARA SUA AÇÃO]`
-- Keep bullet points clean and parallel structure
-- Example: "Approval required by Friday EOD" → "Aprovação necessária até sexta-feira, final do dia"
-
-### 2. Presentations/Decks
-- Translate slide titles fully; adapt metaphors to LATAM context
-- Keep numbers, percentages, and formatting exact
-- Translate speaker notes completely but naturally
-- Localize examples: US companies → regional equivalents when relevant
-
-### 3. Reports & Technical Documents
-- Preserve section headings with consistent terminology throughout
-- Keep tables/figures with Portuguese headers but English axis labels if standard in company
-- Maintain numbered/bulleted structure exactly
-- Translate footnotes and references fully
-
-### 4. Executive Summaries
-- Front-load decision/recommendation in Portuguese (SCQA pattern applies)
-- Abbreviations: Define in Portuguese first occurrence
-- Keep metrics/KPIs in exact numerical format
-
-## Key Payments/Technology Glossary
-
-### Payments Domain
 | English | PT-BR | Context |
 |---------|-------|---------|
-| Payment Gateway | Gateway de Pagamento | Platform processing payments |
-| Settlement | Liquidação | Money transfer to merchant account |
-| Reconciliation | Reconciliação | Matching records to actual payments |
-| Acquirer | Adquirente | Payment processor |
-| Issuer | Emissor/Banco Emissor | Credit card issuer bank |
-| Chargeback | Contestação | Cardholder dispute |
-| KYC (Know Your Customer) | KYC (Conheça Seu Cliente) | Customer verification |
-| PCI DSS | PCI DSS (Padrão de Segurança de Dados) | Payment security standard |
-| Tokenization | Tokenização | Payment credential encryption |
+| Payment | Pagamento | Financial domain |
+| Settlement | Liquidação | Money transfer |
+| Reconciliation | Reconciliação | Record matching |
+| Vendor | Fornecedor | Supplier |
+| Budget | Orçamento | Financial planning |
+| Timeline | Cronograma | Project management |
+| Escalation | Escalação | Decision chain |
+| Risk | Risco | Risk management |
+| Compliance | Conformidade | Regulatory (when translating) |
 
-### Technology/Operations Domain
-| English | PT-BR | Context |
-|---------|-------|---------|
-| Incident | Incidente | System/operational issue |
-| Resolution Time | Tempo de Resolução | MTTR (Mean Time to Resolution) |
-| Outage | Indisponibilidade | Service down |
-| Failover | Failover / Comutação | Backup activation |
-| Monitoring | Monitoramento | System observation |
-| Escalation | Escalação | Moving up decision chain |
-| Mitigation | Mitigação | Risk reduction |
-| Compliance | Conformidade | Regulatory adherence |
+### 2.3 — Context-Dependent Terms
+
+| English | Option 1 | Option 2 | When to Use |
+|---------|----------|----------|-------------|
+| Approval | Aprovação | Autorização | Formal decision vs. access grant |
+| Request | Solicitação | Pedido | Formal vs. informal |
+| Issue | Problema | Questão | Technical issue vs. discussion point |
+| Owner | Proprietário | Responsável | Property vs. accountability |
+| Feedback | Feedback | Retorno | Tech standard vs. conservative audience |
+
+## Section 3 — Cultural Adaptation
+
+### 3.1 — Brazilian Portuguese Conventions
+
+- **Use "você"** — professional but natural (not formal "Vossa Excelência")
+- **Articles required** — PT-BR needs articles where English doesn't: "Approval is required" → "A aprovação é necessária"
+- **Active voice preferred** — PT-BR is naturally more active; accept passive only when the original intends it
+- **Relational warmth** — Brazilian business culture allows slightly warmer professional tone
+
+### 3.2 — Common Pitfalls
+
+| Pitfall | Wrong PT-BR | Correct PT-BR |
+|---------|-------------|---------------|
+| False cognates: "actual" | "Atual" (= current) | "Real" or "Efetivo" |
+| Over-translation: "action items" | "Itens de Ação" (literal) | "Ações Necessárias" |
+| Anglicisms: "let's loop in John" | "Vamos fazer loop com John" | "Vamos incluir/informar John" |
+| Verb tense: "we have approved" | "Temos aprovado" | "Aprovamos" |
+| Corporate clichés: "drill down into" | "Perfurar em" | "Aprofundar em / Detalhar" |
+
+### 3.3 — Date, Time, and Number Conventions
+
+| Element | English (US) | PT-BR |
+|---------|-------------|-------|
+| Date | 02/22/2026 | 22/02/2026 |
+| Time | 5:00 PM EST | 17h00 (horário de Brasília) |
+| Decimal | 1,234.56 | 1.234,56 |
+| Currency | $1,234.56 | R$ 1.234,56 or US$ 1.234,56 |
+
+## Section 4 — Domain Glossaries
+
+### 4.1 — Payments Domain
+
+| English | PT-BR |
+|---------|-------|
+| Payment Gateway | Gateway de Pagamento |
+| Settlement | Liquidação |
+| Reconciliation | Reconciliação |
+| Acquirer | Adquirente |
+| Issuer | Emissor / Banco Emissor |
+| Chargeback | Contestação |
+| KYC | KYC (Conheça Seu Cliente) |
+| PCI DSS | PCI DSS (Padrão de Segurança de Dados) |
+| Tokenization | Tokenização |
+
+### 4.2 — Technology/Operations Domain
+
+| English | PT-BR |
+|---------|-------|
+| Incident | Incidente |
+| Resolution Time | Tempo de Resolução |
+| Outage | Indisponibilidade |
+| Failover | Failover / Comutação |
+| Monitoring | Monitoramento |
+| Mitigation | Mitigação |
+| Deployment | Deploy / Implantação |
+
+## Section 5 — Communication Protocol
+
+### Opening (The Translation)
+Deliver the translated text first. The reader should see the complete translation before any notes or explanations.
+
+### Body (The Notes)
+Provide brief translation notes only when needed: terminology decisions, tone calibrations, cultural adaptations. Keep notes minimal — the translation is the deliverable, not the commentary.
+
+### Conclusion (The Confidence)
+State confidence level and flag any terms or phrases that may need human review due to ambiguity or context-dependence.
 
 ## Output Patterns
 
-### Pattern 1: Translation with Alternatives
+### Translation with Notes
+
 ```
-[ORIGINAL ENGLISH]
+═══════════════════════════════════════════════════════
+TRANSLATION: [Direction — EN→PT-BR or PT-BR→EN]
+═══════════════════════════════════════════════════════
 
-[PRIMARY PT-BR TRANSLATION]
+[Complete translated text]
 
-ALTERNATIVES (if context-dependent):
-- Option 1: [Term] — Use when [context]
-- Option 2: [Term] — Use when [context]
-
-NOTES:
-- [Tone calibration if needed]
-- [Cultural adaptation notes]
-- [Terminology explanations]
-```
-
-### Pattern 2: Before/After with Explanation
-```
-ORIGINAL (English):
-[User's source text]
-
-TRANSLATION (Portuguese-BR):
-[Translated text]
-
-WHY THIS WORKS:
-- [Terminology choice explanation]
-- [Tone/cultural note]
-- [Clarity improvement in PT-BR]
-
-ALTERNATIVES:
-- [Alternative phrasing for different contexts]
+───────────────────────────────────────────────────────
+TRANSLATION NOTES
+───────────────────────────────────────────────────────
+• [Terminology decision]: [Term] → [Translation] — [Rationale]
+• [Cultural adaptation]: [What was adapted and why]
+• Confidence: [High/Medium] — [Any ambiguities flagged]
+═══════════════════════════════════════════════════════
 ```
 
-### Pattern 3: Document Translation Summary
-```
-TRANSLATION COMPLETE: [Document type]
+### Document Translation Summary
 
+```
+═══════════════════════════════════════════════════════
+DOCUMENT TRANSLATION: [Type] | [Direction]
+═══════════════════════════════════════════════════════
+
+[Full translated document]
+
+───────────────────────────────────────────────────────
+SUMMARY
+───────────────────────────────────────────────────────
 Key terminology decisions:
-- [Term]: [Translation] — [Rationale]
-- [Term]: [Translation] — [Rationale]
+• [Term]: [Translation] — [Rationale]
 
-CONFIDENCE LEVEL: [High/Medium] — [Any ambiguities flagged]
-
-REVIEW NOTES:
-- [Sections requiring human review]
-- [Context dependencies noted]
-- [Formatting preserved: Yes/No]
+Formatting: [Preserved / Adapted]
+Confidence: [High/Medium/Low]
+Human review recommended: [Yes/No — specific sections if yes]
+═══════════════════════════════════════════════════════
 ```
 
-## Common Pitfalls & Fixes
+## Quality Checks
 
-| Mistake | Explanation | Fix |
-|---------|------------|-----|
-| Literal word-for-word translation | "Payment solution" literally → "Solução de Pagamento" | Keep as-is; this is correct; or "Plataforma de Pagamento" |
-| English grammar in Portuguese | "We are doing the escalation" | "Estamos escalando / Vamos escalar" (more natural) |
-| Missing article articles | "Approval is required" | "A aprovação é necessária" (PT-BR needs articles) |
-| Over-adaptation to slang | "Let's circle back" | Avoid "vamo' voltar"; use "Voltaremos a discutir" |
-| Anglicism assumptions | "Feedback" assumed unknown | Brazilians use "feedback" in tech; translate to "retorno" only if very conservative audience |
-
-## Checklist Before Delivering Translation
-
-- [ ] All terminology consistent throughout document (check for duplicate terms)
-- [ ] No sentences left in English accidentally
-- [ ] Tone appropriate for audience and context
-- [ ] BLUF/message structure preserved
-- [ ] Technical terms accurate and standard in Brazil
-- [ ] Numbers, dates, and metrics unchanged
-- [ ] Formatting (bullets, tables, sections) preserved
-- [ ] Read aloud — sounds natural in Portuguese
-- [ ] Formal greetings/sign-offs appropriate
-- [ ] Abbreviations defined in first occurrence
+- [ ] Is all terminology consistent throughout the document?
+- [ ] Are no sentences accidentally left in the source language?
+- [ ] Is the tone appropriate for audience and context?
+- [ ] Is the BLUF/message structure preserved?
+- [ ] Are technical terms accurate and standard in Brazil?
+- [ ] Are numbers, dates, and metrics correctly formatted for target locale?
+- [ ] Is the formatting (bullets, tables, sections) preserved?
+- [ ] Does it sound natural when read aloud in the target language?
 
 ---
 
-**Confidence Calibration**:
-- HIGH confidence: Corporate emails, standard payment terms, well-documented processes
-- MEDIUM confidence: Industry jargon, newer technologies, company-specific terminology
-- LOW confidence: Humor, cultural idioms, creative language — recommend human review
+**Confidence Calibration**: High confidence for corporate emails, standard payment terms, well-documented processes. Medium confidence for industry jargon, newer technologies, company-specific terminology. Low confidence for humor, cultural idioms, creative language — recommend human review.
 
 **Triggers**: Activate when user requests translation EN↔PT-BR, localization for LATAM, or bilingual communication help.

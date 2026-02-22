@@ -1,7 +1,7 @@
 {
   "name": "ai-expert-plugin",
-  "version": "1.1.0",
-  "description": "AI Expert Plugin — specialist in AI plugins, skills, commands, agents, and context windows. Covers plugin architecture, skill creation, command design, agent building, and context window optimization for Claude/Cowork ecosystems.",
+  "version": "2.0.0",
+  "description": "AI Expert Plugin — specialist in AI plugins, skills, commands, agents, and context windows. Covers plugin architecture and creation, skill design and MECE decomposition, command layered framework design, agent building, and context window 6-layer architecture (L0-L5). Skills: plugin-creation-specialist, plugin-specialist, skill-creation-specialist, skill-specialist, command-creation-specialist, command-specialist, context-window-specialist, agent-creation-specialist. Commands: /create-plugin, /update-plugin, /create-skill, /update-skill, /create-commands, /update-commands, /create-context-window.",
   "author": {
     "name": "Arthur"
   }
